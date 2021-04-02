@@ -23,8 +23,6 @@ final class StringEntryEqualsTo implements Filter
 
     public function __invoke(Row $row) : bool
     {
-        return
-            $row->get($this->entryName) instanceof Row\Entry\StringEntry &&
-            $row->valueOf($this->entryName) === $this->entryValue;
+        return $row->valueOf($this->entryName) === $this->entryValue;
     }
 }
