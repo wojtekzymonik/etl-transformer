@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Adapter\Filter;
+namespace Flow\ETL\Transformer\Filter;
 
 use Flow\ETL\Row;
 

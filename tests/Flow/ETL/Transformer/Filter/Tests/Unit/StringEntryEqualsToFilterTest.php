@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Adapter\Filter\Tests\Unit;
+namespace Flow\ETL\Transformer\Filter\Tests\Unit;
 
-use Flow\ETL\Adapter\Filter\StringEntryEqualsTo;
 use Flow\ETL\Row;
+use Flow\ETL\Transformer\Filter\StringEntryEqualsTo;
 use PHPUnit\Framework\TestCase;
 
 final class StringEntryEqualsToFilterTest extends TestCase

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Adapter\Filter\Tests\Unit;
+namespace Flow\ETL\Transformer\Filter\Tests\Unit;
 
-use Flow\ETL\Adapter\Filter\FilterRows;
-use Flow\ETL\Adapter\Filter\StringEntryEqualsTo;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
+use Flow\ETL\Transformer\Filter\FilterRows;
+use Flow\ETL\Transformer\Filter\StringEntryEqualsTo;
 use PHPUnit\Framework\TestCase;
 
 final class FilterRowsTest extends TestCase
