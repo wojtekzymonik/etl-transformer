@@ -2,20 +2,28 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Transformer\Filter;
+namespace Flow\ETL\Transformer\Filter\Filter;
 
 use Flow\ETL\Row;
+use Flow\ETL\Transformer\Filter\Filter;
 
 /**
  * @psalm-immutable
  */
-final class StringEntryEqualsTo implements Filter
+final class EntryEqualsTo implements Filter
 {
     private string $entryName;
 
-    private string $entryValue;
+    /**
+     * @var mixed
+     */
+    private $entryValue;
 
-    public function __construct(string $entryName, string $entryValue)
+    /**
+     * @param string $entryName
+     * @param mixed $entryValue
+     */
+    public function __construct(string $entryName, $entryValue)
     {
         $this->entryName = $entryName;
         $this->entryValue = $entryValue;

@@ -11,13 +11,13 @@ ETL Adapter that provides Loaders that can filter rows.
 ```php 
 <?php
 
-use Flow\ETL\Adapter\Filter\StringEntryEqualsToFilter;
+use Flow\ETL\Adapter\Filter\EntryEqualsTo;
 use Flow\ETL\Adapter\FilterRows;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 
 $transformer = new FilterRows(
-    new StringEntryEqualsToFilter('status', 'NEW'),
+    new EntryEqualsTo('status', 'NEW'),
 );
 
 $transformer->transform(

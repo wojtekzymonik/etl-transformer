@@ -6,16 +6,16 @@ namespace Flow\ETL\Transformer\Filter\Tests\Unit;
 
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
+use Flow\ETL\Transformer\Filter\Filter\EntryEqualsTo;
 use Flow\ETL\Transformer\Filter\FilterRows;
-use Flow\ETL\Transformer\Filter\StringEntryEqualsTo;
 use PHPUnit\Framework\TestCase;
 
 final class FilterRowsTest extends TestCase
 {
-    public function test_filter_rows() : void
+    public function test_filter_string_rows() : void
     {
         $filterRows = new FilterRows(
-            new StringEntryEqualsTo('status', 'NEW'),
+            new EntryEqualsTo('status', 'NEW'),
         );
 
         $rows = $filterRows->transform(
@@ -29,6 +29,28 @@ final class FilterRowsTest extends TestCase
         $this->assertEquals(
             [
                 ['status' => 'NEW'],
+            ],
+            $rows->toArray()
+        );
+    }
+
+    public function test_filter_numeric_rows() : void
+    {
+        $filterRows = new FilterRows(
+            new EntryEqualsTo('number', 5),
+        );
+
+        $rows = $filterRows->transform(
+            new Rows(
+                Row::create(new Row\Entry\IntegerEntry('number', 2)),
+                Row::create(new Row\Entry\IntegerEntry('number', 10)),
+                Row::create(new Row\Entry\IntegerEntry('number', 5)),
+            )
+        );
+
+        $this->assertEquals(
+            [
+                ['number' => 5],
             ],
             $rows->toArray()
         );

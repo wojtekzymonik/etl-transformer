@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89e9326eea7538468fdee1bdf6ca2a37",
+    "content-hash": "211aff83bdb7e0d37a006dba5d9e510f",
     "packages": [
         {
             "name": "flow-php/etl",
@@ -12,21 +12,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/flow-php/etl.git",
-                "reference": "32e51717ccdc71d61754da42eb76b58d9deaca19"
+                "reference": "7d6bcdf3ab02e3384f391bbcf6d4cba699aa11a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flow-php/etl/zipball/32e51717ccdc71d61754da42eb76b58d9deaca19",
-                "reference": "32e51717ccdc71d61754da42eb76b58d9deaca19",
+                "url": "https://api.github.com/repos/flow-php/etl/zipball/7d6bcdf3ab02e3384f391bbcf6d4cba699aa11a1",
+                "reference": "7d6bcdf3ab02e3384f391bbcf6d4cba699aa11a1",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
-                "php": ">=7.4.2"
-            },
-            "require-dev": {
                 "ext-json": "*",
-                "phpunit/phpunit": "^9.5"
+                "ext-mbstring": "*",
+                "php": "^7.4 | ^8.0"
             },
             "default-branch": true,
             "type": "library",
@@ -52,17 +49,19 @@
                 "issues": "https://github.com/flow-php/etl/issues",
                 "source": "https://github.com/flow-php/etl/tree/1.x"
             },
-            "time": "2021-03-18T11:35:09+00:00"
+            "time": "2021-04-04T08:14:18+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "flow-php/etl": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.4.2"
+        "php": "^7.4 | ^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
