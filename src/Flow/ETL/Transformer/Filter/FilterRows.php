@@ -6,11 +6,12 @@ namespace Flow\ETL\Transformer\Filter;
 
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
+use Flow\ETL\Transformer;
 
 /**
  * @psalm-immutable
  */
-final class FilterRows
+final class FilterRows implements Transformer
 {
     /**
      * @var Filter[]

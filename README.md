@@ -1,18 +1,18 @@
-# ETL Adapter: Filter
+# ETL Transformer: Filter
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
 
 ## Description
 
-ETL Adapter that provides Loaders that can filter rows.
+ETL Transformer that provides ability to filter rows.
 
 ## Transformer - FilterRows
 
 ```php 
 <?php
 
-use Flow\ETL\Adapter\Filter\EntryEqualsTo;
-use Flow\ETL\Adapter\FilterRows;
+use Flow\ETL\Transformer\Filter\EntryEqualsTo;
+use Flow\ETL\Transformer\FilterRows;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 
