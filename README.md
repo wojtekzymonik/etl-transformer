@@ -54,6 +54,58 @@ $transformer->transform(
 );
 ```
 
+## Transformer - ArrayUnpackTransformer
+
+Unpacks ArrayEntry into dedicated Entries detecting each array element type.
+
+```php
+<?php
+
+use Flow\ETL\Exception\RuntimeException;
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ArrayUnpackTransformer;
+use Flow\ETL\Transformer\RemoveEntriesTransformer;
+
+$arrayUnpackTransformer = new ArrayUnpackTransformer('array_entry');
+
+$rows = (new RemoveEntriesTransformer('array_entry'))->transform(
+    $arrayUnpackTransformer->transform(
+        new Rows(
+            Row::create(
+                new Row\Entry\ArrayEntry('array_entry', [
+                    'id' => 1,
+                    'status' => 'PENDING',
+                    'enabled' => true,
+                    'datetime' =>  new \DateTimeImmutable('2020-01-01 00:00:00 UTC'),
+                    'array' => ['foo', 'bar'],
+                    'json' => '["foo", "bar"]',
+                    'object' => new \stdClass(),
+                    'null' => null,
+                ]),
+            ),
+        ),
+    )
+);
+
+$this->assertEquals(
+    new Rows(
+        Row::create(
+            new Row\Entry\IntegerEntry('id', 1),
+            new Row\Entry\StringEntry('status', 'PENDING'),
+            new Row\Entry\BooleanEntry('enabled', true),
+            new Row\Entry\DateTimeEntry('datetime', new \DateTimeImmutable('2020-01-01 00:00:00 UTC')),
+            new Row\Entry\ArrayEntry('array', ['foo', 'bar']),
+            new Row\Entry\JsonEntry('json', ['foo', 'bar']),
+            new Row\Entry\ObjectEntry('object', new \stdClass()),
+            new Row\Entry\NullEntry('null')
+        ),
+    ),
+    $rows
+);
+```
+
+
 ## Development
 
 In order to install dependencies please, launch following commands:
