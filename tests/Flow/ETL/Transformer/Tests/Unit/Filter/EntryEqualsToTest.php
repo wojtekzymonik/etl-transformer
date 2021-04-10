@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Transformer\Filter\Tests\Unit\Filter;
+namespace Flow\ETL\Transformer\Tests\Unit\Filter;
 
 use Flow\ETL\Row;
 use Flow\ETL\Transformer\Filter\Filter\EntryEqualsTo;

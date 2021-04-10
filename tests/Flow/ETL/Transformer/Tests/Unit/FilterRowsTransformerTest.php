@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Transformer\Filter\Tests\Unit;
+namespace Flow\ETL\Transformer\Tests\Unit;
 
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\Filter\Filter\EntryEqualsTo;
-use Flow\ETL\Transformer\Filter\FilterRows;
+use Flow\ETL\Transformer\FilterRowsTransformer;
 use PHPUnit\Framework\TestCase;
 
-final class FilterRowsTest extends TestCase
+final class FilterRowsTransformerTest extends TestCase
 {
     public function test_filter_string_rows() : void
     {
-        $filterRows = new FilterRows(
+        $filterRows = new FilterRowsTransformer(
             new EntryEqualsTo('status', 'NEW'),
         );
 
@@ -36,7 +36,7 @@ final class FilterRowsTest extends TestCase
 
     public function test_filter_numeric_rows() : void
     {
-        $filterRows = new FilterRows(
+        $filterRows = new FilterRowsTransformer(
             new EntryEqualsTo('number', 5),
         );
 

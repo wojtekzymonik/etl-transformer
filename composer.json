@@ -1,8 +1,8 @@
 {
-    "name": "flow-php/etl-transformer-filter",
+    "name": "flow-php/etl-transformer",
     "type": "library",
-    "description": "PHP ETL - Transformer - Filter",
-    "keywords": ["etl", "extract", "transform", "load", "filter", "adapter"],
+    "description": "PHP ETL - Transformers",
+    "keywords": ["etl", "extract", "transform", "load", "filter"],
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {

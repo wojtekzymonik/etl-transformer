@@ -1,22 +1,24 @@
-# ETL Transformer: Filter
+# ETL Transformers
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
 
 ## Description
 
-ETL Transformer that provides ability to filter rows.
+Set of ETL generic Transformers
 
 ## Transformer - FilterRows
+
+Filter out rows
 
 ```php 
 <?php
 
 use Flow\ETL\Transformer\Filter\EntryEqualsTo;
-use Flow\ETL\Transformer\FilterRows;
+use Flow\ETL\Transformer\FilterRowsTransformer;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 
-$transformer = new FilterRows(
+$transformer = new FilterRowsTransformer(
     new EntryEqualsTo('status', 'NEW'),
 );
 
@@ -28,6 +30,28 @@ $transformer->transform(
     )
 );
 
+```
+
+## Transformer - RemoveEntriesTransformer
+
+Remove transformers by name from each row.
+
+```php
+<?php
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\RemoveEntriesTransformer;
+
+$transformer = new RemoveEntriesTransformer('id', 'array');
+
+$transformer->transform(
+    Row::create(
+        new Row\Entry\IntegerEntry('id', 1),
+        new Row\Entry\StringEntry('name', 'Row Name'),
+        new Row\Entry\ArrayEntry('array', ['test'])
+    )
+);
 ```
 
 ## Development

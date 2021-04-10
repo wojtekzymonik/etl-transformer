@@ -2,16 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Transformer\Filter;
+namespace Flow\ETL\Transformer;
 
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer;
+use Flow\ETL\Transformer\Filter\Filter;
 
 /**
  * @psalm-immutable
  */
-final class FilterRows implements Transformer
+final class FilterRowsTransformer implements Transformer
 {
     /**
      * @var Filter[]
