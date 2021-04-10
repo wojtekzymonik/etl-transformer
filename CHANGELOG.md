@@ -4,6 +4,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [aaabda](https://github.com/flow-php/etl-transformer/commit/aaabdaccbccd6fc361f00a38fe0870236dbeea58) - **dependabot configuration** - [@norberttech](https://github.com/norberttech)
+- [7a1c48](https://github.com/flow-php/etl-transformer/commit/7a1c48e8d7814a9df9363ca62870cffe79d29f2d) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [0f2c72](https://github.com/flow-php/etl-transformer/commit/0f2c72abe07be9ab3584e723f3f7d12dcbb78174) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [9a9f70](https://github.com/flow-php/etl-transformer/commit/9a9f708ee024133679283065e4ccfb9ab72bcdcf) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#1](https://github.com/flow-php/etl-transformer/pull/1) - **Make StringEntryEqualsTo more generic EntryEqualsTo** - [@norberttech](https://github.com/norberttech)
