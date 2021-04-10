@@ -1,10 +1,12 @@
 ## [Unreleased] - 2021-04-10
 
 ### Added
+- [#6](https://github.com/flow-php/etl-transformer/pull/6) - **KeepEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 - [#5](https://github.com/flow-php/etl-transformer/pull/5) - **ArrayUnpackTransformer** - [@norberttech](https://github.com/norberttech)
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [13a6e2](https://github.com/flow-php/etl-transformer/commit/13a6e294f0fb2a61e99f2af7fd9a24e2b7acd2e8) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [cf305d](https://github.com/flow-php/etl-transformer/commit/cf305d14b28e8531b86b20cc899488670ae41ca3) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [01e308](https://github.com/flow-php/etl-transformer/commit/01e308b66c1ba351366dd8f5075f19ddc0ee080e) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#3](https://github.com/flow-php/etl-transformer/pull/3) - **friendsofphp/php-cs-fixer from 2.18.4 to 2.18.5 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
