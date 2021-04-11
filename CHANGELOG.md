@@ -7,6 +7,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [5094e4](https://github.com/flow-php/etl-transformer/commit/5094e4e2aa41bc2ac6952d77e548e6c4bc2f2d7f) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [5c17f9](https://github.com/flow-php/etl-transformer/commit/5c17f9cc7d820f892eb34eb0448eadc56c698d18) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [13a6e2](https://github.com/flow-php/etl-transformer/commit/13a6e294f0fb2a61e99f2af7fd9a24e2b7acd2e8) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [cf305d](https://github.com/flow-php/etl-transformer/commit/cf305d14b28e8531b86b20cc899488670ae41ca3) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
@@ -26,6 +27,7 @@
 - [2dcbd9](https://github.com/flow-php/etl-transformer/commit/2dcbd969dd06c3afb3f8bf9d77b9fa3e576ad96c) - **Initial commit** - [@DawidSajdak](https://github.com/DawidSajdak)
 
 ### Fixed
+- [#8](https://github.com/flow-php/etl-transformer/pull/8) - **unpacking string numbers** - [@norberttech](https://github.com/norberttech)
 - [#2](https://github.com/flow-php/etl-transformer/pull/2) - **Add missing implement statement** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [b9226c](https://github.com/flow-php/etl-transformer/commit/b9226c3294b434b532ce8ec38d3b6ccb27b53c0f) - **failing mutation test** - [@DawidSajdak](https://github.com/DawidSajdak)
 
