@@ -108,8 +108,16 @@ final class ArrayUnpackTransformer implements Transformer
     private function isJson(string $string) : bool
     {
         try {
-            /** @psalm-suppress UnusedFunctionCall */
-            \json_decode($string, true, self::JSON_DEPTH, JSON_THROW_ON_ERROR);
+            /**
+             * @psalm-suppress UnusedFunctionCall
+             *
+             * @var mixed $value
+             */
+            $value = \json_decode($string, true, self::JSON_DEPTH, JSON_THROW_ON_ERROR);
+
+            if (\is_int($value)) {
+                return false;
+            }
 
             return true;
         } catch (\Exception $e) {

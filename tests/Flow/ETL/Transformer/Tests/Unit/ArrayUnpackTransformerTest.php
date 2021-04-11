@@ -130,4 +130,24 @@ final class ArrayUnpackTransformerTest extends TestCase
             $rows
         );
     }
+
+    public function test_array_unpack_with_integer() : void
+    {
+        $arrayUnpackTransformer = new ArrayUnpackTransformer('array_entry');
+
+        $rows = (new RemoveEntriesTransformer('array_entry'))->transform(
+            $arrayUnpackTransformer->transform(
+                new Rows(
+                    Row::create(new Row\Entry\ArrayEntry('array_entry', ['id' => '1']), ),
+                ),
+            )
+        );
+
+        $this->assertEquals(
+            new Rows(
+                Row::create(new Row\Entry\StringEntry('id', '1')),
+            ),
+            $rows
+        );
+    }
 }
