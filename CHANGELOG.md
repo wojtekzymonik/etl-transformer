@@ -1,12 +1,14 @@
-## [Unreleased] - 2021-04-11
+## [Unreleased] - 2021-04-14
 
 ### Added
+- [#9](https://github.com/flow-php/etl-transformer/pull/9) - **TransformerChain** - [@norberttech](https://github.com/norberttech)
 - [#7](https://github.com/flow-php/etl-transformer/pull/7) - **Callback Filter** - [@norberttech](https://github.com/norberttech)
 - [#6](https://github.com/flow-php/etl-transformer/pull/6) - **KeepEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 - [#5](https://github.com/flow-php/etl-transformer/pull/5) - **ArrayUnpackTransformer** - [@norberttech](https://github.com/norberttech)
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [b440b9](https://github.com/flow-php/etl-transformer/commit/b440b9dd8bed62feb48ca1e802b9eae5e30ac75a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [5094e4](https://github.com/flow-php/etl-transformer/commit/5094e4e2aa41bc2ac6952d77e548e6c4bc2f2d7f) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [5c17f9](https://github.com/flow-php/etl-transformer/commit/5c17f9cc7d820f892eb34eb0448eadc56c698d18) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [13a6e2](https://github.com/flow-php/etl-transformer/commit/13a6e294f0fb2a61e99f2af7fd9a24e2b7acd2e8) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
