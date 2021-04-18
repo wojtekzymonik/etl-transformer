@@ -10,6 +10,9 @@
         "ext-json": "*",
         "flow-php/etl": "^1.0@dev"
     },
+    "require-dev": {
+        "flow-php/etl-adapter-json": "^1.0@dev"
+    },
     "config": {
         "optimize-autoloader": true,
         "sort-packages": true

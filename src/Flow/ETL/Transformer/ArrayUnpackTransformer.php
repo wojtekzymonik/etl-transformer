@@ -49,7 +49,7 @@ final class ArrayUnpackTransformer implements Transformer
                 $entryName = (string) $key;
 
                 if (\is_string($value)) {
-                    if ($this->isJson($value)) {
+                    if (\class_exists('\\Flow\\ETL\\Row\\Entry\\JsonEntry') && $this->isJson($value)) {
                         $entries = $entries->add(new Row\Entry\JsonEntry($entryName, \json_decode($value, true, self::JSON_DEPTH, JSON_THROW_ON_ERROR)));
 
                         continue;
