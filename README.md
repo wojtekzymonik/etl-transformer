@@ -132,6 +132,97 @@ $this->assertSame(
 );
 ```
 
+## Transformer - ObjectToArray
+
+```php
+<?php
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ObjectToArrayTransformer;
+use Flow\ETL\Transformer\Tests\Fixtures\Example;
+use GeneratedHydrator\Configuration;
+
+$objectToArrayTransformer = new ObjectToArrayTransformer(
+    (new Configuration(Example::class))->createFactory()->getHydrator(),
+    'object_entry'
+);
+
+$rows = $objectToArrayTransformer->transform(
+    new Rows(
+        Row::create(
+            new Row\Entry\IntegerEntry('old_int', 1000),
+            new Row\Entry\ObjectEntry('object_entry', new Example()),
+        ),
+    ),
+);
+
+$this->assertEquals(
+    new Rows(
+        Row::create(
+            new Row\Entry\IntegerEntry('old_int', 1000),
+            new Row\Entry\ArrayEntry('object_entry', [
+                'foo' => 1,
+                'bar' => 2,
+                'baz' => 3,
+                'bad' => new \DateTimeImmutable('2020-01-01 00:00:00 UTC'),
+            ])
+        ),
+    ),
+    $rows
+);
+
+```
+
+## Transformer - RenameEntries 
+
+
+```php 
+<?php
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\RenameEntries\EntryRename;
+use Flow\ETL\Transformer\RenameEntriesTransformer;
+
+$renameTransformer = new RenameEntriesTransformer(
+    new EntryRename('old_int', 'new_int'),
+    new EntryRename('null', 'nothing')
+);
+
+$rows = $renameTransformer->transform(
+    new Rows(
+        Row::create(
+            new Row\Entry\IntegerEntry('old_int', 1000),
+            new Row\Entry\IntegerEntry('id', 1),
+            new Row\Entry\StringEntry('status', 'PENDING'),
+            new Row\Entry\BooleanEntry('enabled', true),
+            new Row\Entry\DateTimeEntry('datetime', new \DateTimeImmutable('2020-01-01 00:00:00 UTC')),
+            new Row\Entry\ArrayEntry('array', ['foo', 'bar']),
+            new Row\Entry\JsonEntry('json', ['foo', 'bar']),
+            new Row\Entry\ObjectEntry('object', new \stdClass()),
+            new Row\Entry\NullEntry('null')
+        ),
+    ),
+);
+
+$this->assertEquals(
+    new Rows(
+        Row::create(
+            new Row\Entry\IntegerEntry('id', 1),
+            new Row\Entry\StringEntry('status', 'PENDING'),
+            new Row\Entry\BooleanEntry('enabled', true),
+            new Row\Entry\DateTimeEntry('datetime', new \DateTimeImmutable('2020-01-01 00:00:00 UTC')),
+            new Row\Entry\ArrayEntry('array', ['foo', 'bar']),
+            new Row\Entry\JsonEntry('json', ['foo', 'bar']),
+            new Row\Entry\ObjectEntry('object', new \stdClass()),
+            new Row\Entry\IntegerEntry('new_int', 1000),
+            new Row\Entry\NullEntry('nothing')
+        ),
+    ),
+    $rows
+);
+```
 
 ## Development
 

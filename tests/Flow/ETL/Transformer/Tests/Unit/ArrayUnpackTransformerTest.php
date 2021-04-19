@@ -57,6 +57,7 @@ final class ArrayUnpackTransformerTest extends TestCase
             $arrayUnpackTransformer->transform(
                 new Rows(
                     Row::create(
+                        new Row\Entry\IntegerEntry('old_int', 1000),
                         new Row\Entry\ArrayEntry('array_entry', [
                             'id' => 1,
                             'status' => 'PENDING',
@@ -75,6 +76,7 @@ final class ArrayUnpackTransformerTest extends TestCase
         $this->assertEquals(
             new Rows(
                 Row::create(
+                    new Row\Entry\IntegerEntry('old_int', 1000),
                     new Row\Entry\IntegerEntry('id', 1),
                     new Row\Entry\StringEntry('status', 'PENDING'),
                     new Row\Entry\BooleanEntry('enabled', true),

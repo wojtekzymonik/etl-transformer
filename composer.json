@@ -11,7 +11,12 @@
         "flow-php/etl": "^1.0@dev"
     },
     "require-dev": {
-        "flow-php/etl-adapter-json": "^1.0@dev"
+        "flow-php/etl-adapter-json": "^1.0@dev",
+        "laminas/laminas-hydrator": "^4.0"
+    },
+    "suggest": {
+        "laminas/laminas-hydrator" : "Help converting ObjectEntry into ArrayEntry that can be later unpack into standalone Entries",
+        "ocramius/generated-hydrator" : "Provieds generated hydrator that implemenets Laminas\\Hydrator\\HydratorInterface"
     },
     "config": {
         "optimize-autoloader": true,

@@ -39,7 +39,7 @@ final class ArrayUnpackTransformer implements Transformer
                 throw new RuntimeException("\"{$this->arrayEntryName}\" is not ArrayEntry");
             }
 
-            $entries = new Row\Entries();
+            $entries = $row->entries()->remove($this->arrayEntryName);
 
             /**
              * @var int|string $key
