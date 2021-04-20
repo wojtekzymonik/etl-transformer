@@ -1,6 +1,7 @@
 ## [Unreleased] - 2021-04-20
 
 ### Added
+- [#13](https://github.com/flow-php/etl-transformer/pull/13) - **Added `isFloat()` check to \Flow\ETL\Transformer\ArrayUnpackTransformer::isJson** - [@wojtekzymonik](https://github.com/wojtekzymonik)
 - [#10](https://github.com/flow-php/etl-transformer/pull/10) - **ObjectToArrayTransformer** - [@norberttech](https://github.com/norberttech)
 - [#10](https://github.com/flow-php/etl-transformer/pull/10) - **EntryRanameTransformer** - [@norberttech](https://github.com/norberttech)
 - [969fd3](https://github.com/flow-php/etl-transformer/commit/969fd350e0d62bdea1bc7e2231371d7620ee907f) - **missing dependency** - [@norberttech](https://github.com/norberttech)
@@ -11,6 +12,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#13](https://github.com/flow-php/etl-transformer/pull/13) - **`\Flow\ETL\Transformer\ArrayUnpackTransformer::isJson`** - [@wojtekzymonik](https://github.com/wojtekzymonik)
+- [54f48b](https://github.com/flow-php/etl-transformer/commit/54f48b91f9e9d5b8b91b766fbbf14d0b8235f1d4) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#12](https://github.com/flow-php/etl-transformer/pull/12) - **phpstan/phpstan from 0.12.83 to 0.12.84 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [280393](https://github.com/flow-php/etl-transformer/commit/280393ebb2c0dee7260baf43673b833e60829363) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#11](https://github.com/flow-php/etl-transformer/pull/11) - **friendsofphp/php-cs-fixer from 2.18.5 to 2.18.6 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
@@ -38,6 +41,7 @@
 - [2dcbd9](https://github.com/flow-php/etl-transformer/commit/2dcbd969dd06c3afb3f8bf9d77b9fa3e576ad96c) - **Initial commit** - [@DawidSajdak](https://github.com/DawidSajdak)
 
 ### Fixed
+- [#13](https://github.com/flow-php/etl-transformer/pull/13) - **When string value had a `float`-y value, it was incorrectly detecting it as JSON string `TypeError: Argument 2 passed to Flow\ETL\Row\Entry\JsonEntry::__construct() must be of the type array, float given`** - [@wojtekzymonik](https://github.com/wojtekzymonik)
 - [#10](https://github.com/flow-php/etl-transformer/pull/10) - **Removing other entries when using ArrayUnpack** - [@norberttech](https://github.com/norberttech)
 - [#8](https://github.com/flow-php/etl-transformer/pull/8) - **unpacking string numbers** - [@norberttech](https://github.com/norberttech)
 - [#2](https://github.com/flow-php/etl-transformer/pull/2) - **Add missing implement statement** - [@tomaszhanc](https://github.com/tomaszhanc)
