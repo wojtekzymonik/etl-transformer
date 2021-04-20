@@ -115,7 +115,7 @@ final class ArrayUnpackTransformer implements Transformer
              */
             $value = \json_decode($string, true, self::JSON_DEPTH, JSON_THROW_ON_ERROR);
 
-            if (\is_int($value) || \is_float($value)) {
+            if (\is_numeric($value)) {
                 return false;
             }
 
