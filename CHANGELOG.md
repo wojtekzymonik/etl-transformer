@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-04-19
+## [Unreleased] - 2021-04-20
 
 ### Added
 - [#10](https://github.com/flow-php/etl-transformer/pull/10) - **ObjectToArrayTransformer** - [@norberttech](https://github.com/norberttech)
@@ -11,6 +11,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#11](https://github.com/flow-php/etl-transformer/pull/11) - **friendsofphp/php-cs-fixer from 2.18.5 to 2.18.6 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [8382a0](https://github.com/flow-php/etl-transformer/commit/8382a0020ca9eeb53ad1607e35bf9184e4bc7efa) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [13c06f](https://github.com/flow-php/etl-transformer/commit/13c06fb4b320c4205e9dbf058f6673e243dc6d65) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [f1c9d7](https://github.com/flow-php/etl-transformer/commit/f1c9d74b7b78a3dc3ca4145f91dd6c03b22df226) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [b440b9](https://github.com/flow-php/etl-transformer/commit/b440b9dd8bed62feb48ca1e802b9eae5e30ac75a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
