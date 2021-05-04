@@ -224,6 +224,31 @@ $this->assertEquals(
 );
 ```
 
+```php
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\Cast\CastToDateTime;
+use Flow\ETL\Transformer\CastTransformer;
+
+$entry = new StringEntry('date', '2020-01-01 00:00:00 UTC');
+$transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P'));
+$rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
+
+$this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
+$this->assertSame('2020-01-01 00:00:00.+00:00', $rows->first()->valueOf('date'));
+```
+
+Casting Types: 
+
+* `Flow\ETL\Transformer\Cast\CastToDateTime`
+* `Flow\ETL\Transformer\Cast\CastToDate`
+* `Flow\ETL\Transformer\Cast\CastToString`
+* `Flow\ETL\Transformer\Cast\CastToInteger`
+* `Flow\ETL\Transformer\Cast\CastToJson`
+* `Flow\ETL\Transformer\Cast\CastToArray`
+* `Flow\ETL\Transformer\Cast\CastJsonToArray`
+
 ## Development
 
 In order to install dependencies please, launch following commands:

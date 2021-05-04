@@ -17,6 +17,12 @@
         "@default": true,
         "Continue_": {
             "ignore": ["Flow\\ETL\\Transformer\\ArrayUnpackTransformer::transform"]
+        },
+        "LogicalOr": {
+            "ignore": ["Flow\\ETL\\Transformer\\Cast\\CastEntry::__construct"]
+        },
+        "Throw_": {
+            "ignore": ["Flow\\ETL\\Transformer\\Cast\\CastEntry::__construct"]
         }
     },
     "testFramework": "phpunit",
