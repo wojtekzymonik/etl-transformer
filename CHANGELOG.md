@@ -1,6 +1,7 @@
-## [Unreleased] - 2021-04-20
+## [Unreleased] - 2021-05-04
 
 ### Added
+- [#19](https://github.com/flow-php/etl-transformer/pull/19) - **CastTransformer - cast entries of one types into another** - [@norberttech](https://github.com/norberttech)
 - [#13](https://github.com/flow-php/etl-transformer/pull/13) - **Added `isFloat()` check to \Flow\ETL\Transformer\ArrayUnpackTransformer::isJson** - [@wojtekzymonik](https://github.com/wojtekzymonik)
 - [#10](https://github.com/flow-php/etl-transformer/pull/10) - **ObjectToArrayTransformer** - [@norberttech](https://github.com/norberttech)
 - [#10](https://github.com/flow-php/etl-transformer/pull/10) - **EntryRanameTransformer** - [@norberttech](https://github.com/norberttech)
@@ -12,6 +13,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [89c3fd](https://github.com/flow-php/etl-transformer/commit/89c3fd3b7d08f212dda0086d6a0ace9d90716a2e) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#13](https://github.com/flow-php/etl-transformer/pull/13) - **`\Flow\ETL\Transformer\ArrayUnpackTransformer::isJson`** - [@wojtekzymonik](https://github.com/wojtekzymonik)
 - [54f48b](https://github.com/flow-php/etl-transformer/commit/54f48b91f9e9d5b8b91b766fbbf14d0b8235f1d4) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#12](https://github.com/flow-php/etl-transformer/pull/12) - **phpstan/phpstan from 0.12.83 to 0.12.84 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
