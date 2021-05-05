@@ -13,6 +13,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [766ce0](https://github.com/flow-php/etl-transformer/commit/766ce09b01a503b8f1b9c75edf1cc208d5ae8004) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
+- [#14](https://github.com/flow-php/etl-transformer/pull/14) - **infection/infection from 0.21.5 to 0.22.0 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [#16](https://github.com/flow-php/etl-transformer/pull/16) - **phpstan/phpstan from 0.12.84 to 0.12.85 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [#17](https://github.com/flow-php/etl-transformer/pull/17) - **vimeo/psalm from 4.7.0 to 4.7.2 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [#20](https://github.com/flow-php/etl-transformer/pull/20) - **friendsofphp/php-cs-fixer from 2.18.6 to 2.19.0 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
