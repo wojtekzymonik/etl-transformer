@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-05-04
+## [Unreleased] - 2021-05-05
 
 ### Added
 - [#19](https://github.com/flow-php/etl-transformer/pull/19) - **CastTransformer - cast entries of one types into another** - [@norberttech](https://github.com/norberttech)
@@ -13,6 +13,10 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#16](https://github.com/flow-php/etl-transformer/pull/16) - **phpstan/phpstan from 0.12.84 to 0.12.85 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [#17](https://github.com/flow-php/etl-transformer/pull/17) - **vimeo/psalm from 4.7.0 to 4.7.2 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [#20](https://github.com/flow-php/etl-transformer/pull/20) - **friendsofphp/php-cs-fixer from 2.18.6 to 2.19.0 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [418902](https://github.com/flow-php/etl-transformer/commit/41890260a0b81541578e5116a2ba983e5f0a747e) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [89c3fd](https://github.com/flow-php/etl-transformer/commit/89c3fd3b7d08f212dda0086d6a0ace9d90716a2e) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#13](https://github.com/flow-php/etl-transformer/pull/13) - **`\Flow\ETL\Transformer\ArrayUnpackTransformer::isJson`** - [@wojtekzymonik](https://github.com/wojtekzymonik)
 - [54f48b](https://github.com/flow-php/etl-transformer/commit/54f48b91f9e9d5b8b91b766fbbf14d0b8235f1d4) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
