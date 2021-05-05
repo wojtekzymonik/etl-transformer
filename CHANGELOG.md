@@ -13,6 +13,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [38f9e5](https://github.com/flow-php/etl-transformer/commit/38f9e57ce90cecae916ab8aec6b908b88ea44783) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [766ce0](https://github.com/flow-php/etl-transformer/commit/766ce09b01a503b8f1b9c75edf1cc208d5ae8004) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#14](https://github.com/flow-php/etl-transformer/pull/14) - **infection/infection from 0.21.5 to 0.22.0 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [#16](https://github.com/flow-php/etl-transformer/pull/16) - **phpstan/phpstan from 0.12.84 to 0.12.85 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
