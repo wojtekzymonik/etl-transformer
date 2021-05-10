@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-05-06
+## [Unreleased] - 2021-05-10
 
 ### Added
 - [#19](https://github.com/flow-php/etl-transformer/pull/19) - **CastTransformer - cast entries of one types into another** - [@norberttech](https://github.com/norberttech)
@@ -13,6 +13,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#23](https://github.com/flow-php/etl-transformer/pull/23) - **phpstan/phpstan from 0.12.85 to 0.12.86 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [4b2882](https://github.com/flow-php/etl-transformer/commit/4b28826a64bb6f18d593b0167e5156ca4a5c3e3d) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#21](https://github.com/flow-php/etl-transformer/pull/21) - **infection/infection from 0.22.0 to 0.22.1 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [69168d](https://github.com/flow-php/etl-transformer/commit/69168d630ee6e427a74c2d39c6398724c80b54a3) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [2e35ed](https://github.com/flow-php/etl-transformer/commit/2e35ede8467808610aea64746204e9b413012d93) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
