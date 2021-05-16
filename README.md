@@ -249,6 +249,37 @@ Casting Types:
 * `Flow\ETL\Transformer\Cast\CastToArray`
 * `Flow\ETL\Transformer\Cast\CastJsonToArray`
 
+## Transformer - CallbackEntry
+
+```php
+<?php
+
+use Flow\ETL\Row;
+use Flow\ETL\Row\Entry;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\CallbackEntryTransformer;
+
+$callbackTransformer = new CallbackEntryTransformer(
+    fn (Entry $entry) : Entry => new $entry(\str_replace('-', '_', $entry->name()), $entry->value())
+);
+
+$rows = $callbackTransformer->transform(
+    new Rows(
+        Row::create(
+            new Row\Entry\IntegerEntry('old-int', 1000),
+            new Entry\StringEntry('string-entry ', 'String entry')
+        )
+    )
+);
+
+$this->assertEquals(new Rows(
+    Row::create(
+        new Row\Entry\IntegerEntry('old_int', 1000),
+        new Entry\StringEntry('string_entry ', 'String entry')
+    )
+), $rows);
+```
+
 ## Development
 
 In order to install dependencies please, launch following commands:
