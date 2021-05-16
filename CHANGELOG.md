@@ -14,6 +14,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#28](https://github.com/flow-php/etl-transformer/pull/28) - **ArrayUnpackTransformer transforms floats into FloatEntry, not strings** - [@norberttech](https://github.com/norberttech)
+- [498fcd](https://github.com/flow-php/etl-transformer/commit/498fcd75d3a5f1916a6752984417b98f1cf117d5) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [bd09d5](https://github.com/flow-php/etl-transformer/commit/bd09d5a509f8ceb33e260d807255a38ff33f9a00) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#25](https://github.com/flow-php/etl-transformer/pull/25) - **infection/infection from 0.22.1 to 0.23.0 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [963286](https://github.com/flow-php/etl-transformer/commit/963286654b896a0f0fad604bd596f3f047a881b3) - **Update pull-request-description-check.yml** - [@norberttech](https://github.com/norberttech)
