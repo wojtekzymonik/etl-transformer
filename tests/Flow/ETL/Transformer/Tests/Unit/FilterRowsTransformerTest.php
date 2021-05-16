@@ -7,6 +7,7 @@ namespace Flow\ETL\Transformer\Tests\Unit;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\Filter\Filter\EntryEqualsTo;
+use Flow\ETL\Transformer\Filter\Filter\EntryNotNull;
 use Flow\ETL\Transformer\FilterRowsTransformer;
 use PHPUnit\Framework\TestCase;
 
@@ -51,6 +52,29 @@ final class FilterRowsTransformerTest extends TestCase
         $this->assertEquals(
             [
                 ['number' => 5],
+            ],
+            $rows->toArray()
+        );
+    }
+
+    public function test_filter_null_rows() : void
+    {
+        $filterRows = new FilterRowsTransformer(
+            new EntryNotNull('number'),
+        );
+
+        $rows = $filterRows->transform(
+            new Rows(
+                Row::create(new Row\Entry\IntegerEntry('number', 2), new Row\Entry\StringEntry('text', 'test')),
+                Row::create(new Row\Entry\NullEntry('number'), new Row\Entry\StringEntry('text', 'test')),
+                Row::create(new Row\Entry\IntegerEntry('number', 5), new Row\Entry\StringEntry('text', 'test')),
+            )
+        );
+
+        $this->assertEquals(
+            [
+                ['number' => 2, 'text' => 'test'],
+                ['number' => 5, 'text' => 'test'],
             ],
             $rows->toArray()
         );
