@@ -61,7 +61,7 @@ final class ArrayUnpackTransformer implements Transformer
                 }
 
                 if (\is_float($value)) {
-                    $entries = $entries->add(new Row\Entry\StringEntry($entryName, (string) $value));
+                    $entries = $entries->add(new Row\Entry\FloatEntry($entryName, $value));
 
                     continue;
                 }

@@ -68,6 +68,7 @@ final class ArrayUnpackTransformerTest extends TestCase
                             'object' => new \stdClass(),
                             'null' => null,
                             'stringWithFloat' => '0.0',
+                            'float' => 10.01,
                         ]),
                     ),
                 ),
@@ -86,7 +87,8 @@ final class ArrayUnpackTransformerTest extends TestCase
                     new Row\Entry\JsonEntry('json', ['foo', 'bar']),
                     new Row\Entry\ObjectEntry('object', new \stdClass()),
                     new Row\Entry\NullEntry('null'),
-                    new Row\Entry\StringEntry('stringWithFloat', '0.0')
+                    new Row\Entry\StringEntry('stringWithFloat', '0.0'),
+                    new Row\Entry\FloatEntry('float', 10.01),
                 ),
             ),
             $rows
@@ -128,7 +130,7 @@ final class ArrayUnpackTransformerTest extends TestCase
                     new Row\Entry\JsonEntry('5', ['foo', 'bar']),
                     new Row\Entry\ObjectEntry('6', new \stdClass()),
                     new Row\Entry\NullEntry('7'),
-                    new Row\Entry\StringEntry('8', '0.25'),
+                    new Row\Entry\FloatEntry('8', 0.25),
                 ),
             ),
             $rows

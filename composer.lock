@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/flow-php/etl.git",
-                "reference": "894f1ba87b28f19c649b3ba3da98828fd9682657"
+                "reference": "9faddfadc1ba81deeac54eaa87c10102308bf0a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flow-php/etl/zipball/894f1ba87b28f19c649b3ba3da98828fd9682657",
-                "reference": "894f1ba87b28f19c649b3ba3da98828fd9682657",
+                "url": "https://api.github.com/repos/flow-php/etl/zipball/9faddfadc1ba81deeac54eaa87c10102308bf0a6",
+                "reference": "9faddfadc1ba81deeac54eaa87c10102308bf0a6",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "issues": "https://github.com/flow-php/etl/issues",
                 "source": "https://github.com/flow-php/etl/tree/1.x"
             },
-            "time": "2021-04-18T14:28:38+00:00"
+            "time": "2021-05-16T19:59:27+00:00"
         }
     ],
     "packages-dev": [
@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/flow-php/etl-adapter-json.git",
-                "reference": "89d056dd03758efad4e73f8152758aee39b8e727"
+                "reference": "9bf2ef8911dd05da7233912aba80e4867964dd1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flow-php/etl-adapter-json/zipball/89d056dd03758efad4e73f8152758aee39b8e727",
-                "reference": "89d056dd03758efad4e73f8152758aee39b8e727",
+                "url": "https://api.github.com/repos/flow-php/etl-adapter-json/zipball/9bf2ef8911dd05da7233912aba80e4867964dd1e",
+                "reference": "9bf2ef8911dd05da7233912aba80e4867964dd1e",
                 "shasum": ""
             },
             "require": {
@@ -103,7 +103,7 @@
                 "issues": "https://github.com/flow-php/etl-adapter-json/issues",
                 "source": "https://github.com/flow-php/etl-adapter-json/tree/1.x"
             },
-            "time": "2021-04-18T15:16:52+00:00"
+            "time": "2021-05-13T08:26:38+00:00"
         },
         {
             "name": "laminas/laminas-hydrator",
