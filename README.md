@@ -224,6 +224,8 @@ $this->assertEquals(
 );
 ```
 
+## Transformer - Cast
+
 ```php
 
 use Flow\ETL\Row;
@@ -280,6 +282,44 @@ $this->assertEquals(new Rows(
 ), $rows);
 ```
 
+## Transformer - ArrayExpand
+
+This transformer takes array and expands it elements into new rows. It can take an array of anything, including 
+an array of other arrays. 
+
+```php 
+
+use Flow\ETL\Exception\RuntimeException;
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ArrayExpandTransformer;
+use Flow\ETL\Transformer\ArrayUnpackTransformer;
+
+$arrayExpandTransformer = new ArrayExpandTransformer('array_entry');
+
+$rows = $arrayExpandTransformer->transform(
+    new Rows(
+        Row::create(
+            new Row\Entry\StringEntry('string_entry', 'foo'),
+            new Row\Entry\ArrayEntry('array_entry', [1, 2]),
+        ),
+    ),
+);
+
+$this->assertEquals(
+    [
+        [
+            'element' => 1,
+            'string_entry' => 'foo',
+        ],
+        [
+            'element' => 2,
+            'string_entry' => 'foo',
+        ],
+    ],
+    $rows->toArray()
+);
+```
 ## Development
 
 In order to install dependencies please, launch following commands:

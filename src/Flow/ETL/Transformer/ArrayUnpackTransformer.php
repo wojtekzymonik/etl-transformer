@@ -14,13 +14,14 @@ use Flow\ETL\Transformer;
  */
 final class ArrayUnpackTransformer implements Transformer
 {
-    private const JSON_DEPTH = 512;
-
     private string $arrayEntryName;
 
-    public function __construct(string $arrayEntryName)
+    private EntryFactory $entryFactory;
+
+    public function __construct(string $arrayEntryName, EntryFactory $entryFactory = null)
     {
         $this->arrayEntryName = $arrayEntryName;
+        $this->entryFactory = $entryFactory ? $entryFactory : new NativeEntryFactory();
     }
 
     /**
@@ -48,80 +49,10 @@ final class ArrayUnpackTransformer implements Transformer
             foreach ($row->valueOf($this->arrayEntryName) as $key => $value) {
                 $entryName = (string) $key;
 
-                if (\is_string($value)) {
-                    if (\class_exists('\\Flow\\ETL\\Row\\Entry\\JsonEntry') && $this->isJson($value)) {
-                        $entries = $entries->add(new Row\Entry\JsonEntry($entryName, \json_decode($value, true, self::JSON_DEPTH, JSON_THROW_ON_ERROR)));
-
-                        continue;
-                    }
-
-                    $entries = $entries->add(new Row\Entry\StringEntry($entryName, $value));
-
-                    continue;
-                }
-
-                if (\is_float($value)) {
-                    $entries = $entries->add(new Row\Entry\FloatEntry($entryName, $value));
-
-                    continue;
-                }
-
-                if (\is_int($value)) {
-                    $entries = $entries->add(new Row\Entry\IntegerEntry($entryName, $value));
-
-                    continue;
-                }
-
-                if (\is_bool($value)) {
-                    $entries = $entries->add(new Row\Entry\BooleanEntry($entryName, $value));
-
-                    continue;
-                }
-
-                if (\is_object($value)) {
-                    if ($value instanceof \DateTimeImmutable) {
-                        $entries = $entries->add(new Row\Entry\DateTimeEntry($entryName, $value));
-
-                        continue;
-                    }
-
-                    $entries = $entries->add(new Row\Entry\ObjectEntry($entryName, $value));
-
-                    continue;
-                }
-
-                if (\is_array($value)) {
-                    $entries = $entries->add(new Row\Entry\ArrayEntry($entryName, $value));
-
-                    continue;
-                }
-
-                if (null === $value) {
-                    $entries = $entries->add(new Row\Entry\NullEntry($entryName));
-                }
+                $entries = $entries->add($this->entryFactory->createEntry($entryName, $value));
             }
 
             return new Row($entries);
         });
-    }
-
-    private function isJson(string $string) : bool
-    {
-        try {
-            /**
-             * @psalm-suppress UnusedFunctionCall
-             *
-             * @var mixed $value
-             */
-            $value = \json_decode($string, true, self::JSON_DEPTH, JSON_THROW_ON_ERROR);
-
-            if (\is_numeric($value)) {
-                return false;
-            }
-
-            return true;
-        } catch (\Exception $e) {
-            return false;
-        }
     }
 }
