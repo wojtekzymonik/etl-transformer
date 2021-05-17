@@ -1,6 +1,7 @@
-## [Unreleased] - 2021-05-16
+## [Unreleased] - 2021-05-17
 
 ### Added
+- [#29](https://github.com/flow-php/etl-transformer/pull/29) - **ArrayExpandTransformer** - [@norberttech](https://github.com/norberttech)
 - [#26](https://github.com/flow-php/etl-transformer/pull/26) - **Added Callback Entry transformer** - [@pambuk](https://github.com/pambuk)
 - [#27](https://github.com/flow-php/etl-transformer/pull/27) - **EntryNotNull filter** - [@norberttech](https://github.com/norberttech)
 - [#19](https://github.com/flow-php/etl-transformer/pull/19) - **CastTransformer - cast entries of one types into another** - [@norberttech](https://github.com/norberttech)
@@ -15,6 +16,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [7b8725](https://github.com/flow-php/etl-transformer/commit/7b8725c11145ff95014d6d226a513ae005b8be56) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [7cc3a4](https://github.com/flow-php/etl-transformer/commit/7cc3a49e8df3aeb75e51119beb4368b0a0fbc246) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#28](https://github.com/flow-php/etl-transformer/pull/28) - **ArrayUnpackTransformer transforms floats into FloatEntry, not strings** - [@norberttech](https://github.com/norberttech)
 - [498fcd](https://github.com/flow-php/etl-transformer/commit/498fcd75d3a5f1916a6752984417b98f1cf117d5) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
