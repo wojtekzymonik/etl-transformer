@@ -1,6 +1,13 @@
-## [Unreleased] - 2021-05-17
+## [Unreleased] - 2021-05-18
 
 ### Added
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Any - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Opposite - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNumber - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNotNumber - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNotEquals - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#30](https://github.com/flow-php/etl-transformer/pull/30) - **StringFormatTransformer** - [@norberttech](https://github.com/norberttech)
 - [#29](https://github.com/flow-php/etl-transformer/pull/29) - **ArrayExpandTransformer** - [@norberttech](https://github.com/norberttech)
 - [#26](https://github.com/flow-php/etl-transformer/pull/26) - **Added Callback Entry transformer** - [@pambuk](https://github.com/pambuk)
@@ -17,6 +24,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [7ff528](https://github.com/flow-php/etl-transformer/commit/7ff5283adda56fcf56db781c876835fa7bc2dc23) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [6ec402](https://github.com/flow-php/etl-transformer/commit/6ec402a56d6306c79a885b406348905ba873fe3d) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [7b8725](https://github.com/flow-php/etl-transformer/commit/7b8725c11145ff95014d6d226a513ae005b8be56) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [7cc3a4](https://github.com/flow-php/etl-transformer/commit/7cc3a49e8df3aeb75e51119beb4368b0a0fbc246) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
