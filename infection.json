@@ -23,6 +23,29 @@
                 "Flow\\ETL\\Transformer\\Cast\\CastEntry::__construct",
                 "Flow\\ETL\\Transformer\\NativeEntryFactory::createEntry"
             ]
+        },
+        "BCMath": {
+            "ignore": [
+                "Flow\\ETL\\Transformer\\Filter\\Filter\\EntryNotEqualsTo::__invoke",
+                "Flow\\ETL\\Transformer\\Filter\\Filter\\EntryEqualsTo::__invoke"
+            ]
+        },
+        "DecrementInteger": {
+            "ignore": [
+                "Flow\\ETL\\Transformer\\Filter\\Filter\\EntryNotEqualsTo::__invoke",
+                "Flow\\ETL\\Transformer\\Filter\\Filter\\EntryEqualsTo::__invoke"
+            ]
+        },
+        "IncrementInteger": {
+            "ignore": [
+                "Flow\\ETL\\Transformer\\Filter\\Filter\\EntryNotEqualsTo::__invoke",
+                "Flow\\ETL\\Transformer\\Filter\\Filter\\EntryEqualsTo::__invoke"
+            ]
+        },
+        "InstanceOf_": {
+            "ignore": [
+                "Flow\\ETL\\Transformer\\Filter\\Filter\\EntryEqualsTo::__invoke"
+            ]
         }
     },
     "testFramework": "phpunit",

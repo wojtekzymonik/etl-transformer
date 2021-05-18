@@ -10,7 +10,7 @@ use Flow\ETL\Transformer\Filter\Filter;
 /**
  * @psalm-immutable
  */
-final class EntryEqualsTo implements Filter
+final class EntryNotEqualsTo implements Filter
 {
     private string $entryName;
 
@@ -38,17 +38,9 @@ final class EntryEqualsTo implements Filter
                 return false;
             }
 
-            return \bccomp((string) $entry->value(), (string) $this->entryValue, 8) === 0;
+            return \bccomp((string) $entry->value(), (string) $this->entryValue, 8) !== 0;
         }
 
-        if (\is_float($this->entryValue)) {
-            if (!\is_numeric($entry->value())) {
-                return false;
-            }
-
-            return \bccomp((string) $entry->value(), (string) $this->entryValue, 8) === 0;
-        }
-
-        return $entry->value() === $this->entryValue;
+        return $entry->value() !== $this->entryValue;
     }
 }

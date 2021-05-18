@@ -32,6 +32,18 @@ $transformer->transform(
 
 ```
 
+Available Filters
+
+- [All](src/Flow/ETL/Transformer/Filter/Filter/All.php)
+- [Any](src/Flow/ETL/Transformer/Filter/Filter/Any.php)
+- [Callback](src/Flow/ETL/Transformer/Filter/Filter/Callback.php)
+- [EntryEqualsTo](src/Flow/ETL/Transformer/Filter/Filter/EntryEqualsTo.php)
+- [EntryNotEqualsTo](src/Flow/ETL/Transformer/Filter/Filter/EntryNotEqualsTo.php)
+- [EntryNotNull](src/Flow/ETL/Transformer/Filter/Filter/EntryNotNull.php)
+- [EntryNotNumber](src/Flow/ETL/Transformer/Filter/Filter/EntryNotNumber.php)
+- [EntryNumber](src/Flow/ETL/Transformer/Filter/Filter/EntryNumber.php)
+- [Opposite](src/Flow/ETL/Transformer/Filter/Filter/Opposite.php)
+
 ## Transformer - RemoveEntriesTransformer
 
 Remove transformers by name from each row.
