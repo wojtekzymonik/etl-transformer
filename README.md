@@ -146,6 +146,12 @@ $this->assertSame(
 
 ## Transformer - ObjectToArray
 
+This transformer requires `laminas/laminas-hydrator` or `ocramius/generated-hydrator` in the project
+
+```
+composer require laminas/laminas-hydrator
+```
+
 ```php
 <?php
 
@@ -262,6 +268,60 @@ Casting Types:
 * `Flow\ETL\Transformer\Cast\CastToJson`
 * `Flow\ETL\Transformer\Cast\CastToArray`
 * `Flow\ETL\Transformer\Cast\CastJsonToArray`
+
+## Transformer - EntryNameCaseConverter
+
+This transformer requires `jawira/case-converter` in the project
+
+```
+composer require jawira/case-converter
+```
+
+```php
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\EntryNameCaseConverterTransformer;
+
+$transformer = new EntryNameCaseConverterTransformer(EntryNameCaseConverterTransformer::STYLE_SNAKE);
+
+$rows = $transformer->transform(new Rows(
+    Row::create(
+        new Row\Entry\StringEntry('CamelCaseEntryName', 'test'),
+        new Row\Entry\StringEntry('otherCaseEntryName', 'test'),
+    )
+));
+
+$this->assertSame(
+    [
+        [
+            'camel_case_entry_name' => 'test',
+            'other_case_entry_name' => 'test'
+        ]
+    ],
+    $rows->toArray()
+);
+```
+
+Supported styles: 
+
+``` 
+public const STYLE_CAMEL = 'camel';
+public const STYLE_PASCAL = 'pascal';
+public const STYLE_SNAKE = 'snake';
+public const STYLE_ADA = 'ada';
+public const STYLE_MACRO = 'macro';
+public const STYLE_KEBAB = 'kebab';
+public const STYLE_TRAIN = 'train';
+public const STYLE_COBOL = 'cobol';
+public const STYLE_LOWER = 'lower';
+public const STYLE_UPPER = 'upper';
+public const STYLE_TITLE = 'title';
+public const STYLE_SENTENCE = 'sentence';
+public const STYLE_DOT = 'dot';
+```
+
+For the more details, please visit [jawira/case-converter](https://github.com/jawira/case-converter) documentation.
 
 ## Transformer - CallbackEntry
 

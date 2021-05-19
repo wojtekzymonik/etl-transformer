@@ -12,11 +12,13 @@
     },
     "require-dev": {
         "flow-php/etl-adapter-json": "^1.0@dev",
+        "jawira/case-converter": "^3.4",
         "laminas/laminas-hydrator": "^4.0"
     },
     "suggest": {
         "laminas/laminas-hydrator" : "Help converting ObjectEntry into ArrayEntry that can be later unpack into standalone Entries",
-        "ocramius/generated-hydrator" : "Provieds generated hydrator that implemenets Laminas\\Hydrator\\HydratorInterface"
+        "ocramius/generated-hydrator" : "Provieds generated hydrator that implemenets Laminas\\Hydrator\\HydratorInterface",
+        "jawira/case-converter" : "Provides CaseConverter that is required by the EntryNameCaseConverterTransformer"
     },
     "config": {
         "optimize-autoloader": true,

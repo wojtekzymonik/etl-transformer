@@ -21,6 +21,8 @@
         "Throw_": {
             "ignore": [
                 "Flow\\ETL\\Transformer\\Cast\\CastEntry::__construct",
+                "Flow\\ETL\\Transformer\\EntryNameCaseConverterTransformer::__construct",
+                "Flow\\ETL\\Transformer\\EntryNameCaseConverterTransformer::transform",
                 "Flow\\ETL\\Transformer\\NativeEntryFactory::createEntry"
             ]
         },
@@ -45,6 +47,16 @@
         "InstanceOf_": {
             "ignore": [
                 "Flow\\ETL\\Transformer\\Filter\\Filter\\EntryEqualsTo::__invoke"
+            ]
+        },
+        "Concat": {
+            "ignore": [
+                "Flow\\ETL\\Transformer\\EntryNameCaseConverterTransformer::transform"
+            ]
+        },
+        "ConcatOperandRemoval": {
+            "ignore": [
+                "Flow\\ETL\\Transformer\\EntryNameCaseConverterTransformer::transform"
             ]
         }
     },

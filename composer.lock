@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "feb6ac74348d28798bd8bd5567e1f99e",
+    "content-hash": "e151b1f2d417f094ac2e4549e9d4ff53",
     "packages": [
         {
             "name": "flow-php/etl",
@@ -104,6 +104,68 @@
                 "source": "https://github.com/flow-php/etl-adapter-json/tree/1.x"
             },
             "time": "2021-05-13T08:26:38+00:00"
+        },
+        {
+            "name": "jawira/case-converter",
+            "version": "v3.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jawira/case-converter.git",
+                "reference": "b32f881bfe30141a82c3b2d6ee466a2f192c7776"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jawira/case-converter/zipball/b32f881bfe30141a82c3b2d6ee466a2f192c7776",
+                "reference": "b32f881bfe30141a82c3b2d6ee466a2f192c7776",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=7.1"
+            },
+            "suggest": {
+                "pds/skeleton": "PHP Package Development Standards",
+                "phing/phing": "PHP Build Tool"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jawira\\CaseConverter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jawira Portugal",
+                    "email": "dev@tugal.be",
+                    "homepage": "http://jawira.com/"
+                }
+            ],
+            "description": "Convert strings between 13 naming conventions: Snake case, Camel case, Pascal case, Kebab case, Ada case, Train case, Cobol case, Macro case, Upper case, Lower case, Sentence case, Title case and Dot notation.",
+            "homepage": "https://jawira.github.io/case-converter/",
+            "keywords": [
+                "Ada case",
+                "Cobol case",
+                "Macro case",
+                "Train case",
+                "camel case",
+                "dot notation",
+                "kebab case",
+                "lower case",
+                "pascal case",
+                "sentence case",
+                "snake case",
+                "title case",
+                "upper case"
+            ],
+            "support": {
+                "issues": "https://github.com/jawira/case-converter/issues",
+                "source": "https://github.com/jawira/case-converter/tree/v3.4.2"
+            },
+            "time": "2021-01-05T08:56:22+00:00"
         },
         {
             "name": "laminas/laminas-hydrator",
