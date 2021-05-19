@@ -1,6 +1,7 @@
-## [Unreleased] - 2021-05-18
+## [Unreleased] - 2021-05-19
 
 ### Added
+- [#33](https://github.com/flow-php/etl-transformer/pull/33) - **added EntryNameCaseConverterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Any - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Opposite - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
@@ -24,6 +25,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [ced361](https://github.com/flow-php/etl-transformer/commit/ced36103eb5cab9f4bd8df24b71019cf621dc4ab) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [7ff528](https://github.com/flow-php/etl-transformer/commit/7ff5283adda56fcf56db781c876835fa7bc2dc23) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [6ec402](https://github.com/flow-php/etl-transformer/commit/6ec402a56d6306c79a885b406348905ba873fe3d) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [7b8725](https://github.com/flow-php/etl-transformer/commit/7b8725c11145ff95014d6d226a513ae005b8be56) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
