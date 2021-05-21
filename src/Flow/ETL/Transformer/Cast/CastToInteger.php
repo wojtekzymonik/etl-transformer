@@ -8,9 +8,12 @@ use Flow\ETL\Row\Entry\IntegerEntry;
 
 final class CastToInteger extends CastEntry
 {
-    public function __construct(string $entryName)
+    /**
+     * @param array<string> $entryNames
+     */
+    public function __construct(array $entryNames)
     {
         /** @psalm-suppress MissingClosureParamType */
-        parent::__construct($entryName, IntegerEntry::class, [], fn ($value) : int => (int) $value);
+        parent::__construct($entryNames, IntegerEntry::class, [], fn ($value) : int => (int) $value);
     }
 }

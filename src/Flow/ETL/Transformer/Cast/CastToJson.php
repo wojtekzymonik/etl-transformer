@@ -10,13 +10,16 @@ final class CastToJson extends CastEntry
 {
     private const JSON_DEPTH = 512;
 
-    public function __construct(string $entryName)
+    /**
+     * @param array<string> $entryNames
+     */
+    public function __construct(array $entryNames)
     {
         /**
          * @psalm-suppress MissingClosureParamType
          * @psalm-suppress MixedInferredReturnType
          * @psalm-suppress MixedReturnStatement
          */
-        parent::__construct($entryName, JsonEntry::class, [], fn ($value) : array => \json_decode(\json_encode($value, JSON_THROW_ON_ERROR), true, self::JSON_DEPTH, JSON_THROW_ON_ERROR));
+        parent::__construct($entryNames, JsonEntry::class, [], fn ($value) : array => \json_decode(\json_encode($value, JSON_THROW_ON_ERROR), true, self::JSON_DEPTH, JSON_THROW_ON_ERROR));
     }
 }

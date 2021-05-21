@@ -8,11 +8,14 @@ use Flow\ETL\Row\Entry\ArrayEntry;
 
 final class CastToArray extends CastEntry
 {
-    public function __construct(string $entryName)
+    /**
+     * @param array<string> $entryNames
+     */
+    public function __construct(array $entryNames)
     {
         /**
          * @psalm-suppress MissingClosureParamType
          */
-        parent::__construct($entryName, ArrayEntry::class, [], fn ($value) : array => (array) $value);
+        parent::__construct($entryNames, ArrayEntry::class, [], fn ($value) : array => (array) $value);
     }
 }

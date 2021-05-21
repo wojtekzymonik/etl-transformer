@@ -28,7 +28,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00 UTC');
 
-        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -36,11 +36,31 @@ final class CastTransformerTest extends TestCase
         $this->assertSame('2020-01-01 00:00:00.+00:00', $rows->first()->valueOf('date'));
     }
 
+    public function test_multiple_datetime_strings_to_datetime_transformer() : void
+    {
+        $start = new StringEntry('start_date', '2020-01-01 00:00:00 UTC');
+        $current = new StringEntry('current_date', '2020-01-01 01:00:00 UTC');
+        $end = new StringEntry('end_date', '2020-01-01 02:00:00 UTC');
+
+        $transformer = new CastTransformer(new CastToDateTime(['start_date', 'end_date'], 'Y-m-d H:i:s.P'));
+
+        $rows = $transformer->transform(new Rows(new Row(new Row\Entries($start, $current, $end))));
+
+        $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('start_date'));
+        $this->assertSame('2020-01-01 00:00:00.+00:00', $rows->first()->valueOf('start_date'));
+
+        $this->assertInstanceOf(StringEntry::class, $rows->first()->get('current_date'));
+        $this->assertSame('2020-01-01 01:00:00 UTC', $rows->first()->valueOf('current_date'));
+
+        $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('end_date'));
+        $this->assertSame('2020-01-01 02:00:00.+00:00', $rows->first()->valueOf('end_date'));
+    }
+
     public function test_datetime_string_without_tz() : void
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00');
 
-        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P', 'America/Los_Angeles'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P', 'America/Los_Angeles'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -52,7 +72,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00.-08:00');
 
-        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P', null, 'UTC'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P', null, 'UTC'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -64,7 +84,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00');
 
-        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P', 'UTC', 'America/Los_Angeles'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P', 'UTC', 'America/Los_Angeles'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -76,7 +96,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00 UTC');
 
-        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P', null, 'Europe/Warsaw'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P', null, 'Europe/Warsaw'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -88,7 +108,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new StringEntry('date', '2020-01-01');
 
-        $transformer = new CastTransformer(new CastToDate('date'));
+        $transformer = new CastTransformer(new CastToDate(['date']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -100,7 +120,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new StringEntry('id', '123456');
 
-        $transformer = new CastTransformer(new CastToInteger('id'));
+        $transformer = new CastTransformer(new CastToInteger(['id']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -112,7 +132,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new ArrayEntry('collection', ['foo' => 'bar']);
 
-        $transformer = new CastTransformer(new CastToJson('collection'));
+        $transformer = new CastTransformer(new CastToJson(['collection']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -124,7 +144,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new IntegerEntry('id', 123456);
 
-        $transformer = new CastTransformer(new CastToString('id'));
+        $transformer = new CastTransformer(new CastToString(['id']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -136,7 +156,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new IntegerEntry('ids', 123456);
 
-        $transformer = new CastTransformer(new CastToArray('ids'));
+        $transformer = new CastTransformer(new CastToArray(['ids']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -148,7 +168,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new JsonEntry('ids', [123456]);
 
-        $transformer = new CastTransformer(new CastJsonToArray('ids'));
+        $transformer = new CastTransformer(new CastJsonToArray(['ids']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
@@ -160,7 +180,7 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new StringEntry('ids', '[123456]');
 
-        $transformer = new CastTransformer(new CastJsonToArray('ids'));
+        $transformer = new CastTransformer(new CastJsonToArray(['ids']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 

@@ -8,8 +8,11 @@ use Flow\ETL\Row\Entry\DateEntry;
 
 final class CastToDate extends CastEntry
 {
-    public function __construct(string $entryName)
+    /**
+     * @param array<string> $entryNames
+     */
+    public function __construct(array $entryNames)
     {
-        parent::__construct($entryName, DateEntry::class, [], fn (string $value) : \DateTimeImmutable => new \DateTimeImmutable($value));
+        parent::__construct($entryNames, DateEntry::class, [], fn (string $value) : \DateTimeImmutable => new \DateTimeImmutable($value));
     }
 }

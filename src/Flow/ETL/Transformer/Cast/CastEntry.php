@@ -9,7 +9,10 @@ use Flow\ETL\Row\Entry;
 
 class CastEntry
 {
-    private string $entryName;
+    /**
+     * @var array<string>
+     */
+    private array $entryNames;
 
     private string $newClass;
 
@@ -24,32 +27,36 @@ class CastEntry
     private $cast;
 
     /**
-     * @param string $entryName
+     * @param array<string> $entryNames
      * @param string $newClass
      * @param array<mixed> $extraArguments
-     * @param callable(mixed $value) : mixed|null $cast
-     * @psalm-suppress MixedPropertyTypeCoercion
+     * @param null|callable $cast
      *
      * @throws InvalidArgumentException
+     * @psalm-suppress MixedPropertyTypeCoercion
      */
-    protected function __construct(string $entryName, string $newClass, array $extraArguments, ?callable $cast = null)
+    protected function __construct(array $entryNames, string $newClass, array $extraArguments, ?callable $cast = null)
     {
+        if (\count($entryNames) === 0) {
+            throw new InvalidArgumentException('{self::class} expects at least one entry name, none given');
+        }
+
         if (!\class_exists($newClass) || !\is_a($newClass, Entry::class, true)) {
             throw new InvalidArgumentException("{$newClass} is not valid class or does not implement Entry interface");
         }
 
-        $this->entryName = $entryName;
+        $this->entryNames = $entryNames;
         $this->newClass = $newClass;
         $this->extraArguments = $extraArguments;
         $this->cast = $cast;
     }
 
     /**
-     * @return string
+     * @return array<string>
      */
-    final public function entryName() : string
+    final public function entryNames() : array
     {
-        return $this->entryName;
+        return $this->entryNames;
     }
 
     /**

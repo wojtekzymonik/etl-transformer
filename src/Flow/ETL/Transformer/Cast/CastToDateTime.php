@@ -17,17 +17,17 @@ final class CastToDateTime extends CastEntry
      * If datetime comes without origin timezone, like for example '2020-01-01 00:00:00' but we know it's UTC
      * and we want to cast it to 'America/Los_Angeles' use $timeZone = 'UTC' and $toTimeZone = 'America/Los_Angeles'.
      *
-     * @param string $entryName
+     * @param array<string> $entryNames
      * @param string $format
      * @param null|string $timeZone
      * @param null|string $toTimeZone
      *
      * @throws \Flow\ETL\Exception\InvalidArgumentException
      */
-    public function __construct(string $entryName, string $format, ?string $timeZone = null, ?string $toTimeZone = null)
+    public function __construct(array $entryNames, string $format, ?string $timeZone = null, ?string $toTimeZone = null)
     {
         parent::__construct(
-            $entryName,
+            $entryNames,
             DateTimeEntry::class,
             [$format],
             function (string $dateTimeString) use ($timeZone, $toTimeZone) : \DateTimeImmutable {

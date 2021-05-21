@@ -8,12 +8,15 @@ use Flow\ETL\Row\Entry\ArrayEntry;
 
 final class CastJsonToArray extends CastEntry
 {
-    public function __construct(string $entryName)
+    /**
+     * @param array<string> $entryNames
+     */
+    public function __construct(array $entryNames)
     {
         /**
          * @psalm-suppress MixedInferredReturnType
          * @psalm-suppress MixedReturnStatement
          */
-        parent::__construct($entryName, ArrayEntry::class, [], fn (string $value) : array => \json_decode($value, true, JSON_THROW_ON_ERROR));
+        parent::__construct($entryNames, ArrayEntry::class, [], fn (string $value) : array => \json_decode($value, true, JSON_THROW_ON_ERROR));
     }
 }
