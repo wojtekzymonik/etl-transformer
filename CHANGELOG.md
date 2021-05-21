@@ -1,6 +1,8 @@
-## [Unreleased] - 2021-05-19
+## [Unreleased] - 2021-05-21
 
 ### Added
+- [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - timezone in case it's just a string "2020-01-01 00:00:00"** - [@norberttech](https://github.com/norberttech)
+- [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - to timezone in case string needs to be converted to different tz "2020-01-01 00:00:00+00:00"** - [@norberttech](https://github.com/norberttech)
 - [#33](https://github.com/flow-php/etl-transformer/pull/33) - **added EntryNameCaseConverterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Any - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
@@ -25,6 +27,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [a7924f](https://github.com/flow-php/etl-transformer/commit/a7924ffcfb06ba7dce08534370d1b96c1df1331d) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [ced361](https://github.com/flow-php/etl-transformer/commit/ced36103eb5cab9f4bd8df24b71019cf621dc4ab) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [7ff528](https://github.com/flow-php/etl-transformer/commit/7ff5283adda56fcf56db781c876835fa7bc2dc23) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [6ec402](https://github.com/flow-php/etl-transformer/commit/6ec402a56d6306c79a885b406348905ba873fe3d) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
