@@ -21,15 +21,17 @@ final class CastToDateTime extends CastEntry
      * @param string $format
      * @param null|string $timeZone
      * @param null|string $toTimeZone
+     * @param bool $nullable
      *
      * @throws \Flow\ETL\Exception\InvalidArgumentException
      */
-    public function __construct(array $entryNames, string $format, ?string $timeZone = null, ?string $toTimeZone = null)
+    public function __construct(array $entryNames, string $format, ?string $timeZone = null, ?string $toTimeZone = null, bool $nullable = false)
     {
         parent::__construct(
             $entryNames,
             DateTimeEntry::class,
             [$format],
+            $nullable,
             function (string $dateTimeString) use ($timeZone, $toTimeZone) : \DateTimeImmutable {
                 if ($timeZone && $toTimeZone) {
                     return (new \DateTimeImmutable($dateTimeString, new \DateTimeZone($timeZone)))->setTimezone(new \DateTimeZone($toTimeZone));
@@ -46,5 +48,16 @@ final class CastToDateTime extends CastEntry
                 return new \DateTimeImmutable($dateTimeString);
             }
         );
+    }
+
+    /**
+     * @param array<string> $entryNames
+     * @param string $format
+     * @param null|string $timeZone
+     * @param null|string $toTimeZone
+     */
+    public static function nullable(array $entryNames, string $format, ?string $timeZone = null, ?string $toTimeZone = null) : self
+    {
+        return new self($entryNames, $format, $timeZone, $toTimeZone, true);
     }
 }

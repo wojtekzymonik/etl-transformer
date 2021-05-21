@@ -10,6 +10,7 @@ use Flow\ETL\Row\Entry\DateEntry;
 use Flow\ETL\Row\Entry\DateTimeEntry;
 use Flow\ETL\Row\Entry\IntegerEntry;
 use Flow\ETL\Row\Entry\JsonEntry;
+use Flow\ETL\Row\Entry\NullEntry;
 use Flow\ETL\Row\Entry\StringEntry;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\Cast\CastJsonToArray;
@@ -34,6 +35,18 @@ final class CastTransformerTest extends TestCase
 
         $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
         $this->assertSame('2020-01-01 00:00:00.+00:00', $rows->first()->valueOf('date'));
+    }
+
+    public function test_datetime_nullable_string_to_datetime_transformer() : void
+    {
+        $entry = new NullEntry('date');
+
+        $transformer = new CastTransformer(CastToDateTime::nullable(['date'], 'Y-m-d H:i:s.P'));
+
+        $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
+
+        $this->assertInstanceOf(NullEntry::class, $rows->first()->get('date'));
+        $this->assertNull($rows->first()->valueOf('date'));
     }
 
     public function test_multiple_datetime_strings_to_datetime_transformer() : void

@@ -64,7 +64,5 @@
     "bootstrap": "./vendor/autoload.php",
     "phpUnit": {
         "customPath": "tools/vendor/bin/phpunit"
-    },
-    "minMsi": 100,
-    "minCoveredMsi": 100
+    }
 }

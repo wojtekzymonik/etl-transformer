@@ -37,9 +37,12 @@ final class CastTransformer implements Transformer
                         if ($row->entries()->has($entryName)) {
                             $entry = $row->entries()->get($entryName);
                             $newEntryClass = $castEntry->newClass();
-                            $castCallback = $castEntry->cast();
 
-                            $newValue = ($castCallback) ? $castCallback($entry->value()) : $entry->value();
+                            if ($castEntry->isNullable() && $entry instanceof Row\Entry\NullEntry) {
+                                return $row;
+                            }
+
+                            $newValue = $castEntry->cast()($entry->value());
 
                             return (new Row($row->entries()->remove($entry->name())))->add(
                                 new $newEntryClass($entry->name(), $newValue, ...$castEntry->extraArguments())

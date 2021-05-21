@@ -22,20 +22,23 @@ class CastEntry
     private array $extraArguments;
 
     /**
-     * @var ?callable
+     * @var callable
      */
     private $cast;
+
+    private bool $nullable;
 
     /**
      * @param array<string> $entryNames
      * @param string $newClass
      * @param array<mixed> $extraArguments
-     * @param null|callable $cast
+     * @param bool $nullable
+     * @param callable $cast
      *
      * @throws InvalidArgumentException
      * @psalm-suppress MixedPropertyTypeCoercion
      */
-    protected function __construct(array $entryNames, string $newClass, array $extraArguments, ?callable $cast = null)
+    protected function __construct(array $entryNames, string $newClass, array $extraArguments, bool $nullable, callable $cast)
     {
         if (\count($entryNames) === 0) {
             throw new InvalidArgumentException('{self::class} expects at least one entry name, none given');
@@ -49,6 +52,7 @@ class CastEntry
         $this->newClass = $newClass;
         $this->extraArguments = $extraArguments;
         $this->cast = $cast;
+        $this->nullable = $nullable;
     }
 
     /**
@@ -76,9 +80,17 @@ class CastEntry
     }
 
     /**
-     * @return null|callable
+     * @return bool
      */
-    final public function cast() : ?callable
+    public function isNullable() : bool
+    {
+        return $this->nullable;
+    }
+
+    /**
+     * @return callable
+     */
+    final public function cast() : callable
     {
         return $this->cast;
     }
