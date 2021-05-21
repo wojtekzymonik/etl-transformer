@@ -27,6 +27,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#35](https://github.com/flow-php/etl-transformer/pull/35) - **mproved casting entries by allowing to cast more than one entry with single cast** - [@norberttech](https://github.com/norberttech)
+- [9bb691](https://github.com/flow-php/etl-transformer/commit/9bb69101670c87f7ddd6a1cd50bcd1e84f523e7c) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [a7924f](https://github.com/flow-php/etl-transformer/commit/a7924ffcfb06ba7dce08534370d1b96c1df1331d) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [ced361](https://github.com/flow-php/etl-transformer/commit/ced36103eb5cab9f4bd8df24b71019cf621dc4ab) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [7ff528](https://github.com/flow-php/etl-transformer/commit/7ff5283adda56fcf56db781c876835fa7bc2dc23) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
