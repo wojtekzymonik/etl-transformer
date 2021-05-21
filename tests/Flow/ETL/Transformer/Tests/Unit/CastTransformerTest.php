@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 
 final class CastTransformerTest extends TestCase
 {
-    public function test_string_to_datetime_transformer() : void
+    public function test_datetime_string_to_datetime_transformer() : void
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00 UTC');
 
@@ -36,9 +36,57 @@ final class CastTransformerTest extends TestCase
         $this->assertSame('2020-01-01 00:00:00.+00:00', $rows->first()->valueOf('date'));
     }
 
-    public function test_string_to_date_transformer() : void
+    public function test_datetime_string_without_tz() : void
+    {
+        $entry = new StringEntry('date', '2020-01-01 00:00:00');
+
+        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P', 'America/Los_Angeles'));
+
+        $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
+
+        $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
+        $this->assertSame('2020-01-01 00:00:00.-08:00', $rows->first()->valueOf('date'));
+    }
+
+    public function test_datetime_string_without_tz_to_utc() : void
+    {
+        $entry = new StringEntry('date', '2020-01-01 00:00:00.-08:00');
+
+        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P', null, 'UTC'));
+
+        $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
+
+        $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
+        $this->assertSame('2020-01-01 08:00:00.+00:00', $rows->first()->valueOf('date'));
+    }
+
+    public function test_datetime_string_without_tz_to_tz() : void
+    {
+        $entry = new StringEntry('date', '2020-01-01 00:00:00');
+
+        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P', 'UTC', 'America/Los_Angeles'));
+
+        $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
+
+        $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
+        $this->assertSame('2019-12-31 16:00:00.-08:00', $rows->first()->valueOf('date'));
+    }
+
+    public function test_datetime_string_with_tz_to_tz() : void
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00 UTC');
+
+        $transformer = new CastTransformer(new CastToDateTime('date', 'Y-m-d H:i:s.P', null, 'Europe/Warsaw'));
+
+        $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
+
+        $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
+        $this->assertSame('2020-01-01 01:00:00.+01:00', $rows->first()->valueOf('date'));
+    }
+
+    public function test_date_string_to_date_transformer() : void
+    {
+        $entry = new StringEntry('date', '2020-01-01');
 
         $transformer = new CastTransformer(new CastToDate('date'));
 
