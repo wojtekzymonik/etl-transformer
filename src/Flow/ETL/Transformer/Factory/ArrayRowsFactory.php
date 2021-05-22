@@ -12,17 +12,7 @@ use Flow\ETL\Transformer\RowsFactory;
 
 final class ArrayRowsFactory implements RowsFactory
 {
-    /**
-     * @var array<array>
-     */
-    private array $data;
-
-    /**
-     * @param array<array> $data
-     *
-     * @throws InvalidArgumentException
-     */
-    public function __construct(array $data)
+    public function create(array $data) : Rows
     {
         foreach ($data as $row) {
             /** @psalm-suppress DocblockTypeContradiction */
@@ -30,16 +20,12 @@ final class ArrayRowsFactory implements RowsFactory
                 throw new InvalidArgumentException('ArrayRowsFactory expects data to be an array of arrays');
             }
         }
-        $this->data = $data;
-    }
 
-    public function create() : Rows
-    {
         return (new ArrayUnpackTransformer('element'))->transform(new Rows(...\array_map(
             function (array $row) : Row {
                 return Row::create(new Row\Entry\ArrayEntry('element', $row));
             },
-            $this->data
+            $data
         )));
     }
 }

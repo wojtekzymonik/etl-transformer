@@ -8,6 +8,7 @@ use Flow\ETL\Exception\RuntimeException;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer;
+use Flow\ETL\Transformer\Factory\NativeEntryFactory;
 
 /**
  * @psalm-immutable

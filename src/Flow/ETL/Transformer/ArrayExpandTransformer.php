@@ -9,6 +9,7 @@ use Flow\ETL\Row;
 use Flow\ETL\Row\Entries;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer;
+use Flow\ETL\Transformer\Factory\NativeEntryFactory;
 
 /**
  * @psalm-immutable

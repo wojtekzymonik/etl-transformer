@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Transformer;
+namespace Flow\ETL\Transformer\Factory;
 
 use Flow\ETL\Exception\InvalidArgumentException;
 use Flow\ETL\Row;
 use Flow\ETL\Row\Entry;
+use Flow\ETL\Transformer\EntryFactory;
 
 final class NativeEntryFactory implements EntryFactory
 {

@@ -7,7 +7,9 @@ use Flow\ETL\Rows;
 interface RowsFactory
 {
     /**
+     * @param array<array> $data
+     *
      * @return Rows
      */
-    public function create() : Rows;
+    public function create(array $data) : Rows;
 }

@@ -15,14 +15,14 @@ final class ArrayRowsFactoryTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('ArrayRowsFactory expects data to be an array of arrays');
 
-        new ArrayRowsFactory([1, 2, 3]);
+        (new ArrayRowsFactory())->create([1, 2, 3]);
     }
 
     public function test_create_rows_from_array() : void
     {
-        $factory = new ArrayRowsFactory($data = [['id' => 1], ['id' => 2], ['id' => 3]]);
+        $factory = new ArrayRowsFactory();
 
-        $rows = $factory->create();
+        $rows = $factory->create($data = [['id' => 1], ['id' => 2], ['id' => 3]]);
 
         $this->assertSame($data, $rows->toArray());
     }
