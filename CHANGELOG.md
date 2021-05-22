@@ -1,6 +1,9 @@
-## [Unreleased] - 2021-05-21
+## [Unreleased] - 2021-05-22
 
 ### Added
+- [#37](https://github.com/flow-php/etl-transformer/pull/37) - **RowsFactory interface with two simple factories useful for generating rows for diffs** - [@norberttech](https://github.com/norberttech)
+- [#37](https://github.com/flow-php/etl-transformer/pull/37) - **ArrayRowsFactory** - [@norberttech](https://github.com/norberttech)
+- [#37](https://github.com/flow-php/etl-transformer/pull/37) - **CastedRowsFactory** - [@norberttech](https://github.com/norberttech)
 - [#36](https://github.com/flow-php/etl-transformer/pull/36) - **Added possibility to handle nullable values in cast transformer** - [@norberttech](https://github.com/norberttech)
 - [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - timezone in case it's just a string "2020-01-01 00:00:00"** - [@norberttech](https://github.com/norberttech)
 - [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - to timezone in case string needs to be converted to different tz "2020-01-01 00:00:00+00:00"** - [@norberttech](https://github.com/norberttech)
@@ -28,6 +31,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [137fdf](https://github.com/flow-php/etl-transformer/commit/137fdf9be680688368d1610e812c850a23a67315) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [38fd2b](https://github.com/flow-php/etl-transformer/commit/38fd2bdc6f2e4ac1d07e96591d4d4e6faa3338c0) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#35](https://github.com/flow-php/etl-transformer/pull/35) - **mproved casting entries by allowing to cast more than one entry with single cast** - [@norberttech](https://github.com/norberttech)
 - [9bb691](https://github.com/flow-php/etl-transformer/commit/9bb69101670c87f7ddd6a1cd50bcd1e84f523e7c) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
