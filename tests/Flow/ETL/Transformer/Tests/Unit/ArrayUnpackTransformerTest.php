@@ -156,4 +156,25 @@ final class ArrayUnpackTransformerTest extends TestCase
             $rows
         );
     }
+
+    public function test_array_unpack_with_prefix() : void
+    {
+        $rows = (new ArrayUnpackTransformer('inventory', 'inventory_'))
+            ->transform(
+                new Rows(
+                    Row::create(new Row\Entry\ArrayEntry('inventory', ['total' => 100, 'available' => 100, 'damaged' => 0]))
+                )
+            );
+
+        $this->assertSame(
+            [
+                [
+                    'inventory_total' => 100,
+                    'inventory_available' => 100,
+                    'inventory_damaged' => 0,
+                ],
+            ],
+            $rows->toArray()
+        );
+    }
 }
