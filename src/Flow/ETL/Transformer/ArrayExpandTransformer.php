@@ -45,16 +45,18 @@ final class ArrayExpandTransformer implements Transformer
 
             $array = $arrayEntry->value();
 
-            return \array_map(
-                function ($arrayElement) use ($row) : Row {
-                    return new Row(new Entries(
-                        ...\array_merge(
-                            $row->entries()->remove($this->arrayEntryName)->all(),
-                            [$this->entryFactory->createEntry($this->expandEntryName, $arrayElement)]
-                        )
-                    ));
-                },
-                $array
+            return \array_values(
+                \array_map(
+                    function ($arrayElement) use ($row) : Row {
+                        return new Row(new Entries(
+                            ...\array_merge(
+                                $row->entries()->remove($this->arrayEntryName)->all(),
+                                [$this->entryFactory->createEntry($this->expandEntryName, $arrayElement)]
+                            )
+                        ));
+                    },
+                    $array
+                )
             );
         };
 

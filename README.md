@@ -418,6 +418,31 @@ $this->assertSame(
     $rows->toArray()
 );
 ```
+
+## Transformer - Clone 
+
+```php 
+
+use Flow\ETL\Row;
+use Flow\ETL\Row\Entry;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\CloneEntryTransformer;
+
+$rows = (new CloneEntryTransformer('id', 'id-copy'))
+    ->transform(
+        new Rows(
+            Row::create(new Entry\IntegerEntry('id', 1))
+        )
+    );
+
+$this->assertSame(
+    [
+        ['id' => 1, 'id-copy' => 1]
+    ],
+    $rows->toArray()
+);
+```
+
 ## Development
 
 In order to install dependencies please, launch following commands:
