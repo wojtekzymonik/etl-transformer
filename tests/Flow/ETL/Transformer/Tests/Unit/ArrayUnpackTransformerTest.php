@@ -157,6 +157,26 @@ final class ArrayUnpackTransformerTest extends TestCase
         );
     }
 
+    public function test_array_unpack_with_null_as_string() : void
+    {
+        $arrayUnpackTransformer = new ArrayUnpackTransformer('array_entry');
+
+        $rows = (new RemoveEntriesTransformer('array_entry'))->transform(
+            $arrayUnpackTransformer->transform(
+                new Rows(
+                    Row::create(new Row\Entry\ArrayEntry('array_entry', ['status' => 'null']), ),
+                ),
+            )
+        );
+
+        $this->assertEquals(
+            new Rows(
+                Row::create(new Row\Entry\StringEntry('status', 'null')),
+            ),
+            $rows
+        );
+    }
+
     public function test_array_unpack_with_prefix() : void
     {
         $rows = (new ArrayUnpackTransformer('inventory', 'inventory_'))

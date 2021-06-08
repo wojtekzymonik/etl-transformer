@@ -67,11 +67,7 @@ final class NativeEntryFactory implements EntryFactory
              */
             $value = \json_decode($string, true, self::JSON_DEPTH, JSON_THROW_ON_ERROR);
 
-            if (\is_numeric($value)) {
-                return false;
-            }
-
-            return true;
+            return \is_array($value);
         } catch (\Exception $e) {
             return false;
         }
