@@ -419,6 +419,38 @@ $this->assertSame(
 );
 ```
 
+## Transformer - NullStringIntoNullEntry
+
+```php 
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\NullStringIntoNullEntryTransformer;
+
+$transformer = new NullStringIntoNullEntryTransformer('description', 'recommendation');
+
+$rows = $transformer->transform(new Rows(
+    Row::create(
+        new Row\Entry\IntegerEntry('id', 1),
+        new Row\Entry\BooleanEntry('active', false),
+        new Row\Entry\StringEntry('name', 'NULL'),
+        new Row\Entry\StringEntry('description', 'NULL'),
+        new Row\Entry\StringEntry('recommendation', 'null')
+    )
+));
+
+$this->assertSame(
+    [[
+        'id' => 1,
+        'active' => false,
+        'name' => 'NULL',
+        'description' => null,
+        'recommendation' => null,
+    ]],
+    $rows->toArray()
+);
+```
+
 ## Transformer - Clone 
 
 ```php 
