@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-05-25
+## [Unreleased] - 2021-06-08
 
 ### Added
 - [#42](https://github.com/flow-php/etl-transformer/pull/42) - **CallbackRowTransformer** - [@norberttech](https://github.com/norberttech)
@@ -35,6 +35,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [8bdc3e](https://github.com/flow-php/etl-transformer/commit/8bdc3e9a8f9cd818cbc039a6509506bf67a117f1) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [28fd80](https://github.com/flow-php/etl-transformer/commit/28fd805511569804e0c323a9fb1337634bdd3ce6) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [131673](https://github.com/flow-php/etl-transformer/commit/131673e7a794c7c6299bc2547f258c9d84ae82fe) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#39](https://github.com/flow-php/etl-transformer/pull/39) - **RowsFactory create method now expects data** - [@norberttech](https://github.com/norberttech)
@@ -99,6 +100,7 @@
 - [2dcbd9](https://github.com/flow-php/etl-transformer/commit/2dcbd969dd06c3afb3f8bf9d77b9fa3e576ad96c) - **Initial commit** - [@DawidSajdak](https://github.com/DawidSajdak)
 
 ### Fixed
+- [#44](https://github.com/flow-php/etl-transformer/pull/44) - **Treat all non arrays results of json_decode as invalid json in NativeEntryFactory** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#13](https://github.com/flow-php/etl-transformer/pull/13) - **When string value had a `float`-y value, it was incorrectly detecting it as JSON string `TypeError: Argument 2 passed to Flow\ETL\Row\Entry\JsonEntry::__construct() must be of the type array, float given`** - [@wojtekzymonik](https://github.com/wojtekzymonik)
 - [#10](https://github.com/flow-php/etl-transformer/pull/10) - **Removing other entries when using ArrayUnpack** - [@norberttech](https://github.com/norberttech)
 - [#8](https://github.com/flow-php/etl-transformer/pull/8) - **unpacking string numbers** - [@norberttech](https://github.com/norberttech)
