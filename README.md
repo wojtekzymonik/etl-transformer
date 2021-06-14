@@ -42,6 +42,7 @@ Available Filters
 - [EntryNotNull](src/Flow/ETL/Transformer/Filter/Filter/EntryNotNull.php)
 - [EntryNotNumber](src/Flow/ETL/Transformer/Filter/Filter/EntryNotNumber.php)
 - [EntryNumber](src/Flow/ETL/Transformer/Filter/Filter/EntryNumber.php)
+- [EntryExists](src/Flow/ETL/Transformer/Filter/Filter/EntryExists.php)
 - [Opposite](src/Flow/ETL/Transformer/Filter/Filter/Opposite.php)
 
 ## Transformer - RemoveEntriesTransformer
