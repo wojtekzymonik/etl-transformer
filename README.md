@@ -476,6 +476,46 @@ $this->assertSame(
 );
 ```
 
+## Transformer - ObjectMethod
+
+Executes method at other ObjectEntry and create new entry from the result. 
+Origin ObjectEntry is not automatically removed from the Row.
+
+```php 
+
+use Flow\ETL\Exception\RuntimeException;
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ObjectMethodTransformer;
+
+$transformer = new ObjectMethodTransformer('object', 'toArray');
+
+$rows = $transformer->transform(new Rows(
+    Row::create(new Row\Entry\ObjectEntry('object', $object = new class {
+        public function toArray() : array
+        {
+            return [
+                'id' => 1,
+                'name' => 'object'
+            ];
+        }
+    }))
+));
+
+$this->assertSame(
+    [
+        [
+            'object' => $object,
+            'method_entry' => [
+                'id' => 1,
+                'name' => 'object'
+            ]
+        ]
+    ],
+    $rows->toArray()
+);
+```
+
 ## Development
 
 In order to install dependencies please, launch following commands:
