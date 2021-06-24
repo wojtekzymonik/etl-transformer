@@ -550,6 +550,36 @@ Path: `users.?*.id` == `[1]`
 
 Both special selectors, `*` and `?*` can also be escaped `\\*` and `\\?*`.
 
+Additionally, path supports `nullsafe` operator, so basically when we need to extract 
+something from a given path that might even not exist but we want to avoid exception we can 
+use `?` character. 
+
+```
+[
+    'users' => [
+        [
+            'id' => 1,
+            'name' => 'Name'
+        ],
+        [
+            'id' => 1
+        ]
+    ]
+]
+```
+
+Path `users.*.?name` == `['Name', null]`
+
+Same thing can be used to access first array element. 
+
+```
+[
+    'users' => []
+]
+```
+
+Path `users.?0.name` == `nul`
+
 ```php 
 
 use Flow\ETL\Exception\RuntimeException;

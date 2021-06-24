@@ -78,14 +78,27 @@ final class ArrayAccessor
                 $takenSteps[] = $step;
             }
 
+            $nullSafe = false;
+
+            if (\strpos($step, '?') === 0 && $step !== '?*') {
+                $nullSafe = true;
+                $step = \ltrim($step, '?');
+                \array_pop($takenSteps);
+                $takenSteps[] = $step;
+            }
+
             if (!\array_key_exists($step, $arraySlice)) {
-                throw new InvalidArgumentException(
-                    \sprintf(
-                        'Path "%s" does not exists in array "%s".',
-                        $path,
-                        \preg_replace('/\s+/', '', \trim(\var_export($array, true)))
-                    )
-                );
+                if (!$nullSafe) {
+                    throw new InvalidArgumentException(
+                        \sprintf(
+                            'Path "%s" does not exists in array "%s".',
+                            $path,
+                            \preg_replace('/\s+/', '', \trim(\var_export($array, true)))
+                        )
+                    );
+                }
+
+                return null;
             }
 
             /** @var array<mixed> $arraySlice */

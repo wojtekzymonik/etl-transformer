@@ -17,6 +17,13 @@ final class ArrayAccessorTest extends TestCase
         $this->assertFalse(ArrayAccessor::pathExists(['user' => ['id' => 1]], 'invalid_path'));
     }
 
+    public function test_accessing_array_value_by_nullsafe_path() : void
+    {
+        $this->assertNull(ArrayAccessor::value(['user' => ['id' => 1]], 'user.?name'));
+        $this->assertNull(ArrayAccessor::value(['user' => ['role' => ['name' => 'admin']]], 'user.?wrong_path.name'));
+        $this->assertNull(ArrayAccessor::value(['users' => []], 'users.?0.name'));
+    }
+
     public function test_accessing_nested_array_value_by_numeric_path() : void
     {
         $this->assertSame(ArrayAccessor::value(['users' => [['user' => ['id' => 1]]]], 'users.0.user.id'), 1);
@@ -93,6 +100,17 @@ final class ArrayAccessorTest extends TestCase
         );
     }
 
+    public function test_accessing_array_scalar_value_by_path_with_asterix_and_different_elements_using_nullsafe() : void
+    {
+        $this->assertSame(
+            ['Michael', null],
+            ArrayAccessor::value(
+                ['users' => [['user' => ['id' => 1, 'name' => 'Michael']], ['user' => ['id' => 2]]]],
+                'users.*.user.?name'
+            ),
+        );
+    }
+
     public function test_accessing_array_scalar_value_by_path_with_escaped_nullable_asterix() : void
     {
         $this->assertSame(
@@ -118,6 +136,26 @@ final class ArrayAccessorTest extends TestCase
                 ],
                 ],
                 'transactions.*.packages.*.label_id'
+            ),
+        );
+    }
+
+    public function test_accessing_array_scalar_value_by_path_multiple_asterix_paths_with_nullsafe() : void
+    {
+        $this->assertSame(
+            [
+                ['12345', '22222'],
+                ['3333'],
+                [null],
+            ],
+            ArrayAccessor::value(
+                ['transactions' => [
+                    ['id' => 1, 'packages' => [['label_id' => '12345'], ['label_id' => '22222']]],
+                    ['id' => 1, 'packages' => [['label_id' => '3333']]],
+                    ['id' => 1, 'packages' => [['foo' => 'bar']]],
+                ],
+                ],
+                'transactions.*.packages.*.?label_id'
             ),
         );
     }
