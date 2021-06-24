@@ -551,6 +551,42 @@ $this->assertEquals(
 );
 ```
 
+
+## Transformer - StringConcat
+
+Entries that are not StringEntry type will be skipped even if entry exists
+
+```php 
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\StringContactTransformer;
+
+$transformer = new StringContactTransformer([
+    'id', 'first_name', 'last_name'
+]);
+
+$rows = $transformer->transform(new Rows(
+    Row::create(
+        new Row\Entry\StringEntry('id', '1'),
+        new Row\Entry\StringEntry('first_name', 'Norbert'),
+        new Row\Entry\StringEntry('last_name', 'Orzechowicz'),
+    )
+));
+
+$this->assertSame(
+    [
+        [
+            'id' => '1',
+            'first_name' => 'Norbert',
+            'last_name' => 'Orzechowicz',
+            'element' => '1 Norbert Orzechowicz'
+        ]
+    ],
+    $rows->toArray()
+);
+```
+
 ## Development
 
 In order to install dependencies please, launch following commands:
