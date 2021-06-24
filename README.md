@@ -516,6 +516,41 @@ $this->assertSame(
 );
 ```
 
+## Transformer - ArrayAccessor
+
+Access ArrayEntry value by path in dot notation and create new entry from result.
+When strictPath parameter is set to false it creates NullEntry even if path is invalid.
+
+```php 
+
+use Flow\ETL\Exception\RuntimeException;
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ObjectMethodTransformer;
+
+$transformer = new ObjectMethodTransformer('object', 'toArray');
+
+$arrayAccessorTransformer = new ArrayAccessorTransformer('array_entry', 'array.foo');
+
+$rows = $arrayAccessorTransformer->transform(
+    new Rows(
+        Row::create(
+            new Row\Entry\ArrayEntry('array_entry', [
+                'id' => 1,
+                'status' => 'PENDING',
+                'enabled' => true,
+                'array' => ['foo' => 'bar'],
+            ]),
+        ),
+    )
+);
+
+$this->assertEquals(
+    new Row\Entry\StringEntry('array.foo', 'bar'),
+    $rows->first()->get('array.foo')
+);
+```
+
 ## Development
 
 In order to install dependencies please, launch following commands:
