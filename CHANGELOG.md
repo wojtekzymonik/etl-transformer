@@ -1,6 +1,7 @@
 ## [Unreleased] - 2021-06-24
 
 ### Added
+- [#57](https://github.com/flow-php/etl-transformer/pull/57) - **nullsafe operator to ArrayAccessor path** - [@norberttech](https://github.com/norberttech)
 - [#56](https://github.com/flow-php/etl-transformer/pull/56) - **ArrayAccessor - * special path character** - [@norberttech](https://github.com/norberttech)
 - [#56](https://github.com/flow-php/etl-transformer/pull/56) - **ArrayAccessor - ?* special path character** - [@norberttech](https://github.com/norberttech)
 - [#54](https://github.com/flow-php/etl-transformer/pull/54) - **StringContactTransformer** - [@norberttech](https://github.com/norberttech)
@@ -42,6 +43,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [bafb5c](https://github.com/flow-php/etl-transformer/commit/bafb5c7bca9fdd34b9609119db2ea1cd8fdf552b) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [eeb79e](https://github.com/flow-php/etl-transformer/commit/eeb79e4cf94629172d872e33ea5ad612d2d1a62b) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [0ed20a](https://github.com/flow-php/etl-transformer/commit/0ed20ab8e307bc36487efb434beff2374690585a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [58ce75](https://github.com/flow-php/etl-transformer/commit/58ce7591a81ac9fff0f62e40187c64872aeaf0f6) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
