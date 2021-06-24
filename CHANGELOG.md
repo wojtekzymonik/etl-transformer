@@ -1,6 +1,7 @@
 ## [Unreleased] - 2021-06-24
 
 ### Added
+- [#54](https://github.com/flow-php/etl-transformer/pull/54) - **StringContactTransformer** - [@norberttech](https://github.com/norberttech)
 - [#53](https://github.com/flow-php/etl-transformer/pull/53) - **ArrayAccessorTransformer** - [@norberttech](https://github.com/norberttech)
 - [#51](https://github.com/flow-php/etl-transformer/pull/51) - **ObjectMethodTransformer** - [@norberttech](https://github.com/norberttech)
 - [#48](https://github.com/flow-php/etl-transformer/pull/48) - **EntryExists filter for FilterRowsTransformer** - [@norberttech](https://github.com/norberttech)
@@ -16,11 +17,11 @@
 - [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - timezone in case it's just a string "2020-01-01 00:00:00"** - [@norberttech](https://github.com/norberttech)
 - [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - to timezone in case string needs to be converted to different tz "2020-01-01 00:00:00+00:00"** - [@norberttech](https://github.com/norberttech)
 - [#33](https://github.com/flow-php/etl-transformer/pull/33) - **added EntryNameCaseConverterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNumber - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNotEquals - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNotNumber - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
-- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNumber - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
-- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Opposite - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Any - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#30](https://github.com/flow-php/etl-transformer/pull/30) - **StringFormatTransformer** - [@norberttech](https://github.com/norberttech)
@@ -39,6 +40,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [58ce75](https://github.com/flow-php/etl-transformer/commit/58ce7591a81ac9fff0f62e40187c64872aeaf0f6) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [30074e](https://github.com/flow-php/etl-transformer/commit/30074eed92f0d95ab590e1e0ded8791e3845be22) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [9275d0](https://github.com/flow-php/etl-transformer/commit/9275d0dce4060aad4b0313b3c2e53de1905f7e36) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [f59dfa](https://github.com/flow-php/etl-transformer/commit/f59dfa37a51699b406bcf842240a6afc6cdfd50a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
