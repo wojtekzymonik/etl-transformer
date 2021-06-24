@@ -40,6 +40,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [0ed20a](https://github.com/flow-php/etl-transformer/commit/0ed20ab8e307bc36487efb434beff2374690585a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [58ce75](https://github.com/flow-php/etl-transformer/commit/58ce7591a81ac9fff0f62e40187c64872aeaf0f6) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [30074e](https://github.com/flow-php/etl-transformer/commit/30074eed92f0d95ab590e1e0ded8791e3845be22) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [9275d0](https://github.com/flow-php/etl-transformer/commit/9275d0dce4060aad4b0313b3c2e53de1905f7e36) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
@@ -110,6 +111,7 @@
 - [2dcbd9](https://github.com/flow-php/etl-transformer/commit/2dcbd969dd06c3afb3f8bf9d77b9fa3e576ad96c) - **Initial commit** - [@DawidSajdak](https://github.com/DawidSajdak)
 
 ### Fixed
+- [#55](https://github.com/flow-php/etl-transformer/pull/55) - **naming for string concat transformer** - [@owsiakl](https://github.com/owsiakl)
 - [#44](https://github.com/flow-php/etl-transformer/pull/44) - **Treat all non arrays results of json_decode as invalid json in NativeEntryFactory** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#13](https://github.com/flow-php/etl-transformer/pull/13) - **When string value had a `float`-y value, it was incorrectly detecting it as JSON string `TypeError: Argument 2 passed to Flow\ETL\Row\Entry\JsonEntry::__construct() must be of the type array, float given`** - [@wojtekzymonik](https://github.com/wojtekzymonik)
 - [#10](https://github.com/flow-php/etl-transformer/pull/10) - **Removing other entries when using ArrayUnpack** - [@norberttech](https://github.com/norberttech)
