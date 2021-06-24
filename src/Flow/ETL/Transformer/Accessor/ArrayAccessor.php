@@ -31,8 +31,53 @@ final class ArrayAccessor
         $pathSteps = \explode('.', $path);
 
         $arraySlice = $array;
+        /** @var array<string> $takenSteps */
+        $takenSteps = [];
 
         foreach ($pathSteps as $step) {
+            $takenSteps[] = $step;
+
+            if ($step === '*') {
+                $stepsLeft = \array_slice($pathSteps, \count($takenSteps), \count($pathSteps));
+                $results = [];
+
+                foreach (\array_keys($arraySlice) as $key) {
+                    /**
+                     * @psalm-suppress MixedAssignment
+                     * @psalm-suppress MixedArgument
+                     */
+                    $results[] = self::value($arraySlice[$key], \implode('.', $stepsLeft));
+                }
+
+                return $results;
+            }
+
+            if ($step === '?*') {
+                $stepsLeft = \array_diff($pathSteps, $takenSteps);
+                $results = [];
+
+                foreach (\array_keys($arraySlice) as $key) {
+                    /**
+                     * @psalm-suppress MixedArgument
+                     */
+                    if (self::pathExists($arraySlice[$key], \implode('.', $stepsLeft))) {
+                        /**
+                         * @psalm-suppress MixedAssignment
+                         * @psalm-suppress MixedArgument
+                         */
+                        $results[] = self::value($arraySlice[$key], \implode('.', $stepsLeft));
+                    }
+                }
+
+                return $results;
+            }
+
+            if (\in_array($step, ['\\*', '\\?*'], true)) {
+                $step = \ltrim($step, '\\');
+                \array_pop($takenSteps);
+                $takenSteps[] = $step;
+            }
+
             if (!\array_key_exists($step, $arraySlice)) {
                 throw new InvalidArgumentException(
                     \sprintf(

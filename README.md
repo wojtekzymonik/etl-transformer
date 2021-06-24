@@ -521,6 +521,35 @@ $this->assertSame(
 Access ArrayEntry value by path in dot notation and create new entry from result.
 When strictPath parameter is set to false it creates NullEntry even if path is invalid.
 
+Path allows using wildcards `*` in order to extract values from collections.
+
+```
+[
+    "users" => [
+        ["id" => 1],
+        ["id" => 2]
+    ]
+]
+```
+
+Path: `users.*.id` == `[1, 2]`
+
+When not all elements of the collection have same structure, use `?*` to avoid
+throwing invalid path exception and.
+
+```
+[
+    "users" => [
+        ["id" => 1],
+        ["empty" => true]
+    ]
+]
+```
+
+Path: `users.?*.id` == `[1]`
+
+Both special selectors, `*` and `?*` can also be escaped `\\*` and `\\?*`.
+
 ```php 
 
 use Flow\ETL\Exception\RuntimeException;
