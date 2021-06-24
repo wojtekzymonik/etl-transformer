@@ -6,14 +6,14 @@ namespace Flow\ETL\Transformer\Tests\Unit;
 
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
-use Flow\ETL\Transformer\StringContactTransformer;
+use Flow\ETL\Transformer\StringConcatTransformer;
 use PHPUnit\Framework\TestCase;
 
-final class StringContactTransformerTest extends TestCase
+final class StringConcatTransformerTest extends TestCase
 {
     public function test_string_contact() : void
     {
-        $transformer = new StringContactTransformer([
+        $transformer = new StringConcatTransformer([
             'id', 'first_name', 'last_name',
         ]);
 
@@ -40,7 +40,7 @@ final class StringContactTransformerTest extends TestCase
 
     public function test_string_contact_with_non_string_value() : void
     {
-        $transformer = new StringContactTransformer([
+        $transformer = new StringConcatTransformer([
             'id', 'first_name', 'last_name',
         ]);
 

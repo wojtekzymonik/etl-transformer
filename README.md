@@ -560,9 +560,9 @@ Entries that are not StringEntry type will be skipped even if entry exists
 
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
-use Flow\ETL\Transformer\StringContactTransformer;
+use Flow\ETL\Transformer\StringConcatTransformer;
 
-$transformer = new StringContactTransformer([
+$transformer = new StringConcatTransformer([
     'id', 'first_name', 'last_name'
 ]);
 

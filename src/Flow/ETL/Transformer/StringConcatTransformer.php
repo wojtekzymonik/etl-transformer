@@ -11,7 +11,7 @@ use Flow\ETL\Transformer;
 /**
  * @psalm-immutable
  */
-final class StringContactTransformer implements Transformer
+final class StringConcatTransformer implements Transformer
 {
     /**
      * @var array<string>
