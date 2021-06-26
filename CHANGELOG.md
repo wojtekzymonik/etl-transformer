@@ -43,6 +43,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#60](https://github.com/flow-php/etl-transformer/pull/60) - **Don't remove unpacked entry** - [@tomaszhanc](https://github.com/tomaszhanc)
+- [bc10f0](https://github.com/flow-php/etl-transformer/commit/bc10f0763993ed0f5ceb17246181a3af8e89e26c) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#49](https://github.com/flow-php/etl-transformer/pull/49) - **phpstan/phpstan from 0.12.87 to 0.12.90 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [#50](https://github.com/flow-php/etl-transformer/pull/50) - **vimeo/psalm from 4.7.2 to 4.8.1 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [5269a1](https://github.com/flow-php/etl-transformer/commit/5269a110f5e81603b93cd9da7a5a9223f075e1fd) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
