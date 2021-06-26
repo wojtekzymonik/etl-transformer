@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-06-24
+## [Unreleased] - 2021-06-26
 
 ### Added
 - [#57](https://github.com/flow-php/etl-transformer/pull/57) - **nullsafe operator to ArrayAccessor path** - [@norberttech](https://github.com/norberttech)
@@ -43,6 +43,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [22b6bb](https://github.com/flow-php/etl-transformer/commit/22b6bb966578e50ea17b9ae6a2e90b767fbd3e21) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [bafb5c](https://github.com/flow-php/etl-transformer/commit/bafb5c7bca9fdd34b9609119db2ea1cd8fdf552b) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [eeb79e](https://github.com/flow-php/etl-transformer/commit/eeb79e4cf94629172d872e33ea5ad612d2d1a62b) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [0ed20a](https://github.com/flow-php/etl-transformer/commit/0ed20ab8e307bc36487efb434beff2374690585a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
@@ -116,6 +117,7 @@
 - [2dcbd9](https://github.com/flow-php/etl-transformer/commit/2dcbd969dd06c3afb3f8bf9d77b9fa3e576ad96c) - **Initial commit** - [@DawidSajdak](https://github.com/DawidSajdak)
 
 ### Fixed
+- [#58](https://github.com/flow-php/etl-transformer/pull/58) - **Github Action for checking PR description** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#55](https://github.com/flow-php/etl-transformer/pull/55) - **naming for string concat transformer** - [@owsiakl](https://github.com/owsiakl)
 - [#44](https://github.com/flow-php/etl-transformer/pull/44) - **Treat all non arrays results of json_decode as invalid json in NativeEntryFactory** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#13](https://github.com/flow-php/etl-transformer/pull/13) - **When string value had a `float`-y value, it was incorrectly detecting it as JSON string `TypeError: Argument 2 passed to Flow\ETL\Row\Entry\JsonEntry::__construct() must be of the type array, float given`** - [@wojtekzymonik](https://github.com/wojtekzymonik)
