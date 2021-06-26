@@ -43,6 +43,9 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#49](https://github.com/flow-php/etl-transformer/pull/49) - **phpstan/phpstan from 0.12.87 to 0.12.90 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [#50](https://github.com/flow-php/etl-transformer/pull/50) - **vimeo/psalm from 4.7.2 to 4.8.1 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [5269a1](https://github.com/flow-php/etl-transformer/commit/5269a110f5e81603b93cd9da7a5a9223f075e1fd) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [d36e4f](https://github.com/flow-php/etl-transformer/commit/d36e4f997dd873601e368582177bb1f5e920f015) - **Update README.md** - [@norberttech](https://github.com/norberttech)
 - [310fd5](https://github.com/flow-php/etl-transformer/commit/310fd5bada85d743d32e731c3948bb69a3a84e05) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#52](https://github.com/flow-php/etl-transformer/pull/52) - **phpunit/phpunit from 9.5.4 to 9.5.6 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
