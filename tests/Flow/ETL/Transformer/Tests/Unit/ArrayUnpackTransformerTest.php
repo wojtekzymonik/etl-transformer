@@ -189,6 +189,7 @@ final class ArrayUnpackTransformerTest extends TestCase
         $this->assertSame(
             [
                 [
+                    'inventory' => ['total' => 100, 'available' => 100, 'damaged' => 0],
                     'inventory_total' => 100,
                     'inventory_available' => 100,
                     'inventory_damaged' => 0,

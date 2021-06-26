@@ -9,6 +9,7 @@ use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\ArrayExpandTransformer;
 use Flow\ETL\Transformer\ArrayUnpackTransformer;
+use Flow\ETL\Transformer\RemoveEntriesTransformer;
 use PHPUnit\Framework\TestCase;
 
 final class ArrayExpandTransformerTest extends TestCase
@@ -93,7 +94,9 @@ final class ArrayExpandTransformerTest extends TestCase
                     'float' => 10.01,
                 ],
             ],
-            (new ArrayUnpackTransformer('element'))->transform($rows)->toArray()
+            (new RemoveEntriesTransformer('element'))->transform(
+                (new ArrayUnpackTransformer('element'))->transform($rows)
+            )->toArray()
         );
     }
 
