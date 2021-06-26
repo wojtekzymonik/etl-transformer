@@ -1,6 +1,7 @@
 ## [Unreleased] - 2021-06-26
 
 ### Added
+- [#61](https://github.com/flow-php/etl-transformer/pull/61) - **Add option to skip some entries when unpacking an array with ArrayUnpackTransformer** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#57](https://github.com/flow-php/etl-transformer/pull/57) - **nullsafe operator to ArrayAccessor path** - [@norberttech](https://github.com/norberttech)
 - [#56](https://github.com/flow-php/etl-transformer/pull/56) - **ArrayAccessor - * special path character** - [@norberttech](https://github.com/norberttech)
 - [#56](https://github.com/flow-php/etl-transformer/pull/56) - **ArrayAccessor - ?* special path character** - [@norberttech](https://github.com/norberttech)
@@ -20,13 +21,13 @@
 - [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - timezone in case it's just a string "2020-01-01 00:00:00"** - [@norberttech](https://github.com/norberttech)
 - [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - to timezone in case string needs to be converted to different tz "2020-01-01 00:00:00+00:00"** - [@norberttech](https://github.com/norberttech)
 - [#33](https://github.com/flow-php/etl-transformer/pull/33) - **added EntryNameCaseConverterTransformer** - [@norberttech](https://github.com/norberttech)
-- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNotEquals - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNumber - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNotEquals - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **EntryNotNumber - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
-- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Any - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Opposite - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
-- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **All - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
+- [#32](https://github.com/flow-php/etl-transformer/pull/32) - **Any - Filter for FilterTransformer** - [@norberttech](https://github.com/norberttech)
 - [#30](https://github.com/flow-php/etl-transformer/pull/30) - **StringFormatTransformer** - [@norberttech](https://github.com/norberttech)
 - [#29](https://github.com/flow-php/etl-transformer/pull/29) - **ArrayExpandTransformer** - [@norberttech](https://github.com/norberttech)
 - [#26](https://github.com/flow-php/etl-transformer/pull/26) - **Added Callback Entry transformer** - [@pambuk](https://github.com/pambuk)
@@ -43,6 +44,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [f09c67](https://github.com/flow-php/etl-transformer/commit/f09c670f4ca07a2c7c6e2bd5a8d0b87fa43163a5) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#60](https://github.com/flow-php/etl-transformer/pull/60) - **Don't remove unpacked entry** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [bc10f0](https://github.com/flow-php/etl-transformer/commit/bc10f0763993ed0f5ceb17246181a3af8e89e26c) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#49](https://github.com/flow-php/etl-transformer/pull/49) - **phpstan/phpstan from 0.12.87 to 0.12.90 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
