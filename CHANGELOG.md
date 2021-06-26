@@ -43,6 +43,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#59](https://github.com/flow-php/etl-transformer/pull/59) - **Extracted ArrayAccessor into array-dot repository** - [@norberttech](https://github.com/norberttech)
+- [d724cf](https://github.com/flow-php/etl-transformer/commit/d724cfdad49e92d769ecac9ff839bb1f738a19fa) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [22b6bb](https://github.com/flow-php/etl-transformer/commit/22b6bb966578e50ea17b9ae6a2e90b767fbd3e21) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [bafb5c](https://github.com/flow-php/etl-transformer/commit/bafb5c7bca9fdd34b9609119db2ea1cd8fdf552b) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [eeb79e](https://github.com/flow-php/etl-transformer/commit/eeb79e4cf94629172d872e33ea5ad612d2d1a62b) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
