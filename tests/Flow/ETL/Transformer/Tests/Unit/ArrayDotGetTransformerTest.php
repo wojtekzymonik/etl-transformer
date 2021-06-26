@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace Flow\ETL\Transformer\Tests\Unit;
 
-use Flow\ETL\Exception\InvalidArgumentException;
+use Flow\ArrayDot\Exception\InvalidPathException;
 use Flow\ETL\Exception\RuntimeException;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
-use Flow\ETL\Transformer\ArrayAccessorTransformer;
+use Flow\ETL\Transformer\ArrayDotGetTransformer;
 use PHPUnit\Framework\TestCase;
 
-final class ArrayAccessorTransformerTest extends TestCase
+final class ArrayDotGetTransformerTest extends TestCase
 {
     public function test_array_access_for_not_array_entry() : void
     {
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('integer_entry is not ArrayEntry but Flow\ETL\Row\Entry\IntegerEntry');
 
-        $arrayUnpackTransformer = new ArrayAccessorTransformer('integer_entry', 'invalid_path');
+        $arrayUnpackTransformer = new ArrayDotGetTransformer('integer_entry', 'invalid_path');
 
         $arrayUnpackTransformer->transform(
             new Rows(
@@ -31,7 +31,7 @@ final class ArrayAccessorTransformerTest extends TestCase
 
     public function test_array_accessor_transformer() : void
     {
-        $arrayAccessorTransformer = new ArrayAccessorTransformer('array_entry', 'array.foo');
+        $arrayAccessorTransformer = new ArrayDotGetTransformer('array_entry', 'array.foo');
 
         $rows = $arrayAccessorTransformer->transform(
             new Rows(
@@ -54,9 +54,9 @@ final class ArrayAccessorTransformerTest extends TestCase
 
     public function test_array_accessor_transformer_with_invalid_but_strict_path() : void
     {
-        $arrayAccessorTransformer = new ArrayAccessorTransformer('array_entry', 'invalid_path', true);
+        $arrayAccessorTransformer = new ArrayDotGetTransformer('array_entry', 'invalid_path', true);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidPathException::class);
         $this->expectExceptionMessage('Path "invalid_path" does not exists in array ');
 
         $rows = $arrayAccessorTransformer->transform(
@@ -76,7 +76,7 @@ final class ArrayAccessorTransformerTest extends TestCase
 
     public function test_array_accessor_transformer_with_invalid_and_without_strict_path() : void
     {
-        $arrayAccessorTransformer = new ArrayAccessorTransformer('array_entry', 'invalid_path', false);
+        $arrayAccessorTransformer = new ArrayDotGetTransformer('array_entry', 'invalid_path', false);
 
         $rows = $arrayAccessorTransformer->transform(
             new Rows(

@@ -516,69 +516,9 @@ $this->assertSame(
 );
 ```
 
-## Transformer - ArrayAccessor
+## Transformer - ArrayDotGet
 
-Access ArrayEntry value by path in dot notation and create new entry from result.
-When strictPath parameter is set to false it creates NullEntry even if path is invalid.
-
-Path allows using wildcards `*` in order to extract values from collections.
-
-```
-[
-    "users" => [
-        ["id" => 1],
-        ["id" => 2]
-    ]
-]
-```
-
-Path: `users.*.id` == `[1, 2]`
-
-When not all elements of the collection have same structure, use `?*` to avoid
-throwing invalid path exception and.
-
-```
-[
-    "users" => [
-        ["id" => 1],
-        ["empty" => true]
-    ]
-]
-```
-
-Path: `users.?*.id` == `[1]`
-
-Both special selectors, `*` and `?*` can also be escaped `\\*` and `\\?*`.
-
-Additionally, path supports `nullsafe` operator, so basically when we need to extract 
-something from a given path that might even not exist but we want to avoid exception we can 
-use `?` character. 
-
-```
-[
-    'users' => [
-        [
-            'id' => 1,
-            'name' => 'Name'
-        ],
-        [
-            'id' => 1
-        ]
-    ]
-]
-```
-
-Path `users.*.?name` == `['Name', null]`
-
-Same thing can be used to access first array element. 
-
-```
-[
-    'users' => []
-]
-```
-
-Path `users.?0.name` == `nul`
+Read more about dot notation in [flow-php/array-dot](https://github.com/flow-php/array-dot) doumentation.
 
 ```php 
 
@@ -589,9 +529,9 @@ use Flow\ETL\Transformer\ObjectMethodTransformer;
 
 $transformer = new ObjectMethodTransformer('object', 'toArray');
 
-$arrayAccessorTransformer = new ArrayAccessorTransformer('array_entry', 'array.foo');
+$arrayDotGetTransformer = new ArrayDotGetTransformer('array_entry', 'array.foo');
 
-$rows = $arrayAccessorTransformer->transform(
+$rows = $arrayDotGetTransformer->transform(
     new Rows(
         Row::create(
             new Row\Entry\ArrayEntry('array_entry', [

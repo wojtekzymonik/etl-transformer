@@ -8,6 +8,7 @@
     "require": {
         "php": "^7.4 | ^8.0",
         "ext-json": "*",
+        "flow-php/array-dot": "^1.0@dev",
         "flow-php/etl": "^1.0@dev"
     },
     "require-dev": {

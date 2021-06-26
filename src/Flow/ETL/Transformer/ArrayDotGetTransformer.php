@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Flow\ETL\Transformer;
 
+use function Flow\ArrayDot\array_dot_exists;
+use function Flow\ArrayDot\array_dot_get;
 use Flow\ETL\Exception\RuntimeException;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
@@ -13,7 +15,7 @@ use Flow\ETL\Transformer\Factory\NativeEntryFactory;
 /**
  * @psalm-immutable
  */
-final class ArrayAccessorTransformer implements Transformer
+final class ArrayDotGetTransformer implements Transformer
 {
     private string $arrayEntryName;
 
@@ -49,14 +51,14 @@ final class ArrayAccessorTransformer implements Transformer
                 throw new RuntimeException("{$this->arrayEntryName} is not ArrayEntry but {$entryClass}");
             }
 
-            if ($this->strictPath === false && !Transformer\Accessor\ArrayAccessor::pathExists($arrayEntry->value(), $this->path)) {
+            if ($this->strictPath === false && !array_dot_exists($arrayEntry->value(), $this->path)) {
                 return $row->add(new Row\Entry\NullEntry($this->path));
             }
 
             return $row->add(
                 $this->entryFactory->createEntry(
                     $this->path,
-                    Transformer\Accessor\ArrayAccessor::value($arrayEntry->value(), $this->path)
+                    array_dot_get($arrayEntry->value(), $this->path)
                 )
             );
         };

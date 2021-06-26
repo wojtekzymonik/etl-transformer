@@ -4,8 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e151b1f2d417f094ac2e4549e9d4ff53",
+    "content-hash": "9ab9a63b2d4a0b528e32537e7efa2f4f",
     "packages": [
+        {
+            "name": "flow-php/array-dot",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flow-php/array-dot.git",
+                "reference": "1b30800beb00e2772790a99331bf9708e289925f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flow-php/array-dot/zipball/1b30800beb00e2772790a99331bf9708e289925f",
+                "reference": "1b30800beb00e2772790a99331bf9708e289925f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 | ^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Flow\\": [
+                        "src/Flow"
+                    ]
+                },
+                "files": [
+                    "src/Flow/ArrayDot/array_dot.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP ETL - Array Dot fuctions",
+            "keywords": [
+                "array",
+                "dot",
+                "etl",
+                "extract",
+                "filter",
+                "load",
+                "transform"
+            ],
+            "support": {
+                "issues": "https://github.com/flow-php/array-dot/issues",
+                "source": "https://github.com/flow-php/array-dot/tree/1.x"
+            },
+            "time": "2021-06-26T16:05:11+00:00"
+        },
         {
             "name": "flow-php/etl",
             "version": "1.x-dev",
@@ -366,6 +415,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "flow-php/array-dot": 20,
         "flow-php/etl": 20,
         "flow-php/etl-adapter-json": 20
     },
