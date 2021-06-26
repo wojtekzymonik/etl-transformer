@@ -179,7 +179,7 @@ final class ArrayUnpackTransformerTest extends TestCase
 
     public function test_array_unpack_with_prefix() : void
     {
-        $rows = (new ArrayUnpackTransformer('inventory', 'inventory_'))
+        $rows = (new ArrayUnpackTransformer('inventory', [], 'inventory_'))
             ->transform(
                 new Rows(
                     Row::create(new Row\Entry\ArrayEntry('inventory', ['total' => 100, 'available' => 100, 'damaged' => 0]))
@@ -193,6 +193,26 @@ final class ArrayUnpackTransformerTest extends TestCase
                     'inventory_total' => 100,
                     'inventory_available' => 100,
                     'inventory_damaged' => 0,
+                ],
+            ],
+            $rows->toArray()
+        );
+    }
+
+    public function test_array_unpack_with_skipped_entries() : void
+    {
+        $rows = (new ArrayUnpackTransformer('inventory', ['available', 'damaged']))
+            ->transform(
+                new Rows(
+                    Row::create(new Row\Entry\ArrayEntry('inventory', ['total' => 100, 'available' => 100, 'damaged' => 0]))
+                )
+            );
+
+        $this->assertSame(
+            [
+                [
+                    'inventory' => ['total' => 100, 'available' => 100, 'damaged' => 0],
+                    'total' => 100,
                 ],
             ],
             $rows->toArray()
