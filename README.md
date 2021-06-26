@@ -527,8 +527,6 @@ use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\ObjectMethodTransformer;
 
-$transformer = new ObjectMethodTransformer('object', 'toArray');
-
 $arrayDotGetTransformer = new ArrayDotGetTransformer('array_entry', 'array.foo');
 
 $rows = $arrayDotGetTransformer->transform(
