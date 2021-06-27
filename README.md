@@ -45,6 +45,85 @@ Available Filters
 - [EntryExists](src/Flow/ETL/Transformer/Filter/Filter/EntryExists.php)
 - [Opposite](src/Flow/ETL/Transformer/Filter/Filter/Opposite.php)
 
+## Transformer - Conditional
+
+Transforms only those Rows that met given condition. 
+
+```php 
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ChainTransformer;
+use Flow\ETL\Transformer\Condition\All;
+use Flow\ETL\Transformer\Condition\EntryValueEqualsTo;
+use Flow\ETL\Transformer\ConditionalTransformer;
+use Flow\ETL\Transformer\NewStaticEntryTransformer;
+
+$transformer = new ChainTransformer(
+    new ConditionalTransformer(
+        new All(
+            new EntryValueEqualsTo('first_name', 'Michael'),
+            new EntryValueEqualsTo('last_name', 'Jackson'),
+        ),
+        new NewStaticEntryTransformer(new Row\Entry\StringEntry('profession', 'singer'))
+    ),
+    new ConditionalTransformer(
+        new All(
+            new EntryValueEqualsTo('first_name', 'Rocky'),
+            new EntryValueEqualsTo('last_name', 'Balboa'),
+        ),
+        new NewStaticEntryTransformer(new Row\Entry\StringEntry('profession', 'boxer'))
+    )
+);
+
+$rows = new Rows(
+    Row::create(
+        new Row\Entry\IntegerEntry('id', 1),
+        new Row\Entry\StringEntry('first_name', 'Michael'),
+        new Row\Entry\StringEntry('last_name', 'Jackson'),
+    ),
+    Row::create(
+        new Row\Entry\IntegerEntry('id', 2),
+        new Row\Entry\StringEntry('first_name', 'Rocky'),
+        new Row\Entry\StringEntry('last_name', 'Balboa'),
+    )
+);
+
+$this->assertSame(
+    [
+        [
+            'id' => 1,
+            'first_name' => 'Michael',
+            'last_name' => 'Jackson',
+            'profession' => 'singer',
+        ],
+        [
+            'id' => 2,
+            'first_name' => 'Rocky',
+            'last_name' => 'Balboa',
+            'profession' => 'boxer',
+        ]
+    ],
+    $transformer->transform($rows)->toArray()
+);
+```
+
+Available Conditions 
+
+- [All](src/Flow/ETL/Transformer/Condition/All.php)
+- [Any](src/Flow/ETL/Transformer/Condition/Any.php)
+- [ArrayDotExists](src/Flow/ETL/Transformer/Condition/ArrayDotExists.php)
+- [EntryExists](src/Flow/ETL/Transformer/Condition/EntryExists.php)
+- [EntryInstanceOf](src/Flow/ETL/Transformer/Condition/EntryInstanceOf.php)
+- [EntryNotNull](src/Flow/ETL/Transformer/Condition/EntryNotNull.php)
+- [EntryValueEqualsTo](src/Flow/ETL/Transformer/Condition/EntryValueEqualsTo.php)
+- [EntryValueGreaterOrEqualThan](src/Flow/ETL/Transformer/Condition/EntryValueGreaterOrEqualThan.php)
+- [EntryValueGreaterThan](src/Flow/ETL/Transformer/Condition/EntryValueGreaterThan.php)
+- [EntryValueLessOrEqualThan](src/Flow/ETL/Transformer/Condition/EntryValueLessOrEqualThan.php)
+- [EntryValueLessThan](src/Flow/ETL/Transformer/Condition/EntryValueLessThan.php)
+- [None](src/Flow/ETL/Transformer/Condition/None.php)
+- [Opposite](src/Flow/ETL/Transformer/Condition/Opposite.php)
+
 ## Transformer - RemoveEntriesTransformer
 
 Remove transformers by name from each row.
@@ -579,6 +658,118 @@ $this->assertSame(
             'last_name' => 'Orzechowicz',
             'element' => '1 Norbert Orzechowicz'
         ]
+    ],
+    $rows->toArray()
+);
+```
+
+## Transformer - DynamicEntry 
+
+Used to add dynamic entries to each row
+
+```php
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\DynamicEntryTransformer;
+
+$transformer = new DynamicEntryTransformer(
+    fn (Row $row) : Row\Entries => new Row\Entries(new Row\Entry\DateTimeEntry('updated_at', new \DateTimeImmutable('2020-01-01 00:00:00 UTC')))
+);
+
+$rows = $transformer->transform(new Rows(
+    Row::create(new Row\Entry\IntegerEntry('id', 1)),
+    Row::create(new Row\Entry\IntegerEntry('id', 2)),
+));
+
+$this->assertSame(
+    [
+        ['id' => 1, 'updated_at' => '2020-01-01T00:00:00+00:00'],
+        ['id' => 2, 'updated_at' => '2020-01-01T00:00:00+00:00'],
+    ],
+    $rows->toArray()
+);
+```
+
+
+## Transformer - StaticEntry
+
+Used to add static entry to each row
+
+```php
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\StaticEntryTransformer;
+
+$transformer = new StaticEntryTransformer(
+    new StaticEntryTransformer(new Row\Entry\StringEntry('status', 'active'))
+);
+
+$rows = $transformer->transform(new Rows(
+    Row::create(new Row\Entry\IntegerEntry('id', 1)),
+    Row::create(new Row\Entry\IntegerEntry('id', 2)),
+));
+
+$this->assertSame(
+    [
+        ['id' => 1, 'status' => 'active'],
+        ['id' => 2, 'status' => 'active'],
+    ],
+    $rows->toArray()
+);
+```
+
+## Transformer - Chain
+
+Chains many transformers into one
+
+```php
+
+use Flow\ETL\Transformer\ChainTransformer;
+use Flow\ETL\Transformer\Condition\All;
+use Flow\ETL\Transformer\Condition\EntryValueEqualsTo;
+use Flow\ETL\Transformer\NewStaticEntryTransformer;
+
+$transformer = new ChainTransformer(
+    new ConditionalTransformer(
+        new All(
+            new EntryValueEqualsTo('first_name', 'Michael'),
+            new EntryValueEqualsTo('last_name', 'Jackson'),
+        ),
+        new NewStaticEntryTransformer(new Row\Entry\StringEntry('profession', 'singer'))
+    ),
+    new ConditionalTransformer(
+        new All(
+            new EntryValueEqualsTo('first_name', 'Rocky'),
+            new EntryValueEqualsTo('last_name', 'Balboa'),
+        ),
+        new NewStaticEntryTransformer(new Row\Entry\StringEntry('profession', 'boxer'))
+    )
+);
+```
+
+## Transformer - Clone 
+
+Clone entries 
+
+```php 
+
+use Flow\ETL\Row;
+use Flow\ETL\Row\Entry;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\CloneEntryTransformer;
+
+$rows = (new CloneEntryTransformer('id', 'id-copy'))
+    ->transform(
+        new Rows(
+            Row::create(new Entry\IntegerEntry('id', 1))
+        )
+    );
+
+$this->assertSame(
+    [
+        ['id' => 1, 'id-copy' => 1],
     ],
     $rows->toArray()
 );
