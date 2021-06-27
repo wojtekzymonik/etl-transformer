@@ -1,6 +1,11 @@
 ## [Unreleased] - 2021-06-27
 
 ### Added
+- [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueEqualsTo.php** - [@norberttech](https://github.com/norberttech)
+- [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueGreaterOrEqualThan.php** - [@norberttech](https://github.com/norberttech)
+- [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueGreaterThan.php** - [@norberttech](https://github.com/norberttech)
+- [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueLessOrEqualThan.php** - [@norberttech](https://github.com/norberttech)
+- [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueLessThan.php** - [@norberttech](https://github.com/norberttech)
 - [#63](https://github.com/flow-php/etl-transformer/pull/63) - **ConditionalTransformer** - [@norberttech](https://github.com/norberttech)
 - [#63](https://github.com/flow-php/etl-transformer/pull/63) - **StaticEntryTransformer** - [@norberttech](https://github.com/norberttech)
 - [#61](https://github.com/flow-php/etl-transformer/pull/61) - **Add option to skip some entries when unpacking an array with ArrayUnpackTransformer** - [@tomaszhanc](https://github.com/tomaszhanc)
@@ -46,6 +51,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [cdcb5b](https://github.com/flow-php/etl-transformer/commit/cdcb5b9a637abb35eed267d9a80156821be14393) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [d08399](https://github.com/flow-php/etl-transformer/commit/d0839958e0b78196e6ee9c069c2ea2dcb5205ce4) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#62](https://github.com/flow-php/etl-transformer/pull/62) - **ArrayDotGetTransformer new element name is no longer path but transformer argument** - [@norberttech](https://github.com/norberttech)
 - [616a6b](https://github.com/flow-php/etl-transformer/commit/616a6be7de5e91d3121c6c0806bc477d06bd1626) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
