@@ -47,19 +47,19 @@ final class ArrayDotGetTransformerTest extends TestCase
         );
 
         $this->assertEquals(
-            new Row\Entry\StringEntry('array.foo', 'bar'),
-            $rows->first()->get('array.foo')
+            new Row\Entry\StringEntry('element', 'bar'),
+            $rows->first()->get('element')
         );
     }
 
     public function test_array_accessor_transformer_with_invalid_but_strict_path() : void
     {
-        $arrayAccessorTransformer = new ArrayDotGetTransformer('array_entry', 'invalid_path', true);
+        $arrayAccessorTransformer = new ArrayDotGetTransformer('array_entry', 'invalid_path');
 
         $this->expectException(InvalidPathException::class);
         $this->expectExceptionMessage('Path "invalid_path" does not exists in array ');
 
-        $rows = $arrayAccessorTransformer->transform(
+        $arrayAccessorTransformer->transform(
             new Rows(
                 Row::create(
                     new Row\Entry\ArrayEntry('array_entry', [
@@ -76,7 +76,7 @@ final class ArrayDotGetTransformerTest extends TestCase
 
     public function test_array_accessor_transformer_with_invalid_and_without_strict_path() : void
     {
-        $arrayAccessorTransformer = new ArrayDotGetTransformer('array_entry', 'invalid_path', false);
+        $arrayAccessorTransformer = new ArrayDotGetTransformer('array_entry', '?invalid_path');
 
         $rows = $arrayAccessorTransformer->transform(
             new Rows(
@@ -93,8 +93,8 @@ final class ArrayDotGetTransformerTest extends TestCase
         );
 
         $this->assertEquals(
-            new Row\Entry\NullEntry('invalid_path'),
-            $rows->first()->get('invalid_path')
+            new Row\Entry\NullEntry('element'),
+            $rows->first()->get('element')
         );
     }
 }
