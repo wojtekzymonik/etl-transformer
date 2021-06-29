@@ -1,6 +1,7 @@
 ## [Unreleased] - 2021-06-29
 
 ### Added
+- [#67](https://github.com/flow-php/etl-transformer/pull/67) - **ArraySortTransformer** - [@norberttech](https://github.com/norberttech)
 - [#66](https://github.com/flow-php/etl-transformer/pull/66) - **possibility to cast array entry each element using any available ValueCaster** - [@norberttech](https://github.com/norberttech)
 - [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueEqualsTo.php** - [@norberttech](https://github.com/norberttech)
 - [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueGreaterOrEqualThan.php** - [@norberttech](https://github.com/norberttech)
@@ -11,8 +12,8 @@
 - [#63](https://github.com/flow-php/etl-transformer/pull/63) - **StaticEntryTransformer** - [@norberttech](https://github.com/norberttech)
 - [#61](https://github.com/flow-php/etl-transformer/pull/61) - **Add option to skip some entries when unpacking an array with ArrayUnpackTransformer** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#57](https://github.com/flow-php/etl-transformer/pull/57) - **nullsafe operator to ArrayAccessor path** - [@norberttech](https://github.com/norberttech)
-- [#56](https://github.com/flow-php/etl-transformer/pull/56) - **ArrayAccessor - * special path character** - [@norberttech](https://github.com/norberttech)
 - [#56](https://github.com/flow-php/etl-transformer/pull/56) - **ArrayAccessor - ?* special path character** - [@norberttech](https://github.com/norberttech)
+- [#56](https://github.com/flow-php/etl-transformer/pull/56) - **ArrayAccessor - * special path character** - [@norberttech](https://github.com/norberttech)
 - [#54](https://github.com/flow-php/etl-transformer/pull/54) - **StringContactTransformer** - [@norberttech](https://github.com/norberttech)
 - [#53](https://github.com/flow-php/etl-transformer/pull/53) - **ArrayAccessorTransformer** - [@norberttech](https://github.com/norberttech)
 - [#51](https://github.com/flow-php/etl-transformer/pull/51) - **ObjectMethodTransformer** - [@norberttech](https://github.com/norberttech)
@@ -52,6 +53,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [d3fcd3](https://github.com/flow-php/etl-transformer/commit/d3fcd34ec14a05eb2d26515f86e8a5d3a58275b7) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [0f4fad](https://github.com/flow-php/etl-transformer/commit/0f4fad0ce8399556daeeaaadd76c13d572ddf771) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [cdcb5b](https://github.com/flow-php/etl-transformer/commit/cdcb5b9a637abb35eed267d9a80156821be14393) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [d08399](https://github.com/flow-php/etl-transformer/commit/d0839958e0b78196e6ee9c069c2ea2dcb5205ce4) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
