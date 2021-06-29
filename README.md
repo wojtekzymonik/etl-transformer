@@ -182,10 +182,39 @@ $this->assertSame(
 );
 ```
 
+## Transformer - ArrayReverse
+
+```php
+use Flow\ETL\Row;
+use Flow\ETL\Row\Entry\ArrayEntry;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ArrayReverseTransformer;
+
+$arrayEntry = new ArrayEntry(
+    'array',
+    [
+        5,
+        3,
+        10,
+        4,
+    ]
+);
+
+$transformer = new ArrayReverseTransformer('array', \SORT_REGULAR);
+
+$this->assertSame(
+    [
+        [
+            'array' => [4, 10, 3, 5],
+        ],
+    ],
+    $transformer->transform(new Rows(Row::create($arrayEntry)))->toArray()
+);
+```
+
 ## Transformer - ArrayMerge
 
 ```php
-
 use Flow\ETL\Row;
 use Flow\ETL\Row\Entry\ArrayEntry;
 use Flow\ETL\Rows;
