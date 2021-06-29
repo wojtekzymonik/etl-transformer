@@ -151,7 +151,38 @@ $transformer->transform(
 );
 ```
 
-## Transformer - ArrayUnpackTransformer
+## Transformer - ArraySort
+
+```php
+
+use Flow\ETL\Row;
+use Flow\ETL\Row\Entry\ArrayEntry;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ArraySortTransformer;
+
+$arrayEntry = new ArrayEntry(
+    'array',
+    [
+        5,
+        3,
+        10,
+        4
+    ]
+);
+
+$transformer = new ArraySortTransformer('array', \SORT_REGULAR);
+
+$this->assertSame(
+    [
+        [
+            'array' => [3, 4, 5, 10]
+        ]
+    ],
+    $transformer->transform(new Rows(Row::create($arrayEntry)))->toArray()
+);
+```
+
+## Transformer - ArrayUnpack
 
 Unpacks ArrayEntry into dedicated Entries detecting each array element type.
 
