@@ -14,47 +14,26 @@ use Flow\ETL\Transformer;
 final class CastTransformer implements Transformer
 {
     /**
-     * @var Cast\CastEntry[]
+     * @var Cast\CastRow[]
      */
-    private array $castEntries;
+    private array $rowCasts;
 
-    public function __construct(Transformer\Cast\CastEntry ...$castEntries)
+    public function __construct(Transformer\Cast\CastRow ...$rowCasts)
     {
-        $this->castEntries = $castEntries;
+        $this->rowCasts = $rowCasts;
     }
 
-    /**
-     * @psalm-suppress MixedAssignment
-     * @psalm-suppress InvalidStringClass
-     * @psalm-suppress ArgumentTypeCoercion
-     */
     public function transform(Rows $rows) : Rows
     {
-        foreach ($this->castEntries as $castEntry) {
-            foreach ($castEntry->entryNames() as $entryName) {
-                $rows = $rows->map(
-                    function (Row $row) use ($castEntry, $entryName) : Row {
-                        if ($row->entries()->has($entryName)) {
-                            $entry = $row->entries()->get($entryName);
-                            $newEntryClass = $castEntry->newClass();
-
-                            if ($castEntry->isNullable() && $entry instanceof Row\Entry\NullEntry) {
-                                return $row;
-                            }
-
-                            $newValue = $castEntry->cast()($entry->value());
-
-                            return (new Row($row->entries()->remove($entry->name())))->add(
-                                new $newEntryClass($entry->name(), $newValue, ...$castEntry->extraArguments())
-                            );
-                        }
-
-                        return $row;
-                    }
-                );
+        /** @psalm-var pure-callable(Row $row) : Row $transformer */
+        $transformer = function (Row $row) : Row {
+            foreach ($this->rowCasts as $caster) {
+                $row = $caster->cast($row);
             }
-        }
 
-        return $rows;
+            return $row;
+        };
+
+        return $rows->map($transformer);
     }
 }

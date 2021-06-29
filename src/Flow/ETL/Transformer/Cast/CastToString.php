@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace Flow\ETL\Transformer\Cast;
 
-use Flow\ETL\Row\Entry\StringEntry;
+use Flow\ETL\Transformer\Cast\EntryCaster\AnyToStringEntryCaster;
 
-final class CastToString extends CastEntry
+/**
+ * @psalm-immutable
+ */
+final class CastToString extends CastEntries
 {
     /**
      * @param array<string> $entryNames
      * @param bool $nullable
-     *
-     * @throws \Flow\ETL\Exception\InvalidArgumentException
      */
     public function __construct(array $entryNames, bool $nullable = false)
     {
-        /** @psalm-suppress MissingClosureParamType */
-        parent::__construct($entryNames, StringEntry::class, [], $nullable, fn ($value) : string => (string) $value);
+        parent::__construct($entryNames, new AnyToStringEntryCaster(), $nullable);
     }
 
     /**

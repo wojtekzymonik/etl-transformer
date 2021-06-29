@@ -2,15 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Transformer\Cast;
+namespace Flow\ETL\Transformer\Cast\EntryCaster;
 
-use Flow\ETL\Transformer\Cast\EntryCaster\StringToDateTimeEntryCaster;
+use Flow\ETL\Row\Entry;
+use Flow\ETL\Row\Entry\DateTimeEntry;
+use Flow\ETL\Transformer\Cast\EntryCaster;
+use Flow\ETL\Transformer\Cast\ValueCaster;
 
 /**
  * @psalm-immutable
  */
-final class CastToDateTime extends CastEntries
+final class StringToDateTimeEntryCaster implements EntryCaster
 {
+    private string $format;
+
+    private ValueCaster $valueCaster;
+
     /**
      * $timezone - this value should be used for datetime values that does not come with explicit tz to avoid using system default.
      * For example when the datetime is "2020-01-01 00:00:00" and we know that it's utc, then $timeZone should be set to 'UTC'.
@@ -20,25 +27,23 @@ final class CastToDateTime extends CastEntries
      * If datetime comes without origin timezone, like for example '2020-01-01 00:00:00' but we know it's UTC
      * and we want to cast it to 'America/Los_Angeles' use $timeZone = 'UTC' and $toTimeZone = 'America/Los_Angeles'.
      *
-     * @param array<string> $entryNames
      * @param string $format
      * @param null|string $timeZone
      * @param null|string $toTimeZone
-     * @param bool $nullable
      */
-    public function __construct(array $entryNames, string $format, ?string $timeZone = null, ?string $toTimeZone = null, bool $nullable = false)
+    public function __construct(string $format, ?string $timeZone = null, ?string $toTimeZone = null)
     {
-        parent::__construct($entryNames, new StringToDateTimeEntryCaster($format, $timeZone, $toTimeZone), $nullable);
+        $this->valueCaster = new ValueCaster\StringToDateTimeCaster($timeZone, $toTimeZone);
+        $this->format = $format;
     }
 
-    /**
-     * @param array<string> $entryNames
-     * @param string $format
-     * @param null|string $timeZone
-     * @param null|string $toTimeZone
-     */
-    public static function nullable(array $entryNames, string $format, ?string $timeZone = null, ?string $toTimeZone = null) : self
+    public function cast(Entry $entry) : Entry
     {
-        return new self($entryNames, $format, $timeZone, $toTimeZone, true);
+        /** @psalm-suppress MixedArgument */
+        return new DateTimeEntry(
+            $entry->name(),
+            $this->valueCaster->cast($entry->value()),
+            $this->format
+        );
     }
 }
