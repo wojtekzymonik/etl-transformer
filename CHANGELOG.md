@@ -1,6 +1,7 @@
-## [Unreleased] - 2021-06-29
+## [Unreleased] - 2021-06-30
 
 ### Added
+- [#70](https://github.com/flow-php/etl-transformer/pull/70) - **MathOperationTransformer** - [@norberttech](https://github.com/norberttech)
 - [#68](https://github.com/flow-php/etl-transformer/pull/68) - **ArrayReverseTransformer** - [@norberttech](https://github.com/norberttech)
 - [#69](https://github.com/flow-php/etl-transformer/pull/69) - **ArrayMergeTransformer** - [@norberttech](https://github.com/norberttech)
 - [#67](https://github.com/flow-php/etl-transformer/pull/67) - **ArraySortTransformer** - [@norberttech](https://github.com/norberttech)
@@ -55,6 +56,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [329ff8](https://github.com/flow-php/etl-transformer/commit/329ff873a02b00fe301433a52eda41664ea1a29f) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [b8f3dd](https://github.com/flow-php/etl-transformer/commit/b8f3dd6cc9a575e9873c5a123b2aa6f1a97813a2) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [255f43](https://github.com/flow-php/etl-transformer/commit/255f430c0302c69d0eb7403ae701e094019a7fed) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [c96873](https://github.com/flow-php/etl-transformer/commit/c968737b5787e1cd40919d8ca41ec4df48d3c1c5) - **dependencies** - [@norberttech](https://github.com/norberttech)
