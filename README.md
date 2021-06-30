@@ -882,6 +882,34 @@ $this->assertSame(
 );
 ```
 
+
+## Transformer - MathOperation
+
+**Warning, do not use for operations that require high precision since it's using native php arithmetic operations.**
+
+```php 
+
+use Flow\ETL\Row;
+use Flow\ETL\Row\Entry;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\CloneEntryTransformer;
+
+$leftEntry = new Entry\IntegerEntry('left', 5);
+$rightEntry = new Entry\IntegerEntry('right', 2);
+
+$this->assertSame(
+    [
+        [
+            'left' => $leftEntry->value(),
+            'right' => $rightEntry->value(),
+            'sub' => 2.5,
+        ],
+    ],
+    MathOperationTransformer::sub($leftEntry->name(), $rightEntry->name())
+        ->transform(new Rows(Row::create($leftEntry, $rightEntry)))->toArray()
+);
+```
+
 ## Development
 
 In order to install dependencies please, launch following commands:
