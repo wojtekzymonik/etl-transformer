@@ -466,11 +466,12 @@ composer require jawira/case-converter
 
 ```php
 
+use Flow\ETL\Transformer\CaseConverter\CaseStyles;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\EntryNameCaseConverterTransformer;
 
-$transformer = new EntryNameCaseConverterTransformer(EntryNameCaseConverterTransformer::STYLE_SNAKE);
+$transformer = new EntryNameCaseConverterTransformer(CaseStyles::SNAKE);
 
 $rows = $transformer->transform(new Rows(
     Row::create(
@@ -493,19 +494,99 @@ $this->assertSame(
 Supported styles: 
 
 ``` 
-public const STYLE_CAMEL = 'camel';
-public const STYLE_PASCAL = 'pascal';
-public const STYLE_SNAKE = 'snake';
-public const STYLE_ADA = 'ada';
-public const STYLE_MACRO = 'macro';
-public const STYLE_KEBAB = 'kebab';
-public const STYLE_TRAIN = 'train';
-public const STYLE_COBOL = 'cobol';
-public const STYLE_LOWER = 'lower';
-public const STYLE_UPPER = 'upper';
-public const STYLE_TITLE = 'title';
-public const STYLE_SENTENCE = 'sentence';
-public const STYLE_DOT = 'dot';
+public const CAMEL = 'camel';
+public const PASCAL = 'pascal';
+public const SNAKE = 'snake';
+public const ADA = 'ada';
+public const MACRO = 'macro';
+public const KEBAB = 'kebab';
+public const TRAIN = 'train';
+public const COBOL = 'cobol';
+public const LOWER = 'lower';
+public const UPPER = 'upper';
+public const TITLE = 'title';
+public const SENTENCE = 'sentence';
+public const DOT = 'dot';
+```
+
+For the more details, please visit [jawira/case-converter](https://github.com/jawira/case-converter) documentation.
+
+## Transformer - ArrayKeysCaseConverter
+
+This transformer requires `jawira/case-converter` in the project.
+
+```
+composer require jawira/case-converter
+```
+
+```php
+
+use Flow\ETL\Transformer\CaseConverter\CaseStyles;
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ArrayKeysCaseConverterTransformer;
+
+$transformer = new ArrayKeysCaseConverterTransformer('arrayEntry', CaseStyles::SNAKE);
+
+$rows = $transformer->transform(new Rows(
+    Row::create(
+        new Row\Entry\ArrayEntry(
+            'arrayEntry',
+            [               
+                'variantStatuses' => [
+                    [
+                        'statusId' => 1000,
+                        'statusName' => 'NEW',
+                    ],
+                    [
+                        'statusId' => 2000,
+                        'statusName' => 'ACTIVE',
+                    ],
+                ],
+                'variantName' => 'Variant Name'
+            ],
+        )
+    )
+));
+
+$this->assertSame(
+    [
+        [
+            'arrayEntry' => [
+                'variant_statuses' => [
+                    [
+                        'status_id' => 1000,
+                        'status_name' => 'NEW',
+                    ],
+                    [
+                        'status_id' => 2000,
+                        'status_name' => 'ACTIVE',
+                    ],
+                ],
+                'variant_name' => 'Variant Name',
+            ],
+        ],
+    ],
+    $rows->toArray()
+);
+```
+
+Supported styles:
+
+``` 
+public const CAMEL = 'camel';
+public const PASCAL = 'pascal';
+public const SNAKE = 'snake';
+public const ADA = 'ada';
+public const MACRO = 'macro';
+public const KEBAB = 'kebab';
+public const TRAIN = 'train';
+public const COBOL = 'cobol';
+public const LOWER = 'lower';
+public const UPPER = 'upper';
+public const TITLE = 'title';
+public const SENTENCE = 'sentence';
+public const DOT = 'dot';
 ```
 
 For the more details, please visit [jawira/case-converter](https://github.com/jawira/case-converter) documentation.
