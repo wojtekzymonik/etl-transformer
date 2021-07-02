@@ -59,6 +59,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [95d0e3](https://github.com/flow-php/etl-transformer/commit/95d0e36bc6a8c7980721cd39b10c30057117f4d9) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [817f8c](https://github.com/flow-php/etl-transformer/commit/817f8c09fcab5e637afba2195ed87f2b5446e2ac) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [deeb70](https://github.com/flow-php/etl-transformer/commit/deeb70e30eb0fe7c2158aeea8e2ca695bb0e752a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#71](https://github.com/flow-php/etl-transformer/pull/71) - **Extracted CaseConverter class** - [@tomaszhanc](https://github.com/tomaszhanc)
@@ -160,6 +161,7 @@
 - [2dcbd9](https://github.com/flow-php/etl-transformer/commit/2dcbd969dd06c3afb3f8bf9d77b9fa3e576ad96c) - **Initial commit** - [@DawidSajdak](https://github.com/DawidSajdak)
 
 ### Fixed
+- [#74](https://github.com/flow-php/etl-transformer/pull/74) - **Fix a bug in CastEntries when casting was interrupted on the first NullEntry if the nullable option was enabled** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#58](https://github.com/flow-php/etl-transformer/pull/58) - **Github Action for checking PR description** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#55](https://github.com/flow-php/etl-transformer/pull/55) - **naming for string concat transformer** - [@owsiakl](https://github.com/owsiakl)
 - [#44](https://github.com/flow-php/etl-transformer/pull/44) - **Treat all non arrays results of json_decode as invalid json in NativeEntryFactory** - [@tomaszhanc](https://github.com/tomaszhanc)
