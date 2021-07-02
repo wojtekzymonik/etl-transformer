@@ -31,10 +31,10 @@ final class CasedRowsFactoryTest extends TestCase
     {
         $rows = (new CastedRowsFactory(
             new ArrayRowsFactory(),
-            new CastToDateTime(['blocked_at'], 'Y-m-d H:i:s', 'UTC')
+            new CastToDateTime(['blocked_at'], 'UTC')
         ))->create(
             [
-                ['id' => 2, 'name' => 'John', 'roles' => ['USER'], 'blocked_at' => new \DateTimeImmutable('2020-01-01 00:00:00')],
+                ['id' => 2, 'name' => 'John', 'roles' => ['USER'], 'blocked_at' => '2020-01-01 00:00:00'],
             ]
         );
 

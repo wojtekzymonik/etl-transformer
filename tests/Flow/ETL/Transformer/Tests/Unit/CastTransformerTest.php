@@ -6,7 +6,6 @@ namespace Flow\ETL\Transformer\Tests\Unit;
 
 use Flow\ETL\Row;
 use Flow\ETL\Row\Entry\ArrayEntry;
-use Flow\ETL\Row\Entry\DateEntry;
 use Flow\ETL\Row\Entry\DateTimeEntry;
 use Flow\ETL\Row\Entry\IntegerEntry;
 use Flow\ETL\Row\Entry\JsonEntry;
@@ -15,7 +14,6 @@ use Flow\ETL\Row\Entry\StringEntry;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\Cast\CastJsonToArray;
 use Flow\ETL\Transformer\Cast\CastToArray;
-use Flow\ETL\Transformer\Cast\CastToDate;
 use Flow\ETL\Transformer\Cast\CastToDateTime;
 use Flow\ETL\Transformer\Cast\CastToInteger;
 use Flow\ETL\Transformer\Cast\CastToJson;
@@ -29,12 +27,12 @@ final class CastTransformerTest extends TestCase
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00 UTC');
 
-        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P'));
+        $transformer = new CastTransformer(new CastToDateTime(['date']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
         $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
-        $this->assertSame('2020-01-01 00:00:00.+00:00', $rows->first()->valueOf('date'));
+        $this->assertEquals(new \DateTimeImmutable('2020-01-01 00:00:00.+00:00'), $rows->first()->valueOf('date'));
     }
 
     public function test_datetime_nullable_string_to_datetime_transformer() : void
@@ -55,78 +53,66 @@ final class CastTransformerTest extends TestCase
         $current = new StringEntry('current_date', '2020-01-01 01:00:00 UTC');
         $end = new StringEntry('end_date', '2020-01-01 02:00:00 UTC');
 
-        $transformer = new CastTransformer(new CastToDateTime(['start_date', 'end_date'], 'Y-m-d H:i:s.P'));
+        $transformer = new CastTransformer(new CastToDateTime(['start_date', 'end_date']));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($start, $current, $end))));
 
         $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('start_date'));
-        $this->assertSame('2020-01-01 00:00:00.+00:00', $rows->first()->valueOf('start_date'));
+        $this->assertEquals(new \DateTimeImmutable('2020-01-01 00:00:00.+00:00'), $rows->first()->valueOf('start_date'));
 
         $this->assertInstanceOf(StringEntry::class, $rows->first()->get('current_date'));
-        $this->assertSame('2020-01-01 01:00:00 UTC', $rows->first()->valueOf('current_date'));
+        $this->assertEquals('2020-01-01 01:00:00 UTC', $rows->first()->valueOf('current_date'));
 
         $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('end_date'));
-        $this->assertSame('2020-01-01 02:00:00.+00:00', $rows->first()->valueOf('end_date'));
+        $this->assertEquals(new \DateTimeImmutable('2020-01-01 02:00:00.+00:00'), $rows->first()->valueOf('end_date'));
     }
 
     public function test_datetime_string_without_tz() : void
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00');
 
-        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P', 'America/Los_Angeles'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], 'America/Los_Angeles'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
         $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
-        $this->assertSame('2020-01-01 00:00:00.-08:00', $rows->first()->valueOf('date'));
+        $this->assertEquals(new \DateTimeImmutable('2020-01-01 00:00:00.-08:00'), $rows->first()->valueOf('date'));
     }
 
     public function test_datetime_string_without_tz_to_utc() : void
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00.-08:00');
 
-        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P', null, 'UTC'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], null, 'UTC'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
         $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
-        $this->assertSame('2020-01-01 08:00:00.+00:00', $rows->first()->valueOf('date'));
+        $this->assertEquals(new \DateTimeImmutable('2020-01-01 08:00:00.+00:00'), $rows->first()->valueOf('date'));
     }
 
     public function test_datetime_string_without_tz_to_tz() : void
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00');
 
-        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P', 'UTC', 'America/Los_Angeles'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], 'UTC', 'America/Los_Angeles'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
         $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
-        $this->assertSame('2019-12-31 16:00:00.-08:00', $rows->first()->valueOf('date'));
+        $this->assertEquals(new \DateTimeImmutable('2019-12-31 16:00:00.-08:00'), $rows->first()->valueOf('date'));
     }
 
     public function test_datetime_string_with_tz_to_tz() : void
     {
         $entry = new StringEntry('date', '2020-01-01 00:00:00 UTC');
 
-        $transformer = new CastTransformer(new CastToDateTime(['date'], 'Y-m-d H:i:s.P', null, 'Europe/Warsaw'));
+        $transformer = new CastTransformer(new CastToDateTime(['date'], null, 'Europe/Warsaw'));
 
         $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
 
         $this->assertInstanceOf(DateTimeEntry::class, $rows->first()->get('date'));
-        $this->assertSame('2020-01-01 01:00:00.+01:00', $rows->first()->valueOf('date'));
-    }
-
-    public function test_date_string_to_date_transformer() : void
-    {
-        $entry = new StringEntry('date', '2020-01-01');
-
-        $transformer = new CastTransformer(new CastToDate(['date']));
-
-        $rows = $transformer->transform(new Rows(new Row(new Row\Entries($entry))));
-
-        $this->assertInstanceOf(DateEntry::class, $rows->first()->get('date'));
-        $this->assertSame('2020-01-01', $rows->first()->valueOf('date'));
+        $this->assertEquals(new \DateTimeImmutable('2020-01-01 01:00:00.+01:00'), $rows->first()->valueOf('date'));
     }
 
     public function test_string_to_integer() : void

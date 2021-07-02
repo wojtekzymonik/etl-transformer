@@ -22,10 +22,10 @@ final class DynamicEntryTransformerTest extends TestCase
             Row::create(new Row\Entry\IntegerEntry('id', 2)),
         ));
 
-        $this->assertSame(
+        $this->assertEquals(
             [
-                ['id' => 1, 'updated_at' => '2020-01-01T00:00:00+00:00'],
-                ['id' => 2, 'updated_at' => '2020-01-01T00:00:00+00:00'],
+                ['id' => 1, 'updated_at' => new \DateTimeImmutable('2020-01-01T00:00:00+00:00')],
+                ['id' => 2, 'updated_at' => new \DateTimeImmutable('2020-01-01T00:00:00+00:00')],
             ],
             $rows->toArray()
         );

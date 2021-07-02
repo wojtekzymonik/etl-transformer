@@ -6,7 +6,7 @@ namespace Flow\ETL\Transformer\Tests\Unit\Cast;
 
 use Flow\ETL\Row;
 use Flow\ETL\Row\Entry\StringEntry;
-use Flow\ETL\Transformer\Cast\CastToDate;
+use Flow\ETL\Transformer\Cast\CastToDateTime;
 use PHPUnit\Framework\TestCase;
 
 final class CastToDateTest extends TestCase
@@ -15,9 +15,9 @@ final class CastToDateTest extends TestCase
     {
         $this->assertEquals(
             [
-                'date' => '2020-01-01',
+                'date' => new \DateTimeImmutable('2020-01-01'),
             ],
-            (new CastToDate(['date'], false))->cast(Row::create(new StringEntry('date', '2020-01-01')))->toArray()
+            (new CastToDateTime(['date']))->cast(Row::create(new StringEntry('date', '2020-01-01')))->toArray()
         );
     }
 }

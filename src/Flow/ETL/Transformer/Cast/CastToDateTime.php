@@ -21,24 +21,22 @@ final class CastToDateTime extends CastEntries
      * and we want to cast it to 'America/Los_Angeles' use $timeZone = 'UTC' and $toTimeZone = 'America/Los_Angeles'.
      *
      * @param array<string> $entryNames
-     * @param string $format
      * @param null|string $timeZone
      * @param null|string $toTimeZone
      * @param bool $nullable
      */
-    public function __construct(array $entryNames, string $format, ?string $timeZone = null, ?string $toTimeZone = null, bool $nullable = false)
+    public function __construct(array $entryNames, ?string $timeZone = null, ?string $toTimeZone = null, bool $nullable = false)
     {
-        parent::__construct($entryNames, new StringToDateTimeEntryCaster($format, $timeZone, $toTimeZone), $nullable);
+        parent::__construct($entryNames, new StringToDateTimeEntryCaster($timeZone, $toTimeZone), $nullable);
     }
 
     /**
      * @param array<string> $entryNames
-     * @param string $format
      * @param null|string $timeZone
      * @param null|string $toTimeZone
      */
-    public static function nullable(array $entryNames, string $format, ?string $timeZone = null, ?string $toTimeZone = null) : self
+    public static function nullable(array $entryNames, ?string $timeZone = null, ?string $toTimeZone = null) : self
     {
-        return new self($entryNames, $format, $timeZone, $toTimeZone, true);
+        return new self($entryNames, $timeZone, $toTimeZone, true);
     }
 }

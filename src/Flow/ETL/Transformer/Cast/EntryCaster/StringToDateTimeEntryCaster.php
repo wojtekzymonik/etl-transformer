@@ -14,8 +14,6 @@ use Flow\ETL\Transformer\Cast\ValueCaster;
  */
 final class StringToDateTimeEntryCaster implements EntryCaster
 {
-    private string $format;
-
     private ValueCaster $valueCaster;
 
     /**
@@ -27,14 +25,12 @@ final class StringToDateTimeEntryCaster implements EntryCaster
      * If datetime comes without origin timezone, like for example '2020-01-01 00:00:00' but we know it's UTC
      * and we want to cast it to 'America/Los_Angeles' use $timeZone = 'UTC' and $toTimeZone = 'America/Los_Angeles'.
      *
-     * @param string $format
      * @param null|string $timeZone
      * @param null|string $toTimeZone
      */
-    public function __construct(string $format, ?string $timeZone = null, ?string $toTimeZone = null)
+    public function __construct(?string $timeZone = null, ?string $toTimeZone = null)
     {
         $this->valueCaster = new ValueCaster\StringToDateTimeCaster($timeZone, $toTimeZone);
-        $this->format = $format;
     }
 
     public function cast(Entry $entry) : Entry
@@ -42,8 +38,7 @@ final class StringToDateTimeEntryCaster implements EntryCaster
         /** @psalm-suppress MixedArgument */
         return new DateTimeEntry(
             $entry->name(),
-            $this->valueCaster->cast($entry->value()),
-            $this->format
+            $this->valueCaster->cast($entry->value())
         );
     }
 }

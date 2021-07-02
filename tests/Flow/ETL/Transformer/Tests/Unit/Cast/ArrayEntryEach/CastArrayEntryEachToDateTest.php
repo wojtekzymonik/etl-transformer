@@ -6,7 +6,7 @@ namespace Flow\ETL\Transformer\Tests\Unit\Cast\ArrayEntryEach;
 
 use Flow\ETL\Row;
 use Flow\ETL\Row\Entry\ArrayEntry;
-use Flow\ETL\Transformer\Cast\ArrayEntryEach\CastArrayEntryEachToDate;
+use Flow\ETL\Transformer\Cast\ArrayEntryEach\CastArrayEntryEachToDateTime;
 use PHPUnit\Framework\TestCase;
 
 final class CastArrayEntryEachToDateTest extends TestCase
@@ -22,7 +22,7 @@ final class CastArrayEntryEachToDateTest extends TestCase
             ]
         );
 
-        $caster = new CastArrayEntryEachToDate('dates');
+        $caster = new CastArrayEntryEachToDateTime('dates');
 
         $this->assertEquals(
             [
