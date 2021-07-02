@@ -661,6 +661,81 @@ $this->assertEquals(
 );
 ```
 
+## Transformer - GroupToArray
+
+Transform each row to array and group under new ArrayEntry.
+
+This transformer is not capable to group across different `Rows`, use it only when
+all `Row` elements that should be grouped are available in a single `Rows` instance.
+
+```php
+
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\GroupToArrayTransformer;
+
+$rows = new Rows(
+    Row::create(
+        new Row\Entry\IntegerEntry('order_id', 1),
+        new Row\Entry\StringEntry('sku', 'SKU-01'),
+        new Row\Entry\IntegerEntry('quantity', 1),
+        new Row\Entry\FloatEntry('price', 10.00),
+        new Row\Entry\StringEntry('currency', 'PLN'),
+    ),
+    Row::create(
+        new Row\Entry\IntegerEntry('order_id', 1),
+        new Row\Entry\StringEntry('sku', 'SKU-02'),
+        new Row\Entry\IntegerEntry('quantity', 1),
+        new Row\Entry\FloatEntry('price', 5.00),
+        new Row\Entry\StringEntry('currency', 'PLN'),
+    ),
+    Row::create(
+        new Row\Entry\IntegerEntry('order_id', 2),
+        new Row\Entry\StringEntry('sku', 'SKU-01'),
+        new Row\Entry\IntegerEntry('quantity', 1),
+        new Row\Entry\FloatEntry('price', 10.00),
+        new Row\Entry\StringEntry('currency', 'PLN'),
+    )
+);
+
+$transformer = new GroupToArrayTransformer('order_id', 'order_line_items');
+
+$this->assertSame(
+    [
+        [
+            'order_line_items' => [
+                [
+                    'order_id' => 1,
+                    'sku' => 'SKU-01',
+                    'quantity' => 1,
+                    'price' => 10.0,
+                    'currency' => 'PLN',
+                ],
+                [
+                    'order_id' => 1,
+                    'sku' => 'SKU-02',
+                    'quantity' => 1,
+                    'price' => 5.0,
+                    'currency' => 'PLN',
+                ]
+            ]
+        ],
+        [
+            'order_line_items' => [
+                [
+                    'order_id' => 2,
+                    'sku' => 'SKU-01',
+                    'quantity' => 1,
+                    'price' => 10.0,
+                    'currency' => 'PLN'
+                ]
+            ]
+        ]
+    ],
+    $transformer->transform($rows)->toArray()
+);
+```
+
 ## Transformer - StringFormat
 
 ```php 
