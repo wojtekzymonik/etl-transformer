@@ -1,6 +1,7 @@
 ## [Unreleased] - 2021-07-02
 
 ### Added
+- [#73](https://github.com/flow-php/etl-transformer/pull/73) - **GroupToArrayTransformer** - [@norberttech](https://github.com/norberttech)
 - [#72](https://github.com/flow-php/etl-transformer/pull/72) - **ArrayDotRename transformer** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#71](https://github.com/flow-php/etl-transformer/pull/71) - **Transformer for changing case for array keys in ArrayEntry** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#70](https://github.com/flow-php/etl-transformer/pull/70) - **MathOperationTransformer** - [@norberttech](https://github.com/norberttech)
@@ -13,8 +14,8 @@
 - [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueGreaterThan.php** - [@norberttech](https://github.com/norberttech)
 - [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueLessOrEqualThan.php** - [@norberttech](https://github.com/norberttech)
 - [#64](https://github.com/flow-php/etl-transformer/pull/64) - **ArrayDotValueLessThan.php** - [@norberttech](https://github.com/norberttech)
-- [#63](https://github.com/flow-php/etl-transformer/pull/63) - **ConditionalTransformer** - [@norberttech](https://github.com/norberttech)
 - [#63](https://github.com/flow-php/etl-transformer/pull/63) - **StaticEntryTransformer** - [@norberttech](https://github.com/norberttech)
+- [#63](https://github.com/flow-php/etl-transformer/pull/63) - **ConditionalTransformer** - [@norberttech](https://github.com/norberttech)
 - [#61](https://github.com/flow-php/etl-transformer/pull/61) - **Add option to skip some entries when unpacking an array with ArrayUnpackTransformer** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#57](https://github.com/flow-php/etl-transformer/pull/57) - **nullsafe operator to ArrayAccessor path** - [@norberttech](https://github.com/norberttech)
 - [#56](https://github.com/flow-php/etl-transformer/pull/56) - **ArrayAccessor - * special path character** - [@norberttech](https://github.com/norberttech)
@@ -58,6 +59,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [817f8c](https://github.com/flow-php/etl-transformer/commit/817f8c09fcab5e637afba2195ed87f2b5446e2ac) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [deeb70](https://github.com/flow-php/etl-transformer/commit/deeb70e30eb0fe7c2158aeea8e2ca695bb0e752a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#71](https://github.com/flow-php/etl-transformer/pull/71) - **Extracted CaseConverter class** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [1843d6](https://github.com/flow-php/etl-transformer/commit/1843d6000ed15f2ea8b53cae770e397681415255) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
