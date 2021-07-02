@@ -14,11 +14,11 @@ use Flow\ETL\Transformer;
 final class RenameEntriesTransformer implements Transformer
 {
     /**
-     * @var RenameEntries\EntryRename[]
+     * @var Rename\EntryRename[]
      */
     private array $entryRenames;
 
-    public function __construct(Transformer\RenameEntries\EntryRename ...$entryRenames)
+    public function __construct(Transformer\Rename\EntryRename ...$entryRenames)
     {
         $this->entryRenames = $entryRenames;
     }
@@ -27,9 +27,9 @@ final class RenameEntriesTransformer implements Transformer
     {
         foreach ($this->entryRenames as $entryRename) {
             $rows = $rows->map(function (Row $row) use ($entryRename) : Row {
-                $newEntry = $row->entries()->get($entryRename->form())->rename($entryRename->to());
+                $newEntry = $row->entries()->get($entryRename->from())->rename($entryRename->to());
 
-                return (new Row($row->entries()->remove($entryRename->form())))->add($newEntry);
+                return (new Row($row->entries()->remove($entryRename->from())))->add($newEntry);
             });
         }
 

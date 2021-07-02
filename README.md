@@ -815,6 +815,48 @@ $this->assertEquals(
 );
 ```
 
+## Transformer - ArrayDotRename
+
+Read more about dot notation in [flow-php/array-dot](https://github.com/flow-php/array-dot) doumentation.
+
+```php 
+
+use Flow\ETL\Exception\RuntimeException;
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ArrayDotRenameTransformer;
+
+$transformer = new ArrayDotRenameTransformer(
+    new ArrayKeyRename('array_entry', 'array.foo', 'new_name')
+);
+
+$rows = $transformer->transform(
+    new Rows(
+        Row::create(
+            new Row\Entry\ArrayEntry('array_entry', [
+                'id' => 1,
+                'status' => 'PENDING',
+                'enabled' => true,
+                'array' => ['foo' => 'bar'],
+            ]),
+        ),
+    ),
+);
+
+$this->assertEquals(
+    [
+        [
+            'array_entry' => [
+                'id' => 1,
+                'status' => 'PENDING',
+                'enabled' => true,
+                'array' => ['new_name' => 'bar'],
+            ],
+        ],
+    ],
+    $rows->toArray()
+);
+```
 
 ## Transformer - StringConcat
 

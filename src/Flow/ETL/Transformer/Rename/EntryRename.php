@@ -2,26 +2,29 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Transformer\RenameEntries;
+namespace Flow\ETL\Transformer\Rename;
 
+/**
+ * @psalm-immutable
+ */
 final class EntryRename
 {
-    private string $form;
+    private string $from;
 
     private string $to;
 
-    public function __construct(string $form, string $to)
+    public function __construct(string $from, string $to)
     {
-        $this->form = $form;
+        $this->from = $from;
         $this->to = $to;
     }
 
     /**
      * @return string
      */
-    public function form() : string
+    public function from() : string
     {
-        return $this->form;
+        return $this->from;
     }
 
     /**

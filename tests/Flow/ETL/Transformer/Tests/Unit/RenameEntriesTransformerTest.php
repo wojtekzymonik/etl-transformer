@@ -6,7 +6,7 @@ namespace Flow\ETL\Transformer\Tests\Unit;
 
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
-use Flow\ETL\Transformer\RenameEntries\EntryRename;
+use Flow\ETL\Transformer\Rename\EntryRename;
 use Flow\ETL\Transformer\RenameEntriesTransformer;
 use PHPUnit\Framework\TestCase;
 
