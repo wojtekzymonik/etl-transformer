@@ -1,6 +1,7 @@
-## [Unreleased] - 2021-07-01
+## [Unreleased] - 2021-07-02
 
 ### Added
+- [#72](https://github.com/flow-php/etl-transformer/pull/72) - **ArrayDotRename transformer** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#71](https://github.com/flow-php/etl-transformer/pull/71) - **Transformer for changing case for array keys in ArrayEntry** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [#70](https://github.com/flow-php/etl-transformer/pull/70) - **MathOperationTransformer** - [@norberttech](https://github.com/norberttech)
 - [#68](https://github.com/flow-php/etl-transformer/pull/68) - **ArrayReverseTransformer** - [@norberttech](https://github.com/norberttech)
@@ -28,8 +29,8 @@
 - [#40](https://github.com/flow-php/etl-transformer/pull/40) - **prefix to array unpack transformer** - [@norberttech](https://github.com/norberttech)
 - [#39](https://github.com/flow-php/etl-transformer/pull/39) - **DynamicEntryTransformer** - [@norberttech](https://github.com/norberttech)
 - [#37](https://github.com/flow-php/etl-transformer/pull/37) - **CastedRowsFactory** - [@norberttech](https://github.com/norberttech)
-- [#37](https://github.com/flow-php/etl-transformer/pull/37) - **ArrayRowsFactory** - [@norberttech](https://github.com/norberttech)
 - [#37](https://github.com/flow-php/etl-transformer/pull/37) - **RowsFactory interface with two simple factories useful for generating rows for diffs** - [@norberttech](https://github.com/norberttech)
+- [#37](https://github.com/flow-php/etl-transformer/pull/37) - **ArrayRowsFactory** - [@norberttech](https://github.com/norberttech)
 - [#36](https://github.com/flow-php/etl-transformer/pull/36) - **Added possibility to handle nullable values in cast transformer** - [@norberttech](https://github.com/norberttech)
 - [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - timezone in case it's just a string "2020-01-01 00:00:00"** - [@norberttech](https://github.com/norberttech)
 - [#34](https://github.com/flow-php/etl-transformer/pull/34) - **CastToDateTime - to timezone in case string needs to be converted to different tz "2020-01-01 00:00:00+00:00"** - [@norberttech](https://github.com/norberttech)
@@ -57,6 +58,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [deeb70](https://github.com/flow-php/etl-transformer/commit/deeb70e30eb0fe7c2158aeea8e2ca695bb0e752a) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#71](https://github.com/flow-php/etl-transformer/pull/71) - **Extracted CaseConverter class** - [@tomaszhanc](https://github.com/tomaszhanc)
 - [1843d6](https://github.com/flow-php/etl-transformer/commit/1843d6000ed15f2ea8b53cae770e397681415255) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [329ff8](https://github.com/flow-php/etl-transformer/commit/329ff873a02b00fe301433a52eda41664ea1a29f) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
