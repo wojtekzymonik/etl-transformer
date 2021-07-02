@@ -200,4 +200,25 @@ final class CastTransformerTest extends TestCase
         $this->assertInstanceOf(Row\Entry\ArrayEntry::class, $rows->first()->get('ids'));
         $this->assertSame([123456], $rows->first()->valueOf('ids'));
     }
+
+    public function test_casts_multiple_entries_with_null_entry_in_betwee() : void
+    {
+        $transformer = new CastTransformer(new CastToInteger(['id', 'limit', 'current'], $nullable = true));
+
+        $rows = $transformer->transform(new Rows(
+            Row::create(
+                new StringEntry('id', '1'),
+                new NullEntry('limit'),
+                new StringEntry('current', '10')
+            )
+        ));
+
+        $this->assertInstanceOf(IntegerEntry::class, $rows->first()->get('id'));
+        $this->assertSame(1, $rows->first()->valueOf('id'));
+
+        $this->assertInstanceOf(NullEntry::class, $rows->first()->get('limit'));
+
+        $this->assertInstanceOf(IntegerEntry::class, $rows->first()->get('current'));
+        $this->assertSame(10, $rows->first()->valueOf('current'));
+    }
 }

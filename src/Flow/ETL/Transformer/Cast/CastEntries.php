@@ -39,7 +39,7 @@ abstract class CastEntries implements CastRow
                 $entry = $row->entries()->get($entryName);
 
                 if ($this->nullable && $entry instanceof Row\Entry\NullEntry) {
-                    return $row;
+                    continue;
                 }
 
                 $row = new Row($row->entries()
