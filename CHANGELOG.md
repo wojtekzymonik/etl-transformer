@@ -1,6 +1,7 @@
 ## [Unreleased] - 2021-07-06
 
 ### Added
+- [#79](https://github.com/flow-php/etl-transformer/pull/79) - **format to DateTimeToStringEntryCaster** - [@norberttech](https://github.com/norberttech)
 - [#77](https://github.com/flow-php/etl-transformer/pull/77) - **ValidValue Filter with Symfony Validator integration** - [@norberttech](https://github.com/norberttech)
 - [#77](https://github.com/flow-php/etl-transformer/pull/77) - **ValidValue Condition with Symfony Validator integration** - [@norberttech](https://github.com/norberttech)
 - [#75](https://github.com/flow-php/etl-transformer/pull/75) - **DateTime to String caster** - [@norberttech](https://github.com/norberttech)
@@ -62,6 +63,7 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [c3273d](https://github.com/flow-php/etl-transformer/commit/c3273db9fc958d87b38c53b7e7471e37082ecddf) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [bc4cfc](https://github.com/flow-php/etl-transformer/commit/bc4cfc5647535f2cc5cc721ab6a9142093adb107) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#77](https://github.com/flow-php/etl-transformer/pull/77) - **Renamed Filter::__invoke into Filter::keep** - [@norberttech](https://github.com/norberttech)
 - [71527a](https://github.com/flow-php/etl-transformer/commit/71527ada33ba64b4e0f53dd1e80451008a8c0f97) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
