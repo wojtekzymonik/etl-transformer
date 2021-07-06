@@ -16,9 +16,9 @@ final class DateTimeToStringEntryCaster implements EntryCaster
 {
     private ValueCaster $valueCaster;
 
-    public function __construct()
+    public function __construct(string $format = \DateTimeInterface::ATOM)
     {
-        $this->valueCaster = new ValueCaster\DateTimeToStringCaster();
+        $this->valueCaster = new ValueCaster\DateTimeToStringCaster($format);
     }
 
     public function cast(Entry $entry) : Entry
