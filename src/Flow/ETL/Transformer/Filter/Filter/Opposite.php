@@ -22,8 +22,8 @@ final class Opposite implements Filter
         $this->filter = $filter;
     }
 
-    public function __invoke(Row $row) : bool
+    public function keep(Row $row) : bool
     {
-        return !($this->filter)($row);
+        return !$this->filter->keep($row);
     }
 }

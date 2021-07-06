@@ -44,6 +44,7 @@ Available Filters
 - [EntryNumber](src/Flow/ETL/Transformer/Filter/Filter/EntryNumber.php)
 - [EntryExists](src/Flow/ETL/Transformer/Filter/Filter/EntryExists.php)
 - [Opposite](src/Flow/ETL/Transformer/Filter/Filter/Opposite.php)
+- [ValidValue](src/Flow/ETL/Transformer/Filter/Filter/ValidValue.php) - optionally integrates with [Symfony Validator](https://github.com/symfony/validator)
 
 ## Transformer - Conditional
 
@@ -128,6 +129,7 @@ Available Conditions
 - [EntryValueLessThan](src/Flow/ETL/Transformer/Condition/EntryValueLessThan.php)
 - [None](src/Flow/ETL/Transformer/Condition/None.php)
 - [Opposite](src/Flow/ETL/Transformer/Condition/Opposite.php)
+- [ValidValue](src/Flow/ETL/Transformer/Condition/ValidValue) - optionally integrates with [Symfony Validator](https://github.com/symfony/validator)
 
 ## Transformer - RemoveEntriesTransformer
 

@@ -22,7 +22,7 @@ final class EntryNumber implements Filter
         $this->entryName = $entryName;
     }
 
-    public function __invoke(Row $row) : bool
+    public function keep(Row $row) : bool
     {
         return \is_numeric($row->get($this->entryName)->value());
     }

@@ -22,10 +22,10 @@ final class All implements Filter
         $this->filter = $filter;
     }
 
-    public function __invoke(Row $row) : bool
+    public function keep(Row $row) : bool
     {
         foreach ($this->filter as $filter) {
-            if (!$filter($row)) {
+            if (!$filter->keep($row)) {
                 return false;
             }
         }

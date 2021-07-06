@@ -20,5 +20,8 @@
         <testsuite name="unit">
             <directory suffix=".php">tests/Flow/ETL/Transformer/Tests/Unit</directory>
         </testsuite>
+        <testsuite name="integration">
+            <directory suffix=".php">tests/Flow/ETL/Transformer/Tests/Integration</directory>
+        </testsuite>
     </testsuites>
 </phpunit>

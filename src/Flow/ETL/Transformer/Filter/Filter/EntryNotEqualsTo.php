@@ -29,7 +29,7 @@ final class EntryNotEqualsTo implements Filter
         $this->entryValue = $entryValue;
     }
 
-    public function __invoke(Row $row) : bool
+    public function keep(Row $row) : bool
     {
         $entry = $row->get($this->entryName);
 

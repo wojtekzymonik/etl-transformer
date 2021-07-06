@@ -17,20 +17,20 @@ final class AllTest extends TestCase
     {
         $filter = new All(new EntryNotNumber('test-entry'), new Callback(fn (Row $row) : bool => true));
 
-        $this->assertTrue($filter(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
+        $this->assertTrue($filter->keep(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
     }
 
     public function test_that_not_all_filters_are_satisfied() : void
     {
         $filter = new All(new EntryNotNumber('test-entry'), new Callback(fn (Row $row) : bool => false));
 
-        $this->assertFalse($filter(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
+        $this->assertFalse($filter->keep(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
     }
 
     public function test_that_none_filter_is_satisfied() : void
     {
         $filter = new All(new EntryNumber('test-entry'), new Callback(fn (Row $row) : bool => false));
 
-        $this->assertFalse($filter(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
+        $this->assertFalse($filter->keep(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
     }
 }

@@ -15,20 +15,20 @@ final class OppositeTest extends TestCase
     {
         $filter = new Opposite(new EntryNumber('test-entry'));
 
-        $this->assertTrue($filter(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
+        $this->assertTrue($filter->keep(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
     }
 
     public function test_that_integer_entry_is_number() : void
     {
         $filter = new Opposite(new EntryNumber('test-entry'));
 
-        $this->assertFalse($filter(Row::create(new Row\Entry\IntegerEntry('test-entry', 1))));
+        $this->assertFalse($filter->keep(Row::create(new Row\Entry\IntegerEntry('test-entry', 1))));
     }
 
     public function test_that_float_entry_is_number() : void
     {
         $filter = new Opposite(new EntryNumber('test-entry'));
 
-        $this->assertFalse($filter(Row::create(new Row\Entry\FloatEntry('test-entry', 1.02))));
+        $this->assertFalse($filter->keep(Row::create(new Row\Entry\FloatEntry('test-entry', 1.02))));
     }
 }

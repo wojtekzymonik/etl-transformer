@@ -14,7 +14,8 @@
     "require-dev": {
         "flow-php/etl-adapter-json": "^1.0@dev",
         "jawira/case-converter": "^3.4",
-        "laminas/laminas-hydrator": "^4.0"
+        "laminas/laminas-hydrator": "^4.0",
+        "symfony/validator": "^5.3"
     },
     "suggest": {
         "laminas/laminas-hydrator" : "Help converting ObjectEntry into ArrayEntry that can be later unpack into standalone Entries",

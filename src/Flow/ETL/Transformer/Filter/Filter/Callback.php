@@ -25,7 +25,7 @@ final class Callback implements Filter
         $this->callback = $callback;
     }
 
-    public function __invoke(Row $row) : bool
+    public function keep(Row $row) : bool
     {
         return ($this->callback)($row);
     }

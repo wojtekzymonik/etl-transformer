@@ -14,13 +14,13 @@ final class EntryExistsTest extends TestCase
     {
         $filter = new EntryExists('test-entry');
 
-        $this->assertTrue($filter(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
+        $this->assertTrue($filter->keep(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
     }
 
     public function test_entry_not_exists() : void
     {
         $filter = new EntryExists('test-entry');
 
-        $this->assertFalse($filter(Row::create(Row\Entry\StringEntry::lowercase('production-entry', 'test-value'))));
+        $this->assertFalse($filter->keep(Row::create(Row\Entry\StringEntry::lowercase('production-entry', 'test-value'))));
     }
 }

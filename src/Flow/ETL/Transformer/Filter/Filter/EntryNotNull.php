@@ -22,7 +22,7 @@ final class EntryNotNull implements Filter
         $this->entryName = $entryName;
     }
 
-    public function __invoke(Row $row) : bool
+    public function keep(Row $row) : bool
     {
         return !$row->get($this->entryName) instanceof Row\Entry\NullEntry;
     }

@@ -11,5 +11,5 @@ use Flow\ETL\Row;
  */
 interface Filter
 {
-    public function __invoke(Row $row) : bool;
+    public function keep(Row $row) : bool;
 }

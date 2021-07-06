@@ -14,27 +14,27 @@ final class EntryNumberTest extends TestCase
     {
         $filter = new EntryNumber('test-entry');
 
-        $this->assertFalse($filter(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
+        $this->assertFalse($filter->keep(Row::create(Row\Entry\StringEntry::lowercase('test-entry', 'test-value'))));
     }
 
     public function test_that_integer_entry_is_number() : void
     {
         $filter = new EntryNumber('test-entry');
 
-        $this->assertTrue($filter(Row::create(new Row\Entry\IntegerEntry('test-entry', 1))));
+        $this->assertTrue($filter->keep(Row::create(new Row\Entry\IntegerEntry('test-entry', 1))));
     }
 
     public function test_that_float_entry_is_number() : void
     {
         $filter = new EntryNumber('test-entry');
 
-        $this->assertTrue($filter(Row::create(new Row\Entry\FloatEntry('test-entry', 1.02))));
+        $this->assertTrue($filter->keep(Row::create(new Row\Entry\FloatEntry('test-entry', 1.02))));
     }
 
     public function test_that_string_number_entry_is_number() : void
     {
         $filter = new EntryNumber('test-entry');
 
-        $this->assertTrue($filter(Row::create(new Row\Entry\StringEntry('test-entry', '1.02'))));
+        $this->assertTrue($filter->keep(Row::create(new Row\Entry\StringEntry('test-entry', '1.02'))));
     }
 }

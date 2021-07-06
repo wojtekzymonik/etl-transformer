@@ -22,7 +22,7 @@ final class EntryExists implements Filter
         $this->entryName = $entryName;
     }
 
-    public function __invoke(Row $row) : bool
+    public function keep(Row $row) : bool
     {
         return $row->entries()->has($this->entryName);
     }

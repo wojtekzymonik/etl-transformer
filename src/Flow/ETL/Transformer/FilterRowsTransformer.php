@@ -30,7 +30,7 @@ final class FilterRowsTransformer implements Transformer
         return $rows->filter(
             function (Row $row) {
                 foreach ($this->filters as $filter) {
-                    if (false === $filter($row)) {
+                    if (false === $filter->keep($row)) {
                         return false;
                     }
                 }
