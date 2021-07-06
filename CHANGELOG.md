@@ -63,6 +63,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#76](https://github.com/flow-php/etl-transformer/pull/76) - **phpstan/phpstan from 0.12.90 to 0.12.91 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [f697cd](https://github.com/flow-php/etl-transformer/commit/f697cdbc994fd8692e5e2b77fd88283b43c32ece) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [c3273d](https://github.com/flow-php/etl-transformer/commit/c3273db9fc958d87b38c53b7e7471e37082ecddf) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [bc4cfc](https://github.com/flow-php/etl-transformer/commit/bc4cfc5647535f2cc5cc721ab6a9142093adb107) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#77](https://github.com/flow-php/etl-transformer/pull/77) - **Renamed Filter::__invoke into Filter::keep** - [@norberttech](https://github.com/norberttech)
