@@ -9,7 +9,7 @@ use Flow\ETL\Row;
 /**
  * @psalm-immutable
  */
-abstract class CastEntries implements CastRow
+class CastEntries implements CastRow
 {
     /**
      * @var array<string>

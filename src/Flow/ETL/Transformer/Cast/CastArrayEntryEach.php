@@ -9,7 +9,7 @@ use Flow\ETL\Row;
 /**
  * @psalm-immutable
  */
-abstract class CastArrayEntryEach implements CastRow
+class CastArrayEntryEach implements CastRow
 {
     private string $arrayEntryName;
 
