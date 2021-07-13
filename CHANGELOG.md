@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-07-06
+## [Unreleased] - 2021-07-13
 
 ### Added
 - [#79](https://github.com/flow-php/etl-transformer/pull/79) - **format to DateTimeToStringEntryCaster** - [@norberttech](https://github.com/norberttech)
@@ -63,6 +63,8 @@
 - [e858d0](https://github.com/flow-php/etl-transformer/commit/e858d0a9826dab8ff71a0fc4b14e5a92d72d44a8) - **RemoveEntriesTransformer** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
+- [#80](https://github.com/flow-php/etl-transformer/pull/80) - **phpstan/phpstan from 0.12.91 to 0.12.92 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
+- [3cb835](https://github.com/flow-php/etl-transformer/commit/3cb8350ff1bb73bf0ef4b8b9512642b7ee46a1b2) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [#76](https://github.com/flow-php/etl-transformer/pull/76) - **phpstan/phpstan from 0.12.90 to 0.12.91 in /tools** - [@dependabot[bot]](https://github.com/apps/dependabot)
 - [f697cd](https://github.com/flow-php/etl-transformer/commit/f697cdbc994fd8692e5e2b77fd88283b43c32ece) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
 - [c3273d](https://github.com/flow-php/etl-transformer/commit/c3273db9fc958d87b38c53b7e7471e37082ecddf) - **CHANGELOG.md** - [@aeon-automation](https://github.com/aeon-automation)
