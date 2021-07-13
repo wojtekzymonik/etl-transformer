@@ -513,6 +513,35 @@ public const DOT = 'dot';
 
 For the more details, please visit [jawira/case-converter](https://github.com/jawira/case-converter) documentation.
 
+## Transformer - StringEntryValueCaseConverterTransformer
+
+```php
+
+use Flow\ETL\Transformer\CaseConverter\CaseStyles;
+use Flow\ETL\Row;
+use Flow\ETL\Rows;
+use Flow\ETL\Transformer\StringEntryValueCaseConverterTransformer;
+
+$transformer = StringEntryValueCaseConverterTransformer:upper('CamelCaseEntryName');
+
+$rows = $transformer->transform(new Rows(
+    Row::create(
+        new Row\Entry\StringEntry('CamelCaseEntryName', 'test'),
+        new Row\Entry\StringEntry('otherCaseEntryName', 'test'),
+    )
+));
+
+$this->assertSame(
+    [
+        [
+            'CamelCaseEntryName' => 'TEST',
+            'otherCaseEntryName' => 'test'
+        ]
+    ],
+    $rows->toArray()
+);
+```
+
 ## Transformer - ArrayKeysCaseConverter
 
 This transformer requires `jawira/case-converter` in the project.
