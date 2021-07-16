@@ -7,23 +7,23 @@ namespace Flow\ETL\Transformer\Tests\Unit;
 use Flow\ETL\Exception\InvalidArgumentException;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
-use Flow\ETL\Transformer\CaseConverter\CaseStyles;
-use Flow\ETL\Transformer\EntryNameCaseConverterTransformer;
+use Flow\ETL\Transformer\EntryNameStyleConverterTransformer;
+use Flow\ETL\Transformer\StyleConverter\StringStyles;
 use PHPUnit\Framework\TestCase;
 
-final class EntryNameCaseConverterTransformerTest extends TestCase
+final class EntryNameStyleConverterTransformerTest extends TestCase
 {
     public function test_using_invalid_style() : void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Unrecognized style wrong style, please use one of following: camel, pascal, snake, ada, macro, kebab, train, cobol, lower, upper, title, sentence');
 
-        new EntryNameCaseConverterTransformer('wrong style');
+        new EntryNameStyleConverterTransformer('wrong style');
     }
 
-    public function test_conversion_of_entry_names_case() : void
+    public function test_conversion_of_entry_names_style() : void
     {
-        $transformer = new EntryNameCaseConverterTransformer(CaseStyles::SNAKE);
+        $transformer = new EntryNameStyleConverterTransformer(StringStyles::SNAKE);
 
         $rows = $transformer->transform(new Rows(
             Row::create(

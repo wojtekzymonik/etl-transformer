@@ -10,13 +10,13 @@ use Flow\ETL\Row;
 use Flow\ETL\Row\Entry;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer;
-use Flow\ETL\Transformer\CaseConverter\CaseStyles;
+use Flow\ETL\Transformer\StyleConverter\StringStyles;
 use Jawira\CaseConverter\Convert;
 
 /**
  * @psalm-immutable
  */
-final class EntryNameCaseConverterTransformer implements Transformer
+final class EntryNameStyleConverterTransformer implements Transformer
 {
     private string $style;
 
@@ -27,8 +27,8 @@ final class EntryNameCaseConverterTransformer implements Transformer
             throw new RuntimeException("Jawira\CaseConverter\Convert class not found, please add jawira/case-converter dependency to the project first.");
         }
 
-        if (!\in_array($style, CaseStyles::ALL, true)) {
-            throw new InvalidArgumentException("Unrecognized style {$style}, please use one of following: " . \implode(', ', CaseStyles::ALL));
+        if (!\in_array($style, StringStyles::ALL, true)) {
+            throw new InvalidArgumentException("Unrecognized style {$style}, please use one of following: " . \implode(', ', StringStyles::ALL));
         }
 
         $this->style = $style;

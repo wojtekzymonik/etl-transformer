@@ -458,7 +458,7 @@ Casting Types:
 * `Flow\ETL\Transformer\Cast\CastToArray`
 * `Flow\ETL\Transformer\Cast\CastJsonToArray`
 
-## Transformer - EntryNameCaseConverter
+## Transformer - EntryNameStyleConverter
 
 This transformer requires `jawira/case-converter` in the project
 
@@ -468,12 +468,12 @@ composer require jawira/case-converter
 
 ```php
 
-use Flow\ETL\Transformer\CaseConverter\CaseStyles;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
-use Flow\ETL\Transformer\EntryNameCaseConverterTransformer;
+use Flow\ETL\Transformer\EntryNameStyleConverterTransformer;
+use Flow\ETL\Transformer\StyleConverter\StringStyles;
 
-$transformer = new EntryNameCaseConverterTransformer(CaseStyles::SNAKE);
+$transformer = new EntryNameStyleConverterTransformer(StringStyles::SNAKE);
 
 $rows = $transformer->transform(new Rows(
     Row::create(
@@ -517,7 +517,6 @@ For the more details, please visit [jawira/case-converter](https://github.com/ja
 
 ```php
 
-use Flow\ETL\Transformer\CaseConverter\CaseStyles;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\StringEntryValueCaseConverterTransformer;
@@ -542,7 +541,7 @@ $this->assertSame(
 );
 ```
 
-## Transformer - ArrayKeysCaseConverter
+## Transformer - ArrayKeysStyleConverter
 
 This transformer requires `jawira/case-converter` in the project.
 
@@ -552,12 +551,12 @@ composer require jawira/case-converter
 
 ```php
 
-use Flow\ETL\Transformer\CaseConverter\CaseStyles;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
-use Flow\ETL\Transformer\ArrayKeysCaseConverterTransformer;
+use Flow\ETL\Transformer\ArrayKeysStyleConverterTransformer;
+use Flow\ETL\Transformer\StyleConverter\StringStyles;
 
-$transformer = new ArrayKeysCaseConverterTransformer('arrayEntry', CaseStyles::SNAKE);
+$transformer = new ArrayKeysStyleConverterTransformer('arrayEntry', StringStyles::SNAKE);
 
 $rows = $transformer->transform(new Rows(
     Row::create(
