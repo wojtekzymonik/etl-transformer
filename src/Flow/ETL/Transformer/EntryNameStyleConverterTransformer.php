@@ -16,7 +16,7 @@ use Jawira\CaseConverter\Convert;
 /**
  * @psalm-immutable
  */
-final class EntryNameCaseConverterTransformer implements Transformer
+final class EntryNameStyleConverterTransformer implements Transformer
 {
     private string $style;
 

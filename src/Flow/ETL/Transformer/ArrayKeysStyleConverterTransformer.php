@@ -17,7 +17,7 @@ use Jawira\CaseConverter\Convert;
 /**
  * @psalm-immutable
  */
-final class ArrayKeysCaseConverterTransformer implements Transformer
+final class ArrayKeysStyleConverterTransformer implements Transformer
 {
     private string $arrayEntryName;
 
