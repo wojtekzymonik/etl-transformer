@@ -468,12 +468,12 @@ composer require jawira/case-converter
 
 ```php
 
-use Flow\ETL\Transformer\CaseConverter\CaseStyles;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\EntryNameStyleConverterTransformer;
+use Flow\ETL\Transformer\StyleConverter\StringStyles;
 
-$transformer = new EntryNameStyleConverterTransformer(CaseStyles::SNAKE);
+$transformer = new EntryNameStyleConverterTransformer(StringStyles::SNAKE);
 
 $rows = $transformer->transform(new Rows(
     Row::create(
@@ -551,12 +551,12 @@ composer require jawira/case-converter
 
 ```php
 
-use Flow\ETL\Transformer\CaseConverter\CaseStyles;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 use Flow\ETL\Transformer\ArrayKeysStyleConverterTransformer;
+use Flow\ETL\Transformer\StyleConverter\StringStyles;
 
-$transformer = new ArrayKeysStyleConverterTransformer('arrayEntry', CaseStyles::SNAKE);
+$transformer = new ArrayKeysStyleConverterTransformer('arrayEntry', StringStyles::SNAKE);
 
 $rows = $transformer->transform(new Rows(
     Row::create(

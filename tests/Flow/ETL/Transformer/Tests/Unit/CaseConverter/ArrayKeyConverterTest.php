@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Flow\ETL\Transformer\Tests\Unit\CaseConverter;
 
-use Flow\ETL\Transformer\CaseConverter\ArrayKeyConverter;
+use Flow\ETL\Transformer\StyleConverter\ArrayKeyConverter;
 use Jawira\CaseConverter\Convert;
 use PHPUnit\Framework\TestCase;
 

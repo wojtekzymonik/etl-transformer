@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Flow\ETL\Transformer\CaseConverter;
+namespace Flow\ETL\Transformer\StyleConverter;
 
 /**
  * @psalm-immutable
  */
-final class CaseStyles
+final class StringStyles
 {
     public const CAMEL = 'camel';
 
