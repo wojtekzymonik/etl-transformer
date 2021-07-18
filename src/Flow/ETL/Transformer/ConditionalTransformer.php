@@ -26,16 +26,16 @@ final class ConditionalTransformer implements Transformer
     public function transform(Rows $rows) : Rows
     {
         /**
-         * @psalm-var pure-callable(Row $row) : Row $transformer
+         * @psalm-var pure-callable(Row $row) : array<Row> $transformer
          */
-        $transformer = function (Row $row) : Row {
+        $transformer = function (Row $row) : array {
             if ($this->condition->isMetFor($row)) {
-                return $this->transformer->transform(new Rows($row))->first();
+                return (array) $this->transformer->transform(new Rows($row))->getIterator();
             }
 
-            return $row;
+            return [$row];
         };
 
-        return $rows->map($transformer);
+        return $rows->flatMap($transformer);
     }
 }

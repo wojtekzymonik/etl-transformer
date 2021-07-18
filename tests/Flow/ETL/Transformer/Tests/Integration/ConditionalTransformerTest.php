@@ -6,7 +6,9 @@ namespace Flow\ETL\Transformer\Tests\Integration;
 
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
+use Flow\ETL\Transformer\ArrayExpandTransformer;
 use Flow\ETL\Transformer\ChainTransformer;
+use Flow\ETL\Transformer\Condition\EntryExists;
 use Flow\ETL\Transformer\Condition\Opposite;
 use Flow\ETL\Transformer\Condition\ValidValue;
 use Flow\ETL\Transformer\ConditionalTransformer;
@@ -67,5 +69,25 @@ final class ConditionalTransformerTest extends TestCase
             ],
             $transformer->transform($rows)->toArray()
         );
+    }
+
+    public function test_returns_all_expanded_rows() : void
+    {
+        $conditionalTransformer = new ConditionalTransformer(
+            new EntryExists('array_entry'),
+            new ArrayExpandTransformer('array_entry', 'array_entry')
+        );
+
+        $rows = $conditionalTransformer->transform(
+            new Rows(
+                new Row(new Row\Entries(new Row\Entry\StringEntry('name', 'without array entry'))),
+                new Row(new Row\Entries(
+                    new Row\Entry\StringEntry('name', 'with array entry'),
+                    new Row\Entry\ArrayEntry('array_entry', ['red', 'blue'])
+                ))
+            )
+        );
+
+        $this->assertEquals(3, $rows->count());
     }
 }
